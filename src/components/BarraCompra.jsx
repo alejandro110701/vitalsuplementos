@@ -14,7 +14,7 @@ export default function BarraCompra({ product, image, unit, pack, qty, onInc, on
   return (
     <div className="vp-barra" data-on={show ? 'true' : 'false'} aria-hidden={show ? undefined : 'true'}>
       <div className="vp-barra__thumb">
-        <img src={image} alt="" />
+        <img src={image} alt="" width={1000} height={1000} loading="lazy" decoding="async" />
       </div>
       <span className="vp-barra__name">{product.n}</span>
 

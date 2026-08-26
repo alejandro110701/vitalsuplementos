@@ -69,7 +69,10 @@ export default function ProductCard({
             <img
               src={image}
               alt={imageAlt || title}
+              width={1000}
+              height={1000}
               loading="lazy"
+              decoding="async"
               style={{ height: '100%', width: '100%', objectFit: 'cover' }}
             />
           )}

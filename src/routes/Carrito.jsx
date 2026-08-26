@@ -51,7 +51,7 @@ export default function Carrito() {
                     display: 'block'
                   }}
                 >
-                  <img src={productImage(l.p)} alt={l.p.n} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={productImage(l.p)} alt={l.p.n} width={1000} height={1000} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </Link>
 
                 <div>

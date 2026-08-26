@@ -95,7 +95,15 @@ function WorldCard({ to, kicker, title, copy, image, imageAlt, dark }) {
             flex: 'none'
           }}
         >
-          <img src={image} alt={imageAlt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img
+            src={image}
+            alt={imageAlt}
+            width={1000}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         </div>
       </div>
     </Link>
@@ -179,7 +187,14 @@ export default function Home() {
                       boxShadow: 'inset 0 0 0 1px var(--border)'
                     }}
                   >
-                    <img src={productImage(p)} alt={p.n} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img
+                      src={productImage(p)}
+                      alt={p.n}
+                      width={1000}
+                      height={1000}
+                      decoding="async"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                   </div>
                   <p
                     style={{
