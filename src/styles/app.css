@@ -110,7 +110,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
 .vs-stepper-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* ---- layout grids (desktop values match the design artboards) ----- */
-.vs-shell { min-height: 100vh; background: var(--background); padding-top: 68px; }
+.vs-shell { min-height: 100vh; background: var(--background); padding-top: var(--header-h); }
 
 .vs-wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
 
@@ -451,4 +451,78 @@ a.vp-anaquel__tile:hover { border-color: var(--border); box-shadow: var(--shadow
   .vp-barra__thumb, .vp-barra__name { display: none; }
   .vp-anaquel { padding: 64px 16px 80px; }
   .vp-anaquel__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+
+/* ---- header -------------------------------------------------------
+   Below 720px the five nav items, the wordmark and the cart cannot share one
+   row: the nav clipped and the cart button rendered entirely off-screen, so a
+   shopper on a phone could not reach their basket at all. The bar splits into
+   brand + cart on one line and a scrollable mono nav strip beneath — the same
+   device the catalogue filters already use, so it needs no new vocabulary and
+   avoids a hamburger the rest of the design would have to justify. */
+.vs-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  height: var(--header-h);
+  background: color-mix(in oklab, var(--vp-paper) 88%, transparent);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.vs-header__inner { height: 100%; display: flex; align-items: center; gap: 32px; }
+/* On desktop the row dissolves so brand, nav and cart are siblings in one
+   flex line. DOM order puts the cart before the nav (it must stay beside the
+   brand on a phone), so `order` restores the visual sequence here. */
+.vs-header__row { display: contents; }
+.vs-header__brand { display: inline-flex; align-items: center; gap: 10px; flex: none; order: 1; }
+.vs-header .vs-cart-btn { order: 3; flex: none; }
+.vs-header__wordmark {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.vs-header__nav { display: flex; align-items: center; gap: 28px; margin-left: auto; min-width: 0; order: 2; }
+.vs-header__nav a { flex: none; white-space: nowrap; }
+
+/* the wordmark is the first thing that can go — the mark still identifies us */
+@media (max-width: 900px) {
+  .vs-header__wordmark { display: none; }
+  .vs-header__nav { gap: 20px; }
+}
+
+@media (max-width: 720px) {
+  /* two rows now, so every sticky offset has to grow with the header */
+  :root { --header-h: 106px; }
+  .vs-shell { padding-top: 106px; }
+
+  .vs-header__inner { flex-direction: column; align-items: stretch; gap: 0; }
+  /* the row becomes a real flex container again, so `order` no longer applies
+     across it — brand left, cart right, exactly as authored */
+  .vs-header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: 56px;
+    flex: none;
+    order: 1;
+  }
+  .vs-header__nav { order: 2; }
+  .vs-header__wordmark { display: inline; font-size: 13px; }
+
+  .vs-header__nav {
+    margin-left: 0;
+    gap: 22px;
+    height: 49px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    border-top: 1px solid var(--border);
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+  .vs-header__nav::-webkit-scrollbar { display: none; }
 }
