@@ -26,7 +26,7 @@ const variants = {
   },
   soft: {
     background: 'color-mix(in oklab, var(--secondary) 15%, transparent)',
-    color: 'var(--secondary)',
+    color: 'var(--secondary-text)',
     border: '1px solid transparent'
   }
 };

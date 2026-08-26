@@ -12,7 +12,7 @@ export default function Eyebrow({ accent = false, className = '', style = {}, ch
         fontSize: 11,
         textTransform: 'uppercase',
         letterSpacing: '0.24em',
-        color: accent ? 'var(--secondary)' : 'var(--muted-foreground)',
+        color: accent ? 'var(--secondary-text)' : 'var(--muted-foreground)',
         ...style
       }}
       {...props}

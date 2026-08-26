@@ -176,6 +176,7 @@ export default function Home() {
           <div className="vs-hero-tiles">
             {HERO_TILES.map((slug) => {
               const p = findProduct(slug);
+              if (!p) return null;
               return (
                 <Link key={slug} to={`/producto/${p.slug}`} style={{ animation: 'vsRise 1.1s .3s both' }}>
                   <div

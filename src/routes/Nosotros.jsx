@@ -46,7 +46,7 @@ export default function Nosotros() {
               borderRight: i < 2 ? '1px solid var(--border)' : undefined
             }}
           >
-            <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.24em', color: 'var(--secondary)' }}>
+            <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.24em', color: 'var(--secondary-text)' }}>
               {p.n}
             </p>
             <h3 style={{ margin: '16px 0 0', fontFamily: 'var(--font-display)', fontWeight: 800, textTransform: 'uppercase', fontSize: 26, letterSpacing: '-0.02em' }}>

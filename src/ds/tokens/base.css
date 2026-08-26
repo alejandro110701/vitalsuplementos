@@ -36,5 +36,5 @@ a {
   transition: color var(--dur-med) var(--ease-smooth);
 }
 a:hover {
-  color: var(--secondary);
+  color: var(--secondary-text);
 }

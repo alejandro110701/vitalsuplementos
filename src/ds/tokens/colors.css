@@ -53,4 +53,9 @@
   --border:  var(--vp-line);
   --input:   var(--vp-line);
   --ring:    var(--vp-teal);
+
+  /* Text-only alias. --vp-teal is L 0.74 and measures ~2.2:1 on paper, far
+     under the 4.5:1 floor, so it may never carry text. This is the same hue
+     darkened until it passes (5.2:1 on paper, 4.7:1 on the soft chip). */
+  --secondary-text: oklch(0.52 0.088 195);
 }

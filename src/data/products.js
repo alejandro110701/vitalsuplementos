@@ -274,8 +274,10 @@ export const GOALS = [
   { id: 'peso', label: 'Peso', sub: 'Apoyo a la rutina de entrenamiento.', icon: 'M6 7h12l2 12H4z M9 7V5a3 3 0 0 1 6 0v2' }
 ];
 
+/** Returns undefined for an unknown slug — callers must handle it. Falling back
+ *  to the first product silently served one product's page at another's price. */
 export function findProduct(slug) {
-  return PRODUCTS.find((p) => p.slug === slug) || PRODUCTS[0];
+  return PRODUCTS.find((p) => p.slug === slug);
 }
 
 /**

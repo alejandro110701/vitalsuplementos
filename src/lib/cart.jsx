@@ -62,12 +62,16 @@ export function CartProvider({ children }) {
 
   const lines = useMemo(
     () =>
-      Object.keys(cart).map((key) => {
-        const c = cart[key];
-        const p = findProduct(c.slug);
-        const unit = unitPrice(p, c.pack);
-        return { key, p, pack: c.pack, n: c.n, units: c.pack * c.n, unit, total: unit * c.pack * c.n };
-      }),
+      Object.keys(cart)
+        .map((key) => {
+          const c = cart[key];
+          const p = findProduct(c.slug);
+          // a stored cart can outlive a product leaving the catalogue
+          if (!p) return null;
+          const unit = unitPrice(p, c.pack);
+          return { key, p, pack: c.pack, n: c.n, units: c.pack * c.n, unit, total: unit * c.pack * c.n };
+        })
+        .filter(Boolean),
     [cart]
   );
 

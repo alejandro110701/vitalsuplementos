@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import Anaquel from '../components/Anaquel.jsx';
 import BarraCompra from '../components/BarraCompra.jsx';
 import Pliego from '../components/Pliego.jsx';
@@ -50,6 +50,11 @@ export default function Producto() {
     const t = setTimeout(() => setAdded(false), 1200);
     return () => clearTimeout(t);
   }, [added]);
+
+  // Every hook above runs unconditionally, so the guard sits here rather than
+  // at the top: an unknown slug is a wrong URL, not a reason to sell a
+  // different product at a different price.
+  if (!cur) return <Navigate to="/tienda" replace />;
 
   const packMeta = packs();
   const unit = unitPrice(cur, pack);

@@ -72,7 +72,7 @@ export default function Tienda() {
       <div
         style={{
           position: 'sticky',
-          top: 68,
+          top: 'var(--header-h)',
           zIndex: 40,
           background: 'color-mix(in oklab, var(--vp-paper) 90%, transparent)',
           backdropFilter: 'blur(18px)',
@@ -100,6 +100,7 @@ export default function Tienda() {
           </div>
 
           <label
+            className="vs-search"
             style={{
               marginLeft: 'auto',
               display: 'flex',
@@ -123,7 +124,7 @@ export default function Tienda() {
               onChange={(e) => setParam('q', e.target.value)}
               placeholder="Buscar producto o marca"
               aria-label="Buscar producto o marca"
-              style={{ border: 0, outline: 'none', background: 'transparent', fontSize: 13, width: '100%', color: 'var(--foreground)' }}
+              style={{ border: 0, background: 'transparent', fontSize: 13, width: '100%', color: 'var(--foreground)' }}
             />
           </label>
         </div>

@@ -72,7 +72,7 @@ export default function Peptidos() {
                 borderRight: i < 2 ? '1px solid var(--border)' : undefined
               }}
             >
-              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.24em', color: 'var(--secondary)' }}>
+              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.24em', color: 'var(--secondary-text)' }}>
                 {f.title}
               </p>
               <p style={{ margin: '16px 0 0', fontSize: 15, lineHeight: 1.7 }}>{f.copy}</p>

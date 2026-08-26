@@ -12,7 +12,16 @@ body { margin: 0; }
 
 input, select, textarea { font-family: var(--font-sans); }
 
-input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
+/* --ring and --secondary are both the L 0.74 teal (~2.2:1) and fail the 3:1
+   floor for a focus indicator, so focus is drawn in ink. */
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+/* the catalogue search input is borderless inside its label, so the label
+   carries the ring */
+.vs-search:focus-within { outline: 2px solid var(--foreground); outline-offset: 2px; }
+.vs-search input:focus-visible { outline: none; }
 
 @keyframes vsRise {
   from { opacity: 0; transform: translateY(22px); }
@@ -31,6 +40,19 @@ input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
     scroll-behavior: auto !important;
   }
 }
+
+/* ---- buttons ------------------------------------------------------
+   ds/Button.jsx applies its palette as an inline style prop, which outranks
+   any stylesheet rule — so the interaction states it never defined have to be
+   declared with !important or the cursor gets no response anywhere on the
+   site. :not(:disabled) is required, or the sold-out button lights up. */
+.vp-btn { transition: var(--transition-smooth); }
+.vp-btn:focus-visible { outline: 2px solid var(--foreground); outline-offset: 2px; }
+.vp-btn:disabled { opacity: 0.5 !important; cursor: not-allowed !important; }
+.vp-btn--default:hover:not(:disabled)   { background: var(--primary-glow) !important; }
+.vp-btn--secondary:hover:not(:disabled) { background: var(--accent) !important; }
+.vp-btn--outline:hover:not(:disabled)   { border-color: var(--secondary) !important; }
+.vp-btn--ghost:hover:not(:disabled)     { background: var(--muted) !important; }
 
 /* ---- hover states ------------------------------------------------ */
 .vs-nav-link {
@@ -191,7 +213,11 @@ input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
    --muted-foreground (L 0.46, ~7.5:1).
    ============================================================ */
 
-:root { --header-h: 68px; }  /* matches Header.jsx height and .vs-shell padding-top */
+:root {
+  --header-h: 68px;
+  /* hoisted so the bar's height and the space reserved for it cannot drift */
+  --barra-h: calc(72px + env(safe-area-inset-bottom));
+}
 
 /* `width:100vw` includes the scrollbar and overflows the page by ~15px wherever
    the scrollbar is not an overlay. `clip` trims the full-bleed without creating
@@ -352,7 +378,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
 /* z-index 55 sits under the header (Header.jsx is fixed at zIndex 60). */
 .vp-barra {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
-  height: calc(72px + env(safe-area-inset-bottom));
+  height: var(--barra-h);
   padding: 0 24px env(safe-area-inset-bottom);
   display: flex; align-items: center; gap: 16px;
   background: color-mix(in oklab, var(--vp-paper) 92%, transparent);
@@ -364,6 +390,12 @@ input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
               visibility 0s linear var(--dur-med);
 }
 .vp-barra[data-on='true'] { transform: translateY(0); opacity: 1; visibility: visible; transition-delay: 0s, 0s, 0s; }
+/* Reserve the bar's height on the footer, not the shell: the footer paints
+   --card and the shell --background, so padding the shell leaves a differently
+   tinted strip showing through the bar's translucent backdrop. :has() scopes
+   this to the product route, the only place the bar mounts. */
+.vs-shell:has(.vp-barra) > footer { padding-bottom: var(--barra-h); }
+
 .vp-barra__thumb {
   width: 40px; height: 40px; flex: none; border-radius: var(--radius-full);
   overflow: hidden; background: var(--halo-teal); box-shadow: inset 0 0 0 1px var(--border);
@@ -430,7 +462,10 @@ a.vp-anaquel__tile:hover { border-color: var(--border); box-shadow: var(--shadow
 @media (max-width: 1024px) {
   .vp-pliego { padding: 72px 24px 88px; }
   .vp-pliego__grid { grid-template-columns: 1fr; gap: 40px; }
-  .vp-pliego__stage { position: sticky; top: calc(var(--header-h) + 12px); }
+  /* One column here, so the stage's only sticky travel is over the beats
+     themselves — pinning it prints the copy across the photograph. The 40px
+     row gap already separates them. */
+  .vp-pliego__stage { position: static; }
   .vp-pliego__frame { max-width: min(560px, 82vw); }
   .vp-pliego__beat { min-height: 56vh; }
   .vp-pliego__sheetGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

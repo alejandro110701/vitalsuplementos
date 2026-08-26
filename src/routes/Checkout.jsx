@@ -7,9 +7,12 @@ import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/format.js';
 
 const ESTADOS = [
-  'Aguascalientes', 'Baja California', 'CDMX', 'Chihuahua', 'Coahuila', 'Estado de México',
-  'Guanajuato', 'Jalisco', 'Nuevo León', 'Puebla', 'Querétaro', 'Quintana Roo',
-  'Sinaloa', 'Sonora', 'Veracruz', 'Yucatán'
+  'Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 'CDMX',
+  'Chiapas', 'Chihuahua', 'Coahuila', 'Colima', 'Durango', 'Estado de México',
+  'Guanajuato', 'Guerrero', 'Hidalgo', 'Jalisco', 'Michoacán', 'Morelos',
+  'Nayarit', 'Nuevo León', 'Oaxaca', 'Puebla', 'Querétaro', 'Quintana Roo',
+  'San Luis Potosí', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas', 'Tlaxcala',
+  'Veracruz', 'Yucatán', 'Zacatecas'
 ];
 
 const labelStyle = {
@@ -30,8 +33,7 @@ const controlStyle = {
   color: 'var(--foreground)',
   background: 'var(--card)',
   border: '1px solid var(--border)',
-  borderRadius: 8,
-  outline: 'none'
+  borderRadius: 8
 };
 
 const errStyle = {
