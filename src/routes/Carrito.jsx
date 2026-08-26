@@ -9,7 +9,7 @@ export default function Carrito() {
   const { lines, count, subtotal, shipping, total, bump, drop } = useCart();
 
   return (
-    <div className="vs-wrap" style={{ padding: '64px 24px 96px' }}>
+    <div className="vs-wrap" style={{ paddingTop: 64, paddingBottom: 96 }}>
       <Eyebrow>Carrito</Eyebrow>
       <h1
         style={{

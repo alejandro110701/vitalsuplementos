@@ -69,7 +69,7 @@ export default function Producto() {
   return (
     <>
       {/* ---- Act I · the configurator, always above the narrative ---- */}
-      <div className="vs-wrap" style={{ padding: '32px 24px 0' }}>
+      <div className="vs-wrap" style={{ paddingTop: 32, paddingBottom: 0 }}>
         <nav
           aria-label="Ruta"
           style={{
@@ -262,7 +262,7 @@ export default function Producto() {
       </div>
 
       {/* ---- Act III · the spec sheet ---- */}
-      <div className="vs-wrap" style={{ padding: '64px 24px 0' }}>
+      <div className="vs-wrap" style={{ paddingTop: 64, paddingBottom: 0 }}>
         <div id="ficha" style={{ maxWidth: 720, scrollMarginTop: 'calc(var(--header-h) + 24px)' }}>
           <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
             <p style={{ ...metaLabel, fontSize: 10, letterSpacing: '0.22em' }}>Modo de uso</p>

@@ -52,7 +52,7 @@ export default function Tienda() {
 
   return (
     <div>
-      <section className="vs-wrap" style={{ padding: '64px 24px 32px' }}>
+      <section className="vs-wrap" style={{ paddingTop: 64, paddingBottom: 32 }}>
         <Eyebrow>16 productos · envío a todo méxico</Eyebrow>
         <h1
           style={{
@@ -80,7 +80,7 @@ export default function Tienda() {
           borderBottom: '1px solid var(--border)'
         }}
       >
-        <div className="vs-wrap" style={{ padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+        <div className="vs-wrap" style={{ paddingTop: 14, paddingBottom: 14, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', gap: 6 }}>
             {WORLDS.map((c) => (
               <button key={c.id} type="button" onClick={() => setParam('mundo', c.id)} style={{ ...chipBase, ...chipStyle(world === c.id) }}>
@@ -130,7 +130,7 @@ export default function Tienda() {
         </div>
       </div>
 
-      <section className="vs-wrap" style={{ padding: '32px 24px 96px' }}>
+      <section className="vs-wrap" style={{ paddingTop: 32, paddingBottom: 96 }}>
         <p style={{ margin: '0 0 40px', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--muted-foreground)' }}>
           {grid.length} {grid.length === 1 ? 'producto' : 'productos'}
         </p>

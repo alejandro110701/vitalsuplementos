@@ -23,7 +23,7 @@ export default function Peptidos() {
   return (
     <div>
       <section className="vp-bg-dots" style={{ borderBottom: '1px solid var(--border)', backgroundColor: 'var(--card)' }}>
-        <div className="vs-wrap vs-pep-hero" style={{ padding: '96px 24px' }}>
+        <div className="vs-wrap vs-pep-hero" style={{ paddingTop: 96, paddingBottom: 96 }}>
           <div>
             <Eyebrow accent>Vital · Peptides</Eyebrow>
             <h1
@@ -81,7 +81,7 @@ export default function Peptidos() {
         </div>
       </section>
 
-      <section className="vs-wrap" style={{ padding: '72px 24px 96px' }}>
+      <section className="vs-wrap" style={{ paddingTop: 72, paddingBottom: 96 }}>
         <div
           style={{
             border: '1px solid var(--border)',

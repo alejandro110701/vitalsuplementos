@@ -124,7 +124,7 @@ export default function Checkout() {
   };
 
   return (
-    <div className="vs-wrap" style={{ padding: '64px 24px 96px' }}>
+    <div className="vs-wrap" style={{ paddingTop: 64, paddingBottom: 96 }}>
       <Eyebrow>Checkout</Eyebrow>
       <h1
         style={{

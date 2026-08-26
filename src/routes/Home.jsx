@@ -25,7 +25,7 @@ function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark
         background: dark ? 'var(--vp-ink)' : 'var(--muted)',
         color: dark ? '#fff' : 'inherit',
         border: dark ? 'none' : '1px solid var(--border)',
-        padding: '44px 40px',
+        padding: 'clamp(28px, 7vw, 44px) clamp(24px, 7vw, 40px)',
         minHeight: 400,
         display: 'flex',
         flexDirection: 'column',
@@ -51,7 +51,9 @@ function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark
             fontFamily: 'var(--font-display)',
             fontWeight: 800,
             textTransform: 'uppercase',
-            fontSize: 46,
+            // "SUPLEMENTOS" is 11 uppercase characters; at a fixed 46px it ran
+            // 43px past the card on a 375px phone. Scale it with the viewport.
+            fontSize: 'clamp(30px, 8.4vw, 46px)',
             lineHeight: 0.95,
             letterSpacing: '-0.025em'
           }}
@@ -79,15 +81,16 @@ function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark
             textTransform: 'uppercase',
             letterSpacing: '0.24em',
             borderBottom: `1px solid ${dark ? 'rgba(255,255,255,0.5)' : 'var(--foreground)'}`,
-            paddingBottom: 4
+            paddingBottom: 4,
+            whiteSpace: 'nowrap'
           }}
         >
           Ver los 8 →
         </span>
         <div
           style={{
-            width: 172,
-            height: 172,
+            width: 'clamp(112px, 32vw, 172px)',
+            height: 'clamp(112px, 32vw, 172px)',
             borderRadius: 999,
             overflow: 'hidden',
             background: '#fff',
@@ -98,7 +101,7 @@ function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark
           <img
             src={image}
             srcSet={imageSrcSet}
-            sizes="172px"
+            sizes="(max-width: 720px) 32vw, 172px"
             alt={imageAlt}
             width={1000}
             height={1000}
@@ -122,7 +125,7 @@ export default function Home() {
       <section className="vp-bg-grid" style={{ borderBottom: '1px solid var(--border)', backgroundColor: 'var(--card)' }}>
         <div
           className="vs-wrap"
-          style={{ padding: '104px 24px 72px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
+          style={{ paddingTop: 104, paddingBottom: 72, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
         >
           <p
             style={{
@@ -342,7 +345,7 @@ export default function Home() {
       </div>
 
       {/* ---- peptides teaser ---- */}
-      <section className="vs-wrap" style={{ padding: '96px 24px' }}>
+      <section className="vs-wrap" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <Link
           to="/peptidos"
           className="vs-hover-card vs-pep-teaser"

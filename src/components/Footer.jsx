@@ -16,7 +16,7 @@ const colList = { display: 'flex', flexDirection: 'column', gap: 10, fontSize: 1
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid var(--border)', background: 'var(--card)' }}>
-      <div className="vs-wrap vs-footer-grid" style={{ padding: '64px 24px 40px' }}>
+      <div className="vs-wrap vs-footer-grid" style={{ paddingTop: 64, paddingBottom: 40 }}>
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
             <LogoMark style={{ height: 26 }} />
@@ -64,7 +64,7 @@ export default function Footer() {
       <div
         className="vs-wrap"
         style={{
-          padding: '20px 24px 40px',
+          paddingTop: 20, paddingBottom: 40,
           borderTop: '1px solid var(--border)',
           display: 'flex',
           justifyContent: 'space-between',

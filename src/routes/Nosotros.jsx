@@ -13,7 +13,7 @@ export default function Nosotros() {
   return (
     <div>
       <section style={{ borderBottom: '1px solid var(--border)', background: 'var(--card)' }}>
-        <div className="vs-wrap" style={{ padding: '96px 24px' }}>
+        <div className="vs-wrap" style={{ paddingTop: 96, paddingBottom: 96 }}>
           <Eyebrow>Quiénes somos</Eyebrow>
           <h1
             style={{
@@ -57,7 +57,7 @@ export default function Nosotros() {
         ))}
       </section>
 
-      <section className="vs-wrap" style={{ padding: '96px 24px' }}>
+      <section className="vs-wrap" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <div className="vs-about-cta" style={{ border: '1px solid var(--border)', borderRadius: 16, padding: 48, background: 'var(--card)' }}>
           <div>
             <Eyebrow accent>La otra mitad</Eyebrow>
