@@ -288,6 +288,26 @@ for (const p of PRODUCTS) {
  */
 export const LISTED = PRODUCTS.filter((p) => p.listed);
 
+/**
+ * What the shop charges to deliver, probed from WooCommerce by the sync script
+ * rather than declared here. It used to be a constant in config.js and it
+ * drifted — the app quoted a flat 149 while the shop had no shipping zones and
+ * charged nothing, so the total on the cart was never the total at checkout.
+ *
+ * Returns a number in MXN, or null when the shop's answer depends on something
+ * this front end cannot know (a threshold, a destination), in which case the
+ * honest thing is to say it is worked out at checkout rather than guess.
+ */
+export function shippingFor() {
+  const s = WOO.shipping;
+  if (!s) return null;
+  if (s.free) return 0;
+  return typeof s.flat === 'number' ? s.flat : null;
+}
+
+/** True when the shop delivers free — worth saying out loud when it is. */
+export const FREE_SHIPPING = Boolean(WOO.shipping && WOO.shipping.free);
+
 export const GOALS = [
   { id: 'energia', label: 'Energía', sub: 'Creatina, cafeína, NAD+ y verdes.', icon: 'M4 14h6l-2 7 10-11h-6l2-7z' },
   { id: 'piel', label: 'Piel', sub: 'Serums con porcentaje declarado y SPF.', icon: 'M12 3s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10z' },

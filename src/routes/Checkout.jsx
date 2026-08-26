@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { Button, Eyebrow } from '../ds/index.js';
 import { productImage, productSrcSet } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
-import { money } from '../lib/format.js';
+import { money, shippingLabel } from '../lib/format.js';
 import { handOffToShop } from '../lib/handoff.js';
 import { useTitle } from '../lib/useTitle.js';
 
@@ -29,7 +29,7 @@ const labelRow = {
  */
 export default function Checkout() {
   useTitle('Checkout');
-  const { lines, count, subtotal } = useCart();
+  const { lines, count, subtotal, shipping } = useCart();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
 
@@ -184,7 +184,7 @@ export default function Checkout() {
           </div>
           <div style={{ ...labelRow, paddingBottom: 16, paddingTop: 0, borderBottom: '1px solid var(--border)' }}>
             <span style={{ color: 'var(--muted-foreground)' }}>Envío</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 12 }}>Se calcula en la tienda</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{shippingLabel(shipping, money)}</span>
           </div>
 
           {error && (

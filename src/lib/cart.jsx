@@ -1,6 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { SHIPPING_COST } from '../config.js';
-import { findProduct } from '../data/products.js';
+import { findProduct, shippingFor } from '../data/products.js';
 import { unitPrice } from './format.js';
 
 const STORAGE_KEY = 'vs.cart.v1';
@@ -76,10 +75,11 @@ export function CartProvider({ children }) {
 
   const count = useMemo(() => lines.reduce((s, l) => s + l.units, 0), [lines]);
   const subtotal = useMemo(() => lines.reduce((s, l) => s + l.total, 0), [lines]);
-  const shipping = lines.length ? SHIPPING_COST : 0;
+  // Whatever the shop says, not a number of our own invention.
+  const shipping = lines.length ? shippingFor() : 0;
 
   const value = useMemo(
-    () => ({ lines, count, subtotal, shipping, total: subtotal + shipping, add, bump, drop, clear }),
+    () => ({ lines, count, subtotal, shipping, total: subtotal + (shipping || 0), add, bump, drop, clear }),
     [lines, count, subtotal, shipping, add, bump, drop, clear]
   );
 

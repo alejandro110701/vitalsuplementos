@@ -231,7 +231,7 @@ export default function Home() {
       {/* ---- trust strip ---- */}
       <section style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="vs-wrap vs-stats">
-          <StatBlock label="Envío" value="2–5 días" sub="A todo México" />
+          <StatBlock label="Envío" value="Gratis" sub="2–5 días a todo México" />
           <StatBlock label="Pago" value="Contra entrega" sub="Efectivo al recibir" />
           <StatBlock label="Catálogo" value="16 productos" sub="Suplementos y skincare" />
           <StatBlock label="Origen" value="Importado" sub="Lote y caducidad visibles" />
@@ -342,7 +342,7 @@ export default function Home() {
         <ManifestoBand
           kicker="Pago contra entrega"
           headline="Pagas cuando lo tienes en la mano"
-          sub="Sin anticipo · efectivo al recibir · 2 a 5 días a todo México"
+          sub="Sin anticipo · efectivo al recibir · envío gratis a todo México"
         />
       </div>
 

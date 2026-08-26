@@ -3,17 +3,20 @@
 // tuning it in the design.
 export const PEPTIDES_URL = 'https://vitalpeptides.app';
 
-/**
- * Flat shipping fee in MXN, charged once per order with at least one line.
+/*
+ * There is deliberately no SHIPPING_COST here any more.
  *
- * Zero, for the same reason PACK_DISCOUNT is zero: the shop is the source of
- * truth and it has no shipping zones configured — the Store API reports
- * shipping_rates: [] and needs_shipping: false — so WooCommerce charges nothing
- * for delivery. Quoting a fee the shop will not collect made our total differ
- * from the one the customer is actually asked to pay. Configure a shipping zone
- * in WooCommerce and the shop's own checkout will show it.
+ * It used to be 149 while WooCommerce had no shipping zones and charged
+ * nothing, so the total the shopper saw was never the total they were asked
+ * for. Delivery is now probed from the shop by `npm run sync:woo` and read
+ * through shippingFor() in src/data/products.js — change it in WooCommerce and
+ * re-sync, exactly like prices.
+ *
+ * Worth knowing when you do: Dropi bills the freight against you either way.
+ * It is billable weight (the greater of real and volumetric), route and service
+ * type, quoted only inside the Dropi panel — so nothing here can compute it.
+ * Offering free delivery is a pricing decision, not a Dropi feature.
  */
-export const SHIPPING_COST = 0;
 
 /**
  * Per-piece discount (%) on the 2-piece pack; the 3-piece pack adds 6 more.

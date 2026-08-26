@@ -55,7 +55,7 @@ export default function Footer() {
           <p style={colTitle}>Compra</p>
           <div style={{ ...colList, color: 'var(--muted-foreground)' }}>
             <span>Pago contra entrega</span>
-            <span>Envío 2–5 días</span>
+            <span>Envío gratis 2–5 días</span>
             <span>Reposición por daño</span>
           </div>
         </div>

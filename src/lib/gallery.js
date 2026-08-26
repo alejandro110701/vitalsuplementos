@@ -56,8 +56,8 @@ const LADDER = [
   {
     id: 'entrega',
     title: 'Cómo llega',
-    body: () => 'Pagas en efectivo cuando el repartidor te lo entrega, y llega en 2 a 5 días a todo México.',
-    rows: () => [['Entrega', '2–5 días'], ['Pago', 'Contra entrega']]
+    body: () => 'Envío gratis a todo México. Pagas en efectivo cuando el repartidor te lo entrega, en 2 a 5 días.',
+    rows: () => [['Envío', 'Gratis'], ['Entrega', '2–5 días']]
   }
 ];
 

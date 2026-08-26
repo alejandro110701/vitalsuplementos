@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Eyebrow } from '../ds/index.js';
 import { productImage, productSrcSet } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
-import { money } from '../lib/format.js';
+import { money, shippingLabel } from '../lib/format.js';
 import { useTitle } from '../lib/useTitle.js';
 
 export default function Carrito() {
@@ -113,7 +113,7 @@ export default function Carrito() {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, paddingBottom: 16, borderBottom: '1px solid var(--border)' }}>
               <span style={{ color: 'var(--muted-foreground)' }}>Envío</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{shipping ? money(shipping) : 'Gratis'}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{shippingLabel(shipping, money)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '20px 0 24px' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, textTransform: 'uppercase', fontSize: 18, letterSpacing: '-0.02em' }}>

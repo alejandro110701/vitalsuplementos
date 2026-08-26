@@ -1,5 +1,17 @@
 import { PACK_DISCOUNT } from '../config.js';
 
+/**
+ * How to write the delivery line. Three genuinely different answers: the shop
+ * delivers free, the shop charges a known amount, or the amount depends on
+ * something only the checkout knows. Saying "Gratis" for the third would be a
+ * lie, and that is exactly the mistake this replaces.
+ */
+export function shippingLabel(shipping, money) {
+  if (shipping === 0) return 'Gratis';
+  if (typeof shipping === 'number') return money(shipping);
+  return 'Se calcula al pagar';
+}
+
 export function money(n) {
   return '$' + Math.round(n).toLocaleString('es-MX');
 }

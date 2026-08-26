@@ -263,7 +263,8 @@ export default function Producto() {
                   Pago contra entrega
                 </p>
                 <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-                  Pagas en efectivo al repartidor cuando llegue. Sin anticipo, 2 a 5 días a todo México.
+                  Pagas en efectivo al repartidor cuando llegue. Sin anticipo, con envío gratis y entrega de 2 a 5
+                  días a todo México.
                 </p>
               </div>
             </div>
