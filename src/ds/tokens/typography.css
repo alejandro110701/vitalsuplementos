@@ -1,0 +1,47 @@
+/* ============================================================
+   VitalPeptides · Typography tokens
+   Display: Space Grotesk (800, tight, often UPPERCASE)
+   Body/UI: Inter (400–900, ss01 + cv11 features on)
+   Data/eyebrow: JetBrains Mono (uppercase, wide tracking)
+   ============================================================ */
+:root {
+  /* Families */
+  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale (rem) */
+  --text-xs:    0.75rem;   /* 12 */
+  --text-sm:    0.8125rem; /* 13 — nav, product titles */
+  --text-base:  1rem;      /* 16 */
+  --text-lg:    1.125rem;  /* 18 */
+  --text-xl:    1.5rem;    /* 24 */
+  --text-2xl:   1.875rem;  /* 30 — section h2 min */
+  --text-3xl:   2.25rem;   /* 36 */
+  --text-4xl:   3rem;      /* 48 */
+  --text-hero:  clamp(3rem, 9vw, 7.5rem);   /* cinematic hero h1 */
+  --text-band:  clamp(2.5rem, 7vw, 6rem);   /* manifesto band h2 */
+
+  /* Weights */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extra:    800;
+  --fw-black:    900;
+
+  /* Line heights */
+  --lh-tight:   0.9;
+  --lh-snug:    1.1;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+
+  /* Letter-spacing — the mono eyebrow tracking is a brand signature */
+  --ls-display:  -0.025em;
+  --ls-eyebrow:  0.24em;
+  --ls-eyebrow-tight: 0.16em;
+  --ls-nav:      0.08em;
+
+  /* Font-feature-settings applied to body */
+  --font-features: "ss01", "cv11";
+}

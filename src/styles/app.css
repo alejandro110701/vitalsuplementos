@@ -1,0 +1,182 @@
+@import '../ds/styles.css';
+
+/* ============================================================
+   Storefront shell — the bits the design canvas expressed as
+   `style-hover` attributes, plus the responsive collapse the
+   fixed-width artboards could not express.
+   ============================================================ */
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+input, select, textarea { font-family: var(--font-sans); }
+
+input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
+
+@keyframes vsRise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vsFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- hover states ------------------------------------------------ */
+.vs-nav-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  color: var(--muted-foreground);
+  background: none;
+  border: 0;
+  padding: 0;
+  transition: color var(--dur-med) var(--ease-smooth);
+}
+.vs-nav-link:hover { color: var(--foreground); }
+.vs-nav-link[data-accent='true'] { color: var(--secondary); }
+.vs-nav-link[data-accent='true']:hover { color: var(--foreground); }
+
+.vs-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--foreground);
+  transition: border-color var(--dur-med) var(--ease-smooth);
+}
+.vs-cart-btn:hover { border-color: var(--secondary); color: var(--foreground); }
+
+.vs-link-teal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  cursor: pointer;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--foreground);
+  transition: color var(--dur-med) var(--ease-smooth);
+}
+.vs-link-teal:hover { color: var(--secondary); }
+
+.vs-hover-card { transition: var(--transition-smooth); }
+.vs-hover-card:hover {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-card);
+}
+
+.vs-plain-link {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.vs-stepper-btn {
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  color: var(--muted-foreground);
+  background: none;
+  border: 0;
+  height: 100%;
+  transition: color var(--dur-fast) var(--ease-smooth);
+}
+.vs-stepper-btn:hover:not(:disabled) { color: var(--foreground); }
+.vs-stepper-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ---- layout grids (desktop values match the design artboards) ----- */
+.vs-shell { min-height: 100vh; background: var(--background); padding-top: 68px; }
+
+.vs-wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+.vs-hero-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; width: 100%; max-width: 940px; margin-top: 72px; }
+
+.vs-stats { display: grid; grid-template-columns: repeat(4, 1fr); }
+.vs-stats > * + * { padding-left: 24px; }
+.vs-stats > *:not(:last-child) { border-right: 1px solid var(--border); }
+
+.vs-worlds { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.vs-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.vs-goal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.vs-catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 40px 32px; }
+
+.vs-product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.vs-product-media { position: sticky; top: 100px; }
+
+.vs-cart-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: start; }
+.vs-cart-line { display: grid; grid-template-columns: 88px 1fr auto; gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--border); }
+
+.vs-checkout-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+.vs-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.vs-field-wide { grid-column: span 2; }
+
+.vs-summary { border: 1px solid var(--border); border-radius: 16px; background: var(--card); padding: 32px; position: sticky; top: 100px; }
+
+.vs-pillars { display: grid; grid-template-columns: repeat(3, 1fr); }
+.vs-pep-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
+.vs-pep-teaser { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.vs-about-cta { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.vs-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+.vs-meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.vs-pack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+/* ---- tablet ------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .vs-grid-4, .vs-goal-grid { grid-template-columns: repeat(2, 1fr); }
+  .vs-product-layout { grid-template-columns: 1fr; gap: 48px; }
+  .vs-product-media { position: static; }
+  .vs-cart-layout, .vs-checkout-layout { grid-template-columns: 1fr; gap: 40px; }
+  .vs-summary { position: static; }
+  .vs-pep-hero, .vs-pep-teaser { grid-template-columns: 1fr; gap: 40px; }
+  .vs-footer-grid { grid-template-columns: 1fr 1fr; }
+  .vs-hero-tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---- phone -------------------------------------------------------- */
+@media (max-width: 720px) {
+  .vs-wrap { padding-left: 16px; padding-right: 16px; }
+  .vs-worlds { grid-template-columns: 1fr; }
+  .vs-stats { grid-template-columns: 1fr 1fr; }
+  .vs-stats > * + * { padding-left: 0; }
+  .vs-stats > *:not(:last-child) { border-right: 0; }
+  .vs-stats > * { border-bottom: 1px solid var(--border); }
+  .vs-grid-4, .vs-goal-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .vs-catalog-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .vs-hero-tiles { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .vs-field-grid { grid-template-columns: 1fr; }
+  .vs-field-wide { grid-column: span 1; }
+  .vs-pillars { grid-template-columns: 1fr; gap: 32px; }
+  .vs-pillars > * { padding: 0 !important; border-right: 0 !important; }
+  .vs-about-cta { grid-template-columns: 1fr; }
+  .vs-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .vs-cart-line { grid-template-columns: 64px 1fr; gap: 16px; }
+  .vs-cart-line > *:last-child { grid-column: span 2; justify-content: space-between; }
+  .vs-meta-grid { grid-template-columns: 1fr; gap: 16px; }
+  .vs-pack-grid { grid-template-columns: 1fr; }
+}

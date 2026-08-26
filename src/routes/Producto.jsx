@@ -1,0 +1,309 @@
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Button, Chip, Eyebrow, ProductCard } from '../ds/index.js';
+import { PRODUCTS, findProduct, productImage, sku, worldLabel } from '../data/products.js';
+import { useCart } from '../lib/cart.jsx';
+import { money, packs, unitPrice } from '../lib/format.js';
+
+/** The three "camera angles" onto the same photo — a plain zoom on the tile. */
+const ZOOMS = ['scale(1)', 'scale(1.9) translate(0%, -4%)', 'scale(2.3) translate(-2%, 14%)'];
+const VIEW_LABELS = ['Producto', 'Detalle', 'Etiqueta'];
+
+const chipBase = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: 10,
+  fontWeight: 700,
+  textTransform: 'uppercase',
+  letterSpacing: '0.16em',
+  padding: '8px 14px',
+  borderRadius: 6,
+  cursor: 'pointer',
+  border: '1px solid',
+  transition: 'var(--transition-smooth)'
+};
+
+const metaLabel = {
+  margin: 0,
+  fontFamily: 'var(--font-mono)',
+  fontSize: 9,
+  textTransform: 'uppercase',
+  letterSpacing: '0.2em',
+  color: 'var(--muted-foreground)'
+};
+
+export default function Producto() {
+  const { slug } = useParams();
+  const { add } = useCart();
+  const cur = findProduct(slug);
+
+  const [qty, setQty] = useState(1);
+  const [pack, setPack] = useState(1);
+  const [view, setView] = useState(0);
+
+  // A different product means a fresh configuration.
+  useEffect(() => {
+    setQty(1);
+    setPack(1);
+    setView(0);
+  }, [slug]);
+
+  const packMeta = packs();
+  const unit = unitPrice(cur, pack);
+  const onSale = !!cur.was;
+  const related = PRODUCTS.filter((p) => p.w === cur.w && p.slug !== cur.slug).slice(0, 4);
+
+  // Matches the design: adding does not navigate — the header cart count is the feedback.
+  const handleAdd = () => {
+    add(cur.slug, pack, qty);
+    setQty(1);
+  };
+
+  return (
+    <div className="vs-wrap" style={{ padding: '32px 24px 96px' }}>
+      <nav
+        aria-label="Ruta"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          fontFamily: 'var(--font-mono)',
+          fontSize: 10,
+          textTransform: 'uppercase',
+          letterSpacing: '0.18em',
+          color: 'var(--muted-foreground)',
+          marginBottom: 40,
+          flexWrap: 'wrap'
+        }}
+      >
+        <Link to="/tienda">Tienda</Link>
+        <span>·</span>
+        <Link to={`/tienda?mundo=${cur.w}`}>{worldLabel(cur.w)}</Link>
+        <span>·</span>
+        <span style={{ color: 'var(--foreground)' }}>{cur.n}</span>
+      </nav>
+
+      <div className="vs-product-layout">
+        {/* ---- media ---- */}
+        <div className="vs-product-media">
+          <div
+            style={{
+              position: 'relative',
+              aspectRatio: '1 / 1',
+              borderRadius: 999,
+              overflow: 'hidden',
+              background: 'var(--halo-teal)',
+              boxShadow: 'inset 0 0 0 1px var(--border)'
+            }}
+          >
+            <img
+              src={productImage(cur)}
+              alt={cur.n}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                transform: ZOOMS[view],
+                transition: 'transform 700ms var(--ease-smooth)'
+              }}
+            />
+            <span style={{ position: 'absolute', left: 24, top: 24 }}>
+              <Chip variant="outline">{cur.spec}</Chip>
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: 12, marginTop: 24, justifyContent: 'center', flexWrap: 'wrap' }}>
+            {VIEW_LABELS.map((label, i) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => setView(i)}
+                aria-pressed={view === i}
+                style={{
+                  ...chipBase,
+                  ...(view === i
+                    ? { background: 'var(--primary)', color: 'var(--primary-foreground)', borderColor: 'var(--primary)' }
+                    : { background: 'var(--card)', color: 'var(--muted-foreground)', borderColor: 'var(--border)' })
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ---- detail ---- */}
+        <div>
+          <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--muted-foreground)' }}>
+            {cur.kicker}
+          </p>
+          <h1
+            style={{
+              margin: '12px 0 0',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              fontSize: 'clamp(2rem, 5vw, 2.75rem)',
+              lineHeight: 0.98,
+              letterSpacing: '-0.025em'
+            }}
+          >
+            {cur.n}
+          </h1>
+          <p style={{ margin: '20px 0 0', fontSize: 16, lineHeight: 1.65, color: 'var(--muted-foreground)', maxWidth: '46ch' }}>
+            {cur.claim}
+          </p>
+
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginTop: 28, paddingBottom: 28, borderBottom: '1px solid var(--border)', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 28, fontWeight: 700 }}>{money(unit)}</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--muted-foreground)' }}>MXN</span>
+            {onSale && (
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--muted-foreground)', textDecoration: 'line-through' }}>
+                {money(cur.was)}
+              </span>
+            )}
+            {onSale && <Chip variant="soft">−{Math.round((1 - cur.price / cur.was) * 100)}%</Chip>}
+          </div>
+
+          <ul style={{ listStyle: 'none', padding: 0, margin: '28px 0 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {cur.bullets.map((b) => (
+              <li key={b} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', fontSize: 14, lineHeight: 1.6 }}>
+                <span style={{ color: 'var(--secondary)', marginTop: 2, flex: 'none' }}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* ---- pack picker ---- */}
+          <p style={{ margin: '36px 0 12px', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--muted-foreground)' }}>
+            Paquete
+          </p>
+          <div className="vs-pack-grid">
+            {packMeta.map((f) => {
+              const active = pack === f.k;
+              return (
+                <button
+                  key={f.k}
+                  type="button"
+                  onClick={() => setPack(f.k)}
+                  aria-pressed={active}
+                  style={{
+                    cursor: 'pointer',
+                    borderRadius: 8,
+                    padding: '14px 16px',
+                    textAlign: 'left',
+                    font: 'inherit',
+                    color: 'var(--foreground)',
+                    border: `1px solid ${active ? 'var(--secondary)' : 'var(--border)'}`,
+                    background: active ? 'var(--muted)' : 'var(--card)',
+                    transition: 'var(--transition-smooth)'
+                  }}
+                >
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em' }}>
+                    {f.label}
+                  </div>
+                  <div style={{ marginTop: 6, fontFamily: 'var(--font-mono)', fontSize: 13, color: active ? 'var(--foreground)' : 'var(--muted-foreground)' }}>
+                    {money(unitPrice(cur, f.k))} c/u
+                  </div>
+                  <div style={{ marginTop: 2, fontSize: 11, color: 'var(--muted-foreground)' }}>
+                    {f.off ? `−${f.off}% por pieza` : f.note}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ---- add to cart ---- */}
+          <div style={{ display: 'flex', gap: 12, marginTop: 28, alignItems: 'center' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid var(--border)', borderRadius: 8, height: 48, background: 'var(--card)', flex: 'none' }}>
+              <button type="button" className="vs-stepper-btn" style={{ width: 44, fontSize: 16 }} onClick={() => setQty((n) => Math.max(1, n - 1))} disabled={qty <= 1} aria-label="Quitar uno">
+                −
+              </button>
+              <span style={{ width: 36, textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 14, fontWeight: 700 }} aria-live="polite">
+                {qty}
+              </span>
+              <button type="button" className="vs-stepper-btn" style={{ width: 44, fontSize: 16 }} onClick={() => setQty((n) => Math.min(9, n + 1))} disabled={qty >= 9} aria-label="Agregar uno">
+                +
+              </button>
+            </div>
+            <Button variant="default" size="xl" onClick={handleAdd} style={{ flex: 1, width: '100%' }}>
+              Agregar · {money(unit * pack * qty)}
+            </Button>
+          </div>
+
+          <div style={{ display: 'flex', gap: 20, marginTop: 24, padding: 20, border: '1px solid var(--border)', borderRadius: 12, background: 'var(--muted)' }}>
+            <span style={{ color: 'var(--secondary)', flex: 'none' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M10 17h4V5H2v12h3" />
+                <path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h1" />
+                <circle cx="7.5" cy="17.5" r="2.5" />
+                <circle cx="17.5" cy="17.5" r="2.5" />
+              </svg>
+            </span>
+            <div>
+              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+                Pago contra entrega
+              </p>
+              <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
+                Confirmamos por WhatsApp, llega en 2–5 días y pagas en efectivo al repartidor.
+              </p>
+            </div>
+          </div>
+
+          {/* ---- spec sheet ---- */}
+          <div style={{ marginTop: 40, borderTop: '1px solid var(--border)' }}>
+            <div style={{ padding: '24px 0', borderBottom: '1px solid var(--border)' }}>
+              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--muted-foreground)' }}>
+                Modo de uso
+              </p>
+              <p style={{ margin: '10px 0 0', fontSize: 14, lineHeight: 1.7 }}>{cur.uso}</p>
+            </div>
+            <div className="vs-meta-grid" style={{ padding: '24px 0', borderBottom: '1px solid var(--border)' }}>
+              <div>
+                <p style={metaLabel}>Presentación</p>
+                <p style={{ margin: '8px 0 0', fontSize: 14 }}>{cur.spec}</p>
+              </div>
+              <div>
+                <p style={metaLabel}>Categoría</p>
+                <p style={{ margin: '8px 0 0', fontSize: 14 }}>{worldLabel(cur.w)}</p>
+              </div>
+              <div>
+                <p style={metaLabel}>SKU</p>
+                <p style={{ margin: '8px 0 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{sku(cur)}</p>
+              </div>
+            </div>
+            <p style={{ margin: '20px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
+              Suplemento alimenticio. No es medicamento. El consumo de este producto es responsabilidad de quien lo
+              recomienda y de quien lo usa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ---- related ---- */}
+      <section style={{ marginTop: 96, borderTop: '1px solid var(--border)', paddingTop: 40 }}>
+        <Eyebrow>Va bien con</Eyebrow>
+        <div className="vs-grid-4" style={{ marginTop: 32 }}>
+          {related.map((p) => (
+            <ProductCard
+              key={p.slug}
+              as={Link}
+              to={`/producto/${p.slug}`}
+              href={undefined}
+              title={p.n}
+              image={productImage(p)}
+              imageAlt={p.n}
+              price={p.price}
+              compareAt={p.was || null}
+              kicker={p.kicker}
+              purityLabel={p.spec}
+              cta="Ver producto"
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

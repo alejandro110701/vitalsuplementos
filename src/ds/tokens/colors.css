@@ -1,0 +1,56 @@
+/* ============================================================
+   VitalPeptides · Color tokens (oklch, from source styles.css)
+   "Minimalist clinical" — near-black ink, off-white surfaces,
+   a single sober teal accent. Values copied verbatim from the
+   codebase; do not round or re-hue.
+   ============================================================ */
+:root {
+  /* ---- Base ramp: ink + cool neutrals -------------------- */
+  --vp-ink:            oklch(0.18 0.01 240);   /* near-black, primary text + solid buttons */
+  --vp-ink-soft:       oklch(0.32 0.02 240);   /* primary-glow, gradient partner */
+  --vp-white:          oklch(1 0 0);           /* pure card white */
+  --vp-paper:          oklch(0.995 0.002 240); /* off-white page background */
+  --vp-mist:           oklch(0.965 0.005 240); /* muted surface / zebra rows */
+  --vp-slate:          oklch(0.46 0.01 240);   /* muted foreground, captions */
+  --vp-line:           oklch(0.92 0.005 240);  /* hairline borders + inputs */
+
+  /* ---- Accent: clinical teal ----------------------------- */
+  --vp-teal:           oklch(0.74 0.11 195);   /* secondary — the single accent */
+  --vp-teal-bright:    oklch(0.78 0.12 195);   /* accent — hovers, active */
+  --vp-teal-glow:      oklch(0.82 0.13 195);   /* headline highlight word on dark */
+  --vp-teal-deep:      oklch(0.68 0.13 215);   /* gradient partner */
+
+  /* ---- Semantic --------------------------------------------- */
+  --vp-danger:         oklch(0.58 0.22 27);    /* destructive / sold-out */
+  --vp-danger-fg:      oklch(0.995 0 0);
+
+  /* ============================================================
+     Semantic aliases — reference these in components.
+     Mirror the codebase's shadcn variable names.
+     ============================================================ */
+  --background:          var(--vp-paper);
+  --foreground:          var(--vp-ink);
+  --card:                var(--vp-white);
+  --card-foreground:     var(--vp-ink);
+  --popover:             var(--vp-white);
+  --popover-foreground:  var(--vp-ink);
+
+  --primary:             var(--vp-ink);
+  --primary-foreground:  var(--vp-paper);
+  --primary-glow:        var(--vp-ink-soft);
+
+  --secondary:            var(--vp-teal);
+  --secondary-foreground: var(--vp-ink);
+  --accent:               var(--vp-teal-bright);
+  --accent-foreground:    var(--vp-ink);
+
+  --muted:               var(--vp-mist);
+  --muted-foreground:    var(--vp-slate);
+
+  --destructive:            var(--vp-danger);
+  --destructive-foreground: var(--vp-danger-fg);
+
+  --border:  var(--vp-line);
+  --input:   var(--vp-line);
+  --ring:    var(--vp-teal);
+}
