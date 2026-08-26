@@ -289,9 +289,13 @@ export default function Producto() {
               </a>
             </p>
           )}
+          {/* The Mexican supplement legend is required for what it covers and
+              wrong for what it does not: half this catalogue is cosmetic, and a
+              sheet mask has no "consumo". Each world carries its own wording. */}
           <p style={{ margin: '20px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-            Suplemento alimenticio. No es medicamento. El consumo de este producto es responsabilidad de quien lo
-            recomienda y de quien lo usa.
+            {cur.w === 'skin'
+              ? 'Producto cosmético de uso externo. No es medicamento. Evita el contacto con los ojos y suspende su uso si aparece irritación.'
+              : 'Suplemento alimenticio. No es medicamento. El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa.'}
           </p>
         </div>
       </div>

@@ -76,8 +76,8 @@ export default function Footer() {
           © 2026 Vital Suplementos · México
         </p>
         <p style={{ margin: 0, maxWidth: 620, fontSize: 11, lineHeight: 1.7, color: 'var(--muted-foreground)' }}>
-          Suplementos alimenticios: no son medicamentos. Este sitio no ofrece diagnóstico ni tratamiento. Los péptidos se
-          comercializan únicamente en vitalpeptides.app, para investigación.
+          Suplementos alimenticios y productos cosméticos: no son medicamentos. Este sitio no ofrece diagnóstico ni
+          tratamiento. Los péptidos se comercializan únicamente en vitalpeptides.app, para investigación.
         </p>
       </div>
     </footer>

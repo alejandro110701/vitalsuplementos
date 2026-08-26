@@ -40,7 +40,9 @@ const LADDER = [
   },
   {
     id: 'uso',
-    title: 'Cómo se toma',
+    // Half the catalogue is skincare. A serum, a gel or an eye patch is
+    // applied, not swallowed, so this rung picks its verb from the world.
+    title: (p) => (p.w === 'skin' ? 'Cómo se aplica' : 'Cómo se toma'),
     body: (p) => p.uso,
     rows: (p) => [['Presentación', p.spec]]
   },
@@ -63,7 +65,7 @@ export function beatCopy(product, image, index) {
   return {
     id: rung.id,
     eyebrow: image.eyebrow || null,
-    title: image.title || rung.title,
+    title: image.title || (typeof rung.title === 'function' ? rung.title(product) : rung.title),
     body: image.body || rung.body(product),
     rows: rung.rows(product),
     disclose: image.kind !== 'PACKSHOT' && image.kind !== 'GENERATED'
