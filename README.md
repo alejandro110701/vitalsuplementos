@@ -149,3 +149,22 @@ WooCommerce is charging at that moment. If the shop is unreachable the committed
 
 `BASE_PATH=/vitalsuplementos/ npm run build` produces a bundle for a Pages
 subpath; the default builds for a domain root.
+
+### Pushing the catalogue back to the shop
+
+The shop was seeded from the supplier, so its products carry supplier titles,
+supplier copy, and — for all 16 — a zero-byte image file. This pushes the
+curated name, description and product photo onto each live product:
+
+```bash
+WOO_URL=https://vitalsuplementos.com.mx \
+WOO_KEY=ck_... WOO_SECRET=cs_... \
+npm run fix:woo            # add --dry to preview
+```
+
+**The key must have Read/Write permission** — WooCommerce → Settings → Advanced
+→ REST API. A read-only key fails with `woocommerce_rest_authentication_error`.
+
+Credentials come from the environment and are never written into the repo. It
+does not touch price or stock: the shop stays the source of truth for money, and
+this only fixes what the supplier import got wrong.

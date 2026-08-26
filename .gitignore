@@ -3,3 +3,8 @@ dist
 .DS_Store
 *.local
 .vite
+
+# never commit shop credentials
+.env
+.env.*
+*.wooenv
