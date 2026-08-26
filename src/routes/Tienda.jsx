@@ -140,7 +140,6 @@ export default function Tienda() {
               key={p.slug}
               as={Link}
               to={`/producto/${p.slug}`}
-              href={undefined}
               title={p.n}
               image={productImage(p)}
               imageAlt={p.n}

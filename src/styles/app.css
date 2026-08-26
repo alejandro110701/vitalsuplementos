@@ -180,3 +180,275 @@ input:focus, select:focus, textarea:focus { border-color: var(--secondary); }
   .vs-meta-grid { grid-template-columns: 1fr; gap: 16px; }
   .vs-pack-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   Product page — Act II (El Pliego) and Act IV (El Anaquel).
+
+   ACCENT GATE: --vp-teal at L 0.74 on paper measures ~2.6:1 and fails for
+   text at any size. Nothing in this block sets teal as a text colour. Teal is
+   confined to non-text: the active rail segment, the active beat's rule, the
+   aperture ring and focus outlines. All mono micro-copy is
+   --muted-foreground (L 0.46, ~7.5:1).
+   ============================================================ */
+
+:root { --header-h: 68px; }  /* matches Header.jsx height and .vs-shell padding-top */
+
+/* `width:100vw` includes the scrollbar and overflows the page by ~15px wherever
+   the scrollbar is not an overlay. `clip` trims the full-bleed without creating
+   a scroll container — `hidden` would silently kill both sticky columns. */
+.vs-shell { overflow-x: clip; }
+
+.vp-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.vp-skip { position: absolute; left: -9999px; }
+.vp-skip:focus {
+  position: static; display: inline-block; margin-bottom: 24px; padding: 10px 16px;
+  border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--card);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+}
+
+/* ---- Act II · El Pliego ------------------------------------------ */
+/* Ground is the home hero's own recipe: full-bleed white, 32px hairline grid,
+   border-block hairlines. NOTHING in this subtree may take overflow:hidden. */
+.vp-pliego {
+  position: relative;
+  background: var(--vp-white);
+  margin-inline: calc(50% - 50vw);
+  padding: 96px max(24px, calc(50vw - 640px)) 112px;
+  border-block: 1px solid var(--border);
+  --stage-w: min(640px, calc(100vh - 220px));
+  --beat-h: clamp(60vh, calc(88vh - (var(--n) - 2) * 6vh), 88vh);
+}
+.vp-pliego::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(to right,  color-mix(in oklab, var(--primary) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--primary) 5%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px; opacity: 0.55;
+  -webkit-mask-image: radial-gradient(120% 80% at 42% 40%, #000 50%, transparent 100%);
+          mask-image: radial-gradient(120% 80% at 42% 40%, #000 50%, transparent 100%);
+}
+
+.vp-pliego__head {
+  position: relative; z-index: 1; max-width: 1232px; margin: 0 auto 56px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+}
+.vp-pliego__head .vp-chromatogram { width: 220px; height: 88px; color: var(--border); flex: none; }
+
+.vp-pliego__grid {
+  position: relative; z-index: 1; max-width: 1232px; margin-inline: auto;
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: 72px; align-items: start;
+}
+
+/* Any ancestor that picks up overflow:hidden kills this pin. See .vs-shell. */
+.vp-pliego__stage { position: sticky; top: calc(var(--header-h) + 24px); }
+
+.vp-pliego__frame {
+  position: relative; width: 100%; max-width: var(--stage-w); margin-inline: auto;
+  aspect-ratio: 1 / 1; overflow: hidden; background-color: var(--vp-mist);
+  box-shadow: inset 0 0 0 1px var(--border);
+  transition: border-radius var(--dur-slow) var(--ease-smooth);
+}
+/* A gradient cannot transition to a colour, so --halo-teal cross-fades as its
+   own layer rather than living in `background`. */
+.vp-pliego__frame::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: var(--halo-teal); opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-smooth);
+}
+.vp-pliego__frame[data-mask='circle']         { border-radius: var(--radius-full); }
+.vp-pliego__frame[data-mask='circle']::before { opacity: 1; }
+.vp-pliego__frame[data-mask='sheet']          { border-radius: var(--radius-2xl); }
+
+.vp-pliego__layer {
+  position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%;
+  object-fit: cover; background-size: cover; background-position: center;
+  opacity: 0; transform: scale(1.04);
+  transition: opacity 520ms var(--ease-smooth), transform 700ms var(--ease-smooth);
+}
+.vp-pliego__layer[data-on='true'] { opacity: 1; transform: scale(1); }
+.vp-pliego__layer[data-on='true'], .vp-pliego__layer[data-prev='true'] { will-change: opacity, transform; }
+
+.vp-pliego__rail { display: flex; gap: 6px; width: 100%; max-width: 340px; margin: 24px auto 0; }
+.vp-pliego__tick {
+  position: relative; flex: 1; height: 28px; display: flex; align-items: flex-end;
+  justify-content: center; text-decoration: none;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em;
+  color: var(--muted-foreground); opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-smooth);
+}
+.vp-pliego__tick::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 2px;
+  background: var(--border); transition: background-color var(--dur-med) var(--ease-smooth);
+}
+.vp-pliego__tick[aria-current='true']::before { background: var(--secondary); }
+.vp-pliego__tick:hover, .vp-pliego__tick:focus-visible,
+.vp-pliego__tick[aria-current='true'] { opacity: 1; }
+.vp-pliego__tick:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+
+/* The copy is never dimmed: --muted-foreground on paper is ~7.5:1, and at 0.55
+   opacity it drops to ~3:1 — a fail on primary product information, exactly
+   when a slow reader is dwelling on it. The active cue is the rule and a 4px
+   translate, nothing else. */
+.vp-pliego__beat {
+  min-height: max(var(--beat-h), 320px);
+  display: flex; flex-direction: column; justify-content: center;
+  padding-left: 28px; border-left: 2px solid transparent;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+  transition: border-color var(--dur-med) var(--ease-smooth);
+}
+.vp-pliego__beat[data-on='true'] { border-left-color: var(--secondary); }
+.vp-pliego__beatInner { transform: translateX(-4px); transition: transform var(--dur-med) var(--ease-smooth); }
+.vp-pliego__beat[data-on='true'] .vp-pliego__beatInner { transform: translateX(0); }
+
+.vp-pliego__idx {
+  margin: 0; font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted-foreground);
+}
+.vp-pliego__title {
+  margin: 14px 0 0; font-family: var(--font-display); font-weight: 800;
+  text-transform: uppercase; letter-spacing: -0.025em; line-height: 1.02;
+  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+}
+.vp-pliego__title:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+.vp-pliego__body { margin: 18px 0 0; font-size: 16px; line-height: 1.65; color: var(--muted-foreground); max-width: 42ch; }
+.vp-pliego__data { margin: 28px 0 0; border-top: 1px solid var(--border); }
+.vp-pliego__data > div {
+  display: flex; justify-content: space-between; gap: 24px;
+  min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--border); align-items: center;
+}
+.vp-pliego__data dt {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted-foreground);
+}
+.vp-pliego__data dd { margin: 0; font-family: var(--font-mono); font-size: 13px; }
+.vp-pliego__disclose {
+  margin: 14px 0 0; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-foreground);
+}
+
+/* the tail beyond CAP — static, no interaction */
+.vp-pliego__sheet {
+  position: relative; z-index: 1; max-width: 1232px; margin: 88px auto 0;
+  border-top: 1px solid var(--border); padding-top: 40px;
+}
+.vp-pliego__sheetGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 32px; }
+.vp-pliego__sheetItem { margin: 0; }
+.vp-pliego__sheetItem img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  border-radius: var(--radius-2xl); background: var(--vp-mist);
+  box-shadow: inset 0 0 0 1px var(--border); display: block;
+}
+.vp-pliego__sheetItem figcaption {
+  margin-top: 10px; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-foreground);
+}
+
+/* ---- Barra de compra --------------------------------------------- */
+/* z-index 55 sits under the header (Header.jsx is fixed at zIndex 60). */
+.vp-barra {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
+  height: calc(72px + env(safe-area-inset-bottom));
+  padding: 0 24px env(safe-area-inset-bottom);
+  display: flex; align-items: center; gap: 16px;
+  background: color-mix(in oklab, var(--vp-paper) 92%, transparent);
+  backdrop-filter: blur(18px);
+  border-top: 1px solid var(--border); box-shadow: var(--shadow-elegant);
+  transform: translateY(100%); opacity: 0; visibility: hidden;
+  transition: transform var(--dur-med) var(--ease-smooth),
+              opacity var(--dur-med) var(--ease-smooth),
+              visibility 0s linear var(--dur-med);
+}
+.vp-barra[data-on='true'] { transform: translateY(0); opacity: 1; visibility: visible; transition-delay: 0s, 0s, 0s; }
+.vp-barra__thumb {
+  width: 40px; height: 40px; flex: none; border-radius: var(--radius-full);
+  overflow: hidden; background: var(--halo-teal); box-shadow: inset 0 0 0 1px var(--border);
+}
+.vp-barra__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vp-barra__name { flex: 1; min-width: 0; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vp-barra__qty {
+  display: inline-flex; align-items: center; height: 40px; flex: none;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--card);
+}
+.vp-barra__qty span { width: 32px; text-align: center; font-family: var(--font-mono); font-size: 14px; font-weight: 700; }
+
+/* ---- Act IV · El Anaquel ------------------------------------------ */
+.vp-anaquel {
+  position: relative; background: var(--vp-mist);
+  margin-inline: calc(50% - 50vw);
+  padding: 80px max(24px, calc(50vw - 640px)) 96px;
+  border-top: 1px solid var(--border); margin-top: 96px;
+}
+.vp-anaquel::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px; opacity: 0.35;
+}
+.vp-anaquel__in { position: relative; z-index: 1; max-width: 1232px; margin-inline: auto; }
+.vp-anaquel__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); flex-wrap: wrap;
+}
+.vp-anaquel__crit {
+  margin: 8px 0 0; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-foreground);
+}
+.vp-anaquel__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; margin-top: 40px; }
+.vp-anaquel__tile {
+  display: flex; flex-direction: column; min-width: 0;
+  border: 1px solid transparent; border-radius: var(--radius-2xl);
+  padding: 16px; background: var(--card);
+  transition: var(--transition-smooth);
+}
+a.vp-anaquel__tile:hover { border-color: var(--border); box-shadow: var(--shadow-card); }
+.vp-anaquel__tile[data-ref='true'] { border-color: var(--secondary); background: var(--vp-white); }
+
+/* Fixed row height makes the values line up horizontally across the shelf — but
+   only once the lists themselves start at the same y. Titles wrap to different
+   line counts and the reference tile carries an extra chip, so the rows are
+   pushed to the bottom of an equal-height tile instead of flowing after the
+   card. Both halves are needed; either alone leaves the readout ragged. */
+.vp-anaquel__dl { margin: 16px 0 0; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+.vp-anaquel__dl > div {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  height: 44px; border-bottom: 1px solid var(--border);
+}
+.vp-anaquel__dl dt {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted-foreground);
+}
+.vp-anaquel__dl dd {
+  margin: 0; font-family: var(--font-mono); font-size: 12px; text-align: right;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ---- responsive --------------------------------------------------- */
+@media (max-width: 1024px) {
+  .vp-pliego { padding: 72px 24px 88px; }
+  .vp-pliego__grid { grid-template-columns: 1fr; gap: 40px; }
+  .vp-pliego__stage { position: sticky; top: calc(var(--header-h) + 12px); }
+  .vp-pliego__frame { max-width: min(560px, 82vw); }
+  .vp-pliego__beat { min-height: 56vh; }
+  .vp-pliego__sheetGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vp-anaquel__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .vp-pliego { padding: 56px 16px 72px; }
+  .vp-pliego__head { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 32px; }
+  .vp-pliego__head .vp-chromatogram { width: 160px; height: 64px; }
+  .vp-pliego__frame { max-width: 100%; }
+  /* the rail lives inside the sticky stage, so on a phone it is always visible
+     and doubles as the length indicator — numbers show at all times here */
+  .vp-pliego__tick { opacity: 1; }
+  .vp-pliego__beat { min-height: 48vh; padding-left: 18px; }
+  .vp-pliego__sheetGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .vp-barra { gap: 12px; padding-inline: 16px; }
+  .vp-barra__thumb, .vp-barra__name { display: none; }
+  .vp-anaquel { padding: 64px 16px 80px; }
+  .vp-anaquel__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}

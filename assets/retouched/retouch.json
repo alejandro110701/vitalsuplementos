@@ -1,0 +1,65 @@
+{
+ "nad-mens": {
+  "src": "01.jpg",
+  "size": [
+   2000,
+   2000
+  ],
+  "rect": [
+   1340,
+   0,
+   2000,
+   330
+  ],
+  "paper": [
+   255,
+   255,
+   255
+  ],
+  "ink_pixels_removed": 35639,
+  "guard": 340,
+  "safe": true
+ },
+ "mentas-cafeina": {
+  "src": "01.png",
+  "size": [
+   2000,
+   2000
+  ],
+  "rect": [
+   1460,
+   0,
+   2000,
+   235
+  ],
+  "paper": [
+   255,
+   255,
+   255
+  ],
+  "ink_pixels_removed": 27796,
+  "guard": 243,
+  "safe": true
+ },
+ "serum-4en1": {
+  "src": "01.png",
+  "size": [
+   2000,
+   2000
+  ],
+  "rect": [
+   1460,
+   0,
+   2000,
+   250
+  ],
+  "paper": [
+   255,
+   255,
+   255
+  ],
+  "ink_pixels_removed": 28845,
+  "guard": 276,
+  "safe": true
+ }
+}

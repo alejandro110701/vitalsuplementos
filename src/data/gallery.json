@@ -1,0 +1,496 @@
+{
+ "holy-basil": [
+  {
+   "src": "/shop/gallery/holy-basil/01.webp",
+   "srcSmall": "/shop/gallery/holy-basil/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBQCdASoYABgAPt1kq0+opSOiKAqpEBuJZADGfA9rLvOeyxUr9T+7UJ8+lMTTEZLLAAD+9N+Q1TcZxGciwGJqbeHW4DSzEK+jXTw3j2/OZsSjUWtWy+w69WIkgYXCVYZdZOpgqFpevmr9VnWbQUTG4/ZUu3BgZkvYeQAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/holy-basil/02.webp",
+   "srcSmall": "/shop/gallery/holy-basil/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBQCdASoYABgAPtlgokyoJiMiMBgMAQAbCWUAxNgQ7/HT+Ge5WlARRVyaEM/vX/qJAAD+77Uhq/i0F/MHp7kGhVXvUGx9lOk7dYc8qBnde1m+xcqhRBEy4ac0RFTGufeZ23sAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Pico de barro verde oscuro sobre loseta mate, con una pasada extendida al lado."
+  },
+  {
+   "src": "/shop/gallery/holy-basil/03.webp",
+   "srcSmall": "/shop/gallery/holy-basil/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQBACdASoYABgAPt1kp06opaMiKA1REBuJZQDPoBEc6IVzM8Yf41THkLvxvVLEAAD+77S/iGCGXBmk99xGAGK20kDvO6EVSajbdqdMxzTQLi7juxboZWAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Pomo verde abierto con el barro al ras y el aplicador de silicona de doble extremo al frente."
+  }
+ ],
+ "tocobo-barra": [
+  {
+   "src": "/shop/gallery/tocobo-barra/01.webp",
+   "srcSmall": "/shop/gallery/tocobo-barra/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwBACdASoYABgAPtlaoUyoJSMiMAwBABsJZQDKACHfjRttbqDOJ3goSnMO4AD+9Nxp0L8PMbxhmKUNJUf3h49bsDmAkMp4BmFsg30AAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/tocobo-barra/02.webp",
+   "srcSmall": "/shop/gallery/tocobo-barra/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQBACdASoYABgAPt1kpU2opaMiKA1REBuJQBibCLv4fri4ZEg1GGpSLJyM3z9wAAD++Wlwfan2w8v6/Ft3Bs5pZWuwaShSQjfCbgwcdI1w9FptgGAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Barra destapada mostrando la cara de bálsamo azul menta girada unos milímetros hacia arriba."
+  },
+  {
+   "src": "/shop/gallery/tocobo-barra/03.webp",
+   "srcSmall": "/shop/gallery/tocobo-barra/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQBACdASoYABgAPt1qrVEopiQjqAgBEBuJZQAALnVQ7TXxen9SRXHwAAD+77zdWkUOAdChJGxskyhAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Pasada ancha de bálsamo azul blanquecino extendida sobre superficie mate."
+  }
+ ],
+ "creatina": [
+  {
+   "src": "/shop/gallery/creatina/01.webp",
+   "srcSmall": "/shop/gallery/creatina/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwBACdASoYABgAPtlYpUyoJSOiN/VYAQAbCWMAzcBFX7y/XK3L0Zv6STnyHdtpeUAA/vizSwmsZ4zfBcpsIETDcP1VR6rVpgxOB0CiRAV5JBVPD9johu0uoAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/creatina/02.webp",
+   "srcSmall": "/shop/gallery/creatina/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwBACdASoYABgAPtlSp0yoJCOiN/VYAQAbCWcAAC31rrcLowcDtgLeip6F8p7jtYAA/u02PsvggzrZKXh95ZBpSh5g3SqwZI00ntMZv/hzHAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Medida colmada de creatina en polvo cristalino blanco, con cristales sueltos al frente."
+  },
+  {
+   "src": "/shop/gallery/creatina/03.webp",
+   "srcSmall": "/shop/gallery/creatina/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBQCdASoYABgAPt1YqUyopSQiMBgMARAbiWcAyrQQ77nSZNkqoT4MuNz2x1Orqq2IAP7tQ2IPeD5nI7Ho/QVzFRUFonMfetWQYOa+AfMbIfkQAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Bote blanco abierto con la tapa al lado y el polvo al ras, con un hueco de medida."
+  }
+ ],
+ "medicube-colageno": [
+  {
+   "src": "/shop/gallery/medicube-colageno/01.webp",
+   "srcSmall": "/shop/gallery/medicube-colageno/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABwBACdASoYABgAPs1WoUynpSMiN/qoAPAZiUAZVoQtf0oZbzxWjzRqlGSMwAD+9hEDVb5iuKQb0oIbXnIKZ6CxsOXsG2feVzKpNcn8WlF/ugAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/medicube-colageno/02.webp",
+   "srcSmall": "/shop/gallery/medicube-colageno/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABwBACdASoYABgAPt1qrFEopiQiqAgBEBuJZQAALnWbs+S01c7uOH0gAGqoAAD+83FxDvPAfuOGV7LE2wZj5zgKioHIxJAAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Gota de gel perlado durazno sobre caja de Petri de vidrio, con dos gotas más al lado."
+  },
+  {
+   "src": "/shop/gallery/medicube-colageno/03.webp",
+   "srcSmall": "/shop/gallery/medicube-colageno/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoYABgAPtlcokyoJSMiMAwBABsJZgC06B6RA1fxHbRpkN8AJr2mmYAA/vTf18wmt/lvshnsxMIiQXM54t7xX3N0ywm+LQbpaVqe1llkZuY5lqm226oeueX0AAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  }
+ ],
+ "serum-anua": [
+  {
+   "src": "/shop/gallery/serum-anua/01.webp",
+   "srcSmall": "/shop/gallery/serum-anua/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQBACdASoYABgAPt1eqE2opSOiKA1REBuJagAALnWlB1uzHH02WhlM898EEAAA/vTRB/aZDQt0RDTS7GAN5EVOmByB3L5sPLFGp4JdTj56znxMMSmTA+OQQw4YQAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/serum-anua/02.webp",
+   "srcSmall": "/shop/gallery/serum-anua/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAwCdASoYABgAPt1ipU8opaMiKA1REBuJZwAALnWatzj/VQJQAAD+78LRwsLmUL/0V52PtfDBRlXF52viopuK4hvAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Pipeta de vidrio con una gota de serum transparente a punto de caer sobre un platillo."
+  },
+  {
+   "src": "/shop/gallery/serum-anua/03.webp",
+   "srcSmall": "/shop/gallery/serum-anua/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAwCdASoYABgAPtVao0yoJSMiMAwBABqJZwDKtDL+Rfz9FlhTvQgAAP7wM5Pp35edK+9Pc0dPF5iTE36LFDJjtXYkLhWRRIAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Extendido delgado de serum sobre mármol frío, con tres gotas pequeñas al lado."
+  }
+ ],
+ "nad-mens": [
+  {
+   "src": "/shop/gallery/nad-mens/01.webp",
+   "srcSmall": "/shop/gallery/nad-mens/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwBACdASoYABgAPs1UoUynpKMiN/qoAPAZiWUAAFu3EE7xlebeD/fOT8QQq1HgAP72CbLN21t+YM3KO8118MON3syLeFNAl2AEs+uwa/avW4OyO+b3sZurF077fAAAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/nad-mens/02.webp",
+   "srcSmall": "/shop/gallery/nad-mens/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwBACdASoYABgAPt1cqU4opKQiMBgIARAbiWcAAC51jXmF7ae6GNv3VAAA/u+08T4tLC6ixZfWNE41x/WeqtcbDeoBn1AAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Montón de cápsulas vegetales translúcidas con polvo claro, sobre superficie mate."
+  },
+  {
+   "src": "/shop/gallery/nad-mens/03.webp",
+   "srcSmall": "/shop/gallery/nad-mens/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQBQCdASoYABgAPtVWoUyoJKMiMAwBABqJYgDGfCHf4+nT+h7MDmpU7A3E6OaMgwMAAP7xw9+pSOJCV8DkuK+UTtW50bO30QRBz3rwxllAvaeCn05Mhb5cGajmHymcDtz8AA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Frasco ámbar destapado con la tapa negra al lado y cinco cápsulas en arco al frente."
+  }
+ ],
+ "joint-support": [
+  {
+   "src": "/shop/gallery/joint-support/01.webp",
+   "srcSmall": "/shop/gallery/joint-support/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwBACdASoYABgAPslSoEynpSMiN+gA8BkJQAARHRfb1n3M3JcWhq5rJ4AA/vYJbv1erndrvLHFn9J4A+OCPUOl+/LFOVb0vKsyBAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/joint-support/02.webp",
+   "srcSmall": "/shop/gallery/joint-support/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABwBACdASoYABgAPs1WokynpSMiN/qoAPAZiUAZmgQ7+CTjw9a/dWe3iuY2AAD+82lzyBmsrVBXXjx2s0yB0xj5/SQWflmBMNTE4qsDyPdVqgzkvkAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Siete cápsulas de gelatina color tabaco dispersas sobre superficie mate."
+  },
+  {
+   "src": "/shop/gallery/joint-support/03.webp",
+   "srcSmall": "/shop/gallery/joint-support/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoYABgAPt1cpkyopSOiMAgBEBuJZQDH5CHfiwWlpcEW8QAA/u/BvQgiFriDsSXGeB5+q05uwt98Yuy7PNxnHXvrcD0q7/Clt9HKqpswI47gAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Frasco PET transparente lleno de cápsulas color tabaco, en capas visibles a contraluz."
+  }
+ ],
+ "gel-salicilico": [
+  {
+   "src": "/shop/gallery/gel-salicilico/01.webp",
+   "srcSmall": "/shop/gallery/gel-salicilico/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQBACdASoYABgAPt1Wpk0opCOiMBgMARAbiWkAy2gPAMyjRbqVRlWnFydKlXLAAAD+6KCkh6xI39jxyT6NwG7s+rEWTeHIG3F/D8xv4gR4HUIa3Bgm2b7CJP/uqIM7AAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/gel-salicilico/02.webp",
+   "srcSmall": "/shop/gallery/gel-salicilico/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQBACdASoYABgAPtlYoUyoJSMiMAwBABsJZQDKACFTwbJ6zdVpQCQkXzgAAP7xz9tx9BucOy63A2gGvgWPOtHOQSLw1RCF35SipwG0cWt/44AA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Hilo grueso de gel transparente con microperlas cayendo de la boquilla y formando un rizo."
+  },
+  {
+   "src": "/shop/gallery/gel-salicilico/03.webp",
+   "srcSmall": "/shop/gallery/gel-salicilico/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAwCdASoYABgAPt1kq08opaQiKAqpEBuJZwDGuBiHzQAA/vA0jTJrK5XWC575AFwB52M3UE5Lgwr1SF/4VK1J+gA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Tubo blanco de pie sobre su tapa de bisagra, destapado, con una gota de gel al frente."
+  }
+ ],
+ "crema-chillab": [
+  {
+   "src": "/shop/gallery/crema-chillab/01.webp",
+   "srcSmall": "/shop/gallery/crema-chillab/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQBACdASoYABgAPt1gp0yopaOiMAgBEBuJYwDDNCHXYOwMMzy2I8zap3EmsGvcAAD+64rpz9aIyXIgLsWy/0zFm4k6jpW0hwbpl4yPRPahjFjN1INv+enewOqPi5i5n5Jx1iK1L58bUqroM5i4AAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/crema-chillab/02.webp",
+   "srcSmall": "/shop/gallery/crema-chillab/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwBACdASoYABgAPt1iqUyopiQiN/VYARAbiWcAALvrJ05JaysC/6MBSMAA/vHBlAO5wI+y85jcEPo4RGIyujS/qEkIcAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Porción de crema blanca opaca en pico suave sobre superficie mate."
+  },
+  {
+   "src": "/shop/gallery/crema-chillab/03.webp",
+   "srcSmall": "/shop/gallery/crema-chillab/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwBACdASoYABgAPtlSp0yoJCOiN/VYAQAbCUAZQA9rm2MUfo0ZihAy9AAA/v16VWmpOO0bSpyTZODDJ8J4enJprO5YJRmK5xIYePWGvshh/AAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Frasco de bomba lila mate con la sobretapa transparente al lado y una gota en la boquilla."
+  }
+ ],
+ "bloom-mango": [
+  {
+   "src": "/shop/gallery/bloom-mango/01.webp",
+   "srcSmall": "/shop/gallery/bloom-mango/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQBACdASoYABgAPt1gq08opSQiMBgIARAbiWIAtOg0b20ed5225cccxShGYAAA/vc3CWD0CU0Jq0D54Uxog37JDXxUNBnPDAHp8LZ9Wvre1tpI8XPuQxeBHVMSJNMqjRBtSn6ZoozLffYAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/bloom-mango/02.webp",
+   "srcSmall": "/shop/gallery/bloom-mango/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwBACdASoYABgAPt1srVEopiQiqAgBEBuJZQDNhBEci8jfOVmrZWqQn4kAAAD+78GQodMmeLBZ5V/pLvadbST85E/qRbl/1TfkXMKUqJhtS73D6JOYTAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Medida colmada de polvo verde profundo, con polvo espolvoreado al frente."
+  },
+  {
+   "src": "/shop/gallery/bloom-mango/03.webp",
+   "srcSmall": "/shop/gallery/bloom-mango/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwBACdASoYABgAPt1mrk+opaSiMBgIARAbiWcAAC51y+Fia774uuzsrZT+YK9keAAA/u+1vTOBK8u52rUty+qtYJbqO9oRmQHYDmaA4AAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Bote blanco abierto con tapa verde salvia al lado y el polvo verde con un hueco de medida."
+  }
+ ],
+ "mentas-cafeina": [
+  {
+   "src": "/shop/gallery/mentas-cafeina/01.webp",
+   "srcSmall": "/shop/gallery/mentas-cafeina/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoYABgAPt1YqUyopSQiMBgMARAbiWwAsQxcwYGsrAchLVwRO96z+x07QAD+9N5jxH8thMuhsv3hBlKQrD1vPWZX6Rp3Jmb1tRx8Uy744cbvoW9rTFVcL+i0Xoel+v3mKSShA7NIxZ9DLhQ1kr1mLARAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/mentas-cafeina/02.webp",
+   "srcSmall": "/shop/gallery/mentas-cafeina/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABwBACdASoYABgAPt1mrU+opaSiKAqpEBuJZwDJEBEc0dSqDOHn5BcciUSUAAD+6mqszYzEx1LP2Xb5JT4v+1HdKfFB/zubckbuXooxfenbGgUnkAAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Cinco cuadros de goma masticable blanca con motas, sueltos sobre superficie mate."
+  },
+  {
+   "src": "/shop/gallery/mentas-cafeina/03.webp",
+   "srcSmall": "/shop/gallery/mentas-cafeina/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQBACdASoYABgAPtVeo0yoJaMiN/qoAQAaiWwAvzgh3+PaKe9pdcjjoKyq051xAAD+8cuZebVzRATeeiWMhp3XWyW8OMIZliao+EXnlgT+opy6IXcAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Bolsa azul cielo abierta por el cierre, con cuatro gomas derramadas en arco al frente."
+  }
+ ],
+ "serum-4en1": [
+  {
+   "src": "/shop/gallery/serum-4en1/01.webp",
+   "srcSmall": "/shop/gallery/serum-4en1/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwBACdASoYABgAPt1epkyopSOiMAgBEBuJaADG9CHfwHcWwRSt/iZRORfAAAD+9Nvg1MMVNCTg1OfUTBLTOb95HNykt5kQC/MFYRkAmEkbAzp98moxAAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/serum-4en1/02.webp",
+   "srcSmall": "/shop/gallery/serum-4en1/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAABwAwCdASoYABgAPt1orFEopaQiqAgBEBuJZQAALnh9HbLJSAAA/ucpauxuBLtaLjRIZL4cEWKFtVNXztCAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Pipeta de vidrio con una gota de serum rosa pálido colgando de la punta."
+  },
+  {
+   "src": "/shop/gallery/serum-4en1/03.webp",
+   "srcSmall": "/shop/gallery/serum-4en1/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAwCdASoYABgAPt1kqFAopSOmqAqpEBuJZQDKtBI/+d33TSJJn0/AAP7hipqU0DsrGpvxsNLaRCUmH3y3t06CyMAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Mancha ovalada de serum rosa pálido extendida sobre superficie mate, con dos gotas al lado."
+  }
+ ],
+ "magnesio-180": [
+  {
+   "src": "/shop/gallery/magnesio-180/01.webp",
+   "srcSmall": "/shop/gallery/magnesio-180/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADQBACdASoYABgAPt1SpkyopCOiN/VYARAbiUAKYAHwQi3cIEsh0lQtx38q5oFaAAD++hWdSiwmvU7F4eVYsZdL3659c+N+dX8lKKDv/V8gJ2XCJ6znBS79QKVGVU/flnY81LhPUYHvRpT0r3JDeGNrDAAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/magnesio-180/02.webp",
+   "srcSmall": "/shop/gallery/magnesio-180/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABwBACdASoYABgAPt1ipk6opaMiKA1REBuJZwDO7BEYSPRvp6o1HNiesPRyAAD+35wxfk1OwGqIBf5EGqQhBSea6uDn8+eqHkb0qr7dn2vrSaYWpkAAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Seis cápsulas blancas de dos piezas dispersas sobre superficie mate."
+  },
+  {
+   "src": "/shop/gallery/magnesio-180/03.webp",
+   "srcSmall": "/shop/gallery/magnesio-180/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwBACdASoYABgAPt1cpEyopSOiMBgMARAbiWcAAC51xFJyaAaBEEVzvwv65ZamAP7vwr/fl0AObJKmzniTvj2I9fuEk/errnGl9Ey2BImKAOeXoTnIQG43W+L4nlikVt44AA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Frasco negro mate destapado con la tapa al lado y cuatro cápsulas blancas en línea."
+  }
+ ],
+ "glutation-gomas": [
+  {
+   "src": "/shop/gallery/glutation-gomas/01.webp",
+   "srcSmall": "/shop/gallery/glutation-gomas/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQBACdASoYABgAPtVaokyoJaMiN/VYAQAaiWQAvdAQ8CggNaLdbkhB1BG3UHaVAAD+9gmulOIStHDADmeeCMd2jdKNW95TO06e6xdS6DmFIAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/glutation-gomas/02.webp",
+   "srcSmall": "/shop/gallery/glutation-gomas/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQBACdASoYABgAPt1kqU4opaQiKA1REBuJbADLLBEcy/KevF8EJn/6ry+2fAAA/u+zdAHn+g/vVn+PXwp9Lo3B+L5/oy8x6gMtrAOxDT0KHh3YjDSbca8Qw7gAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Montón de siete gomas de pectina color coral con espolvoreado mate."
+  },
+  {
+   "src": "/shop/gallery/glutation-gomas/03.webp",
+   "srcSmall": "/shop/gallery/glutation-gomas/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwBACdASoYABgAPt1iqU2opiQiMBgIARAbiWYAyrQ0b+A7i5lsHvnxH4OTozAAAP7zaxt41gs1EbJj+g1wy/lQYRO78wShDWcP0gYH0giKtoE7yNrAi4AA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Frasco PET transparente lleno de gomas coral, en capas visibles a contraluz."
+  }
+ ],
+ "magnesio-cup": [
+  {
+   "src": "/shop/gallery/magnesio-cup/01.webp",
+   "srcSmall": "/shop/gallery/magnesio-cup/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwBACdASoYABgAPt1ap04opKOiMBgIARAbiWYAzcBpX+PpznPSCk1T5chodfXbwQAA/v4yUt5T/unj5WJHTvz2hQxJitt0xMxri0vixjTSUtbiLo+5vUr+5yC4mTalFeT0EwXESyyOf3OgAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/magnesio-cup/02.webp",
+   "srcSmall": "/shop/gallery/magnesio-cup/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoYABgAPtFQo0yoJKMiN/qoAQAaCWcAzuwwp3gDogwwJHD9AAD+8DOardwibDSwOthOzlj7k1CRyainHZfHlvNUzPb5ecAAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Cinco cápsulas vegetales blancas sobre superficie mate, una separada al frente."
+  },
+  {
+   "src": "/shop/gallery/magnesio-cup/03.webp",
+   "srcSmall": "/shop/gallery/magnesio-cup/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQBACdASoYABgAPt1kqU4opaQiMBgIARAbiWwAwNwQ8LyAEwd2h9dNQMcD1Z2LAAD+6oBFmb2yAreA8X+nQnIXuISu5bhWFeRtOb1hdYfM6mLuHX/kXsOHX14eMJPAAAA=",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Frasco ámbar cerrado con tapa blanca estriada y dos cápsulas blancas junto a la base."
+  }
+ ],
+ "parches-ojeras": [
+  {
+   "src": "/shop/gallery/parches-ojeras/01.webp",
+   "srcSmall": "/shop/gallery/parches-ojeras/01-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQBACdASoYABgAPsVOnkynpCKiN+gA8BiJQBj8hkoN9Cwu0JRyJPYRS2sqesAA/vcBnWBrpaAHQuQb45sBbH4qj91kpBvpoYbr7Br0I5rZfHphBFI+utXmleDcd71Zn7AAAA==",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  },
+  {
+   "src": "/shop/gallery/parches-ojeras/02.webp",
+   "srcSmall": "/shop/gallery/parches-ojeras/02-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwBACdASoYABgAPt1aqEyopSQiMBgMARAbiWgAv+w0b8OiED8wvcSwHO3rYeSxrgAA/vTQhS/uxQtv/tO82Eh/izeKK+vg/IIwz44n+/yr/4hG9bLJ1nwseipyxU13yQqMPEAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "GENERATED",
+   "ok": true,
+   "alt": "Dos parches de hidrogel azul verdoso, uno levantado con pinzas de acero."
+  },
+  {
+   "src": "/shop/gallery/parches-ojeras/03.webp",
+   "srcSmall": "/shop/gallery/parches-ojeras/03-sm.webp",
+   "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBQCdASoYABgAPt1irU8opaSiKAqpEBuJYgCdMySzGCURHPLLwW9nO54z3i47w+CUAAAA/u3qqhMEORNkX2Dj3on3oZ4RhiAk0tQNp9pT+1vBpJibWWs6gzMVL2Z10fNglfXFOTMTLL4X5WGMVn+nsPUG1fBBTR+xJ3GuN12WsniqtD0RbCTeYrzbVWVIjCVGtQwlo6IJiKb6UCW1AAAA",
+   "w": 1400,
+   "h": 1400,
+   "kind": "PACKSHOT",
+   "ok": true
+  }
+ ]
+}

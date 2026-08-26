@@ -1,7 +1,6 @@
 // Catalogue transcribed from the "Vital Suplementos" design canvas.
 // `w` is the world (sup = suplementos, skin = skincare); `goals` drives the
 // objective filter; `best` orders the "más pedidos" rail on the home page.
-// `noImg` products fall back to the magnesio-cup photo — see `productImage`.
 export const PRODUCTS = [
   {
     slug: 'serum-anua',
@@ -140,7 +139,6 @@ export const PRODUCTS = [
     price: 649,
     was: 0,
     spec: '180 cáps',
-    noImg: true,
     claim: 'Tres formas de magnesio en un solo frasco de 180 cápsulas.',
     bullets: ['Citrato, glicinato y óxido de magnesio', '180 cápsulas · hasta 90 días', 'Frasco de vidrio ámbar'],
     uso: '2 cápsulas al día con la cena.'
@@ -250,7 +248,7 @@ export function findProduct(slug) {
 }
 
 export function productImage(p) {
-  return p.noImg ? '/shop/magnesio-cup.png' : `/shop/${p.slug}.png`;
+  return `/shop/${p.slug}.png`;
 }
 
 export function worldLabel(w) {
@@ -259,4 +257,37 @@ export function worldLabel(w) {
 
 export function sku(p) {
   return 'VS-' + p.slug.slice(0, 3).toUpperCase() + '-' + String(p.price).slice(0, 3);
+}
+
+/** The sub-type after the "·" in the kicker — "Serum", "Cápsulas", "Mascarilla". */
+export function productForm(p) {
+  return (p.kicker.split(' · ')[1] || '').trim();
+}
+
+/**
+ * Rank the rest of the catalogue against one product for the "Va bien con" panel.
+ *
+ * Shared objective dominates — someone reading the creatina page is far more
+ * likely to want another energía product than another powder. Same world and
+ * same form are next, and price proximity only breaks ties, so the panel never
+ * degenerates into "here are the four cheapest things".
+ */
+export function relatedProducts(cur, n = 4) {
+  const scored = PRODUCTS.filter((p) => p.slug !== cur.slug).map((p) => {
+    const sharedGoals = p.goals.filter((g) => cur.goals.includes(g)).length;
+    const priceGap = Math.abs(p.price - cur.price) / Math.max(p.price, cur.price);
+
+    const score =
+      sharedGoals * 40 +
+      (p.w === cur.w ? 25 : 0) +
+      (productForm(p) === productForm(cur) ? 12 : 0) +
+      (1 - priceGap) * 10 +
+      (p.was ? 4 : 0) +
+      (p.best ? 3 : 0);
+
+    return { p, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score || a.p.slug.localeCompare(b.p.slug));
+  return scored.slice(0, n).map((s) => s.p);
 }

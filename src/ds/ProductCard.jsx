@@ -27,9 +27,13 @@ export default function ProductCard({
   const savePct = onSale ? Math.round((1 - price / compareAt) * 100) : 0;
   const fmt = (n) => '$' + Number(n).toLocaleString('es-MX', { minimumFractionDigits: 0 });
 
+  // `href` belongs to an anchor only — as a Link it would fight `to`, and on a
+  // div it is an invalid attribute.
+  const hrefProp = Comp === 'a' ? { href } : {};
+
   return (
     <Comp
-      href={href}
+      {...hrefProp}
       className={`vp-product-card ${className}`}
       style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit', ...style }}
       {...props}

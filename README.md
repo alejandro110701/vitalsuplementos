@@ -66,3 +66,38 @@ public/shop/         product photography, 1000×1000 tiles
 - Fixed desktop grids from the artboards are kept at their design values and collapse at
   1024px / 720px, which the fixed-width canvas could not express.
 - `magnesio-180` has no photo of its own and falls back to the magnesio-cup tile, as in the design.
+
+## Product gallery
+
+Each product page scrolls through three photographs on a sticky stage — the
+circle mask of the catalogue tile opens into a sheet at the second beat, and
+closes again if you scroll back. The mechanism is one `IntersectionObserver`
+plus CSS `position: sticky`: no scroll listener, no `rAF`, no scroll-snap.
+
+### Where the photographs came from
+
+The supplier shipped 73 images per `~/Desktop/dropi-favoritos/por-producto`.
+A vision triage pass kept **18**. The other 55 were marketing banners with
+baked-in headlines and efficacy claims, importer logo bugs, or saturated
+collateral that fights the palette — none of them publishable on a storefront
+whose promise is "criterio, no promesas".
+
+Of the survivors, five needed a crop to clear a `HYPER MODA` importer mark, and
+four heroes were recovered by retouch (`scripts/` and `assets/retouched/`):
+three had the mark on flat white, and `serum-anua` needed its bottle knocked
+out of a magenta gel sphere.
+
+The remaining **30 frames were generated** — label-free macros of the raw
+format and context shots, on the brand's own off-white teal-haloed field.
+
+**A generated frame never opens a gallery.** Beat 1 is always a real
+photograph of the real pack, because the brand quotes what is printed on the
+label, and a generated label is an invented claim. Generated frames carry no
+type at all, for the same reason.
+
+```bash
+python3 scripts/compose-gallery.py   # rebuilds public/shop/gallery + src/data/gallery.json
+```
+
+`src/lib/gallery.js` holds the copy ladder — every beat states what the product
+IS, CONTAINS, or how it SHIPS. No rung describes an effect.
