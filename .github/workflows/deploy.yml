@@ -54,9 +54,12 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       # The name is the contract with WordPress.com. Do not rename it.
+      # include-hidden-files is required: the SPA rewrite ships as .htaccess,
+      # and upload-artifact silently drops dotfiles without it.
       - name: Upload the artifact
         uses: actions/upload-artifact@v4
         with:
           name: wpcom
           path: dist
+          include-hidden-files: true
           if-no-files-found: error
