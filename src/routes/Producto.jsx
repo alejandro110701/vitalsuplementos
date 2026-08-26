@@ -114,7 +114,11 @@ export default function Producto() {
                 fetchpriority="high"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
-              <span style={{ position: 'absolute', left: 24, top: 24 }}>
+              {/* Percentages, not a fixed 24px inset: the parent is a circle
+                  with overflow hidden, so a corner offset lands outside the arc
+                  and the border-radius cuts the chip in half. At 19%/16% the
+                  chip stays on the packshot at every circle size. */}
+              <span style={{ position: 'absolute', left: '19%', top: '16%' }}>
                 <Chip variant="outline">{cur.spec}</Chip>
               </span>
             </div>
