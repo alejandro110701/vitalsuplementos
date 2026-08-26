@@ -16,7 +16,7 @@ import base64, io, json, os
 SRC = os.path.expanduser('~/Desktop/dropi-favoritos/por-producto')
 GEN = 'assets/generated'
 RET = 'assets/retouched'
-OUT = 'public/shop/gallery'
+OUT = 'public/packshots/gallery'
 MANIFEST = 'src/data/gallery.json'
 LARGE, SMALL, LQIP = 1400, 700, 24
 
@@ -158,8 +158,8 @@ for slug, beats in PLAN.items():
         sq.resize((SMALL, SMALL), Image.LANCZOS).save(sm_p, 'WEBP', quality=80, method=6)
         out_bytes += os.path.getsize(big_p) + os.path.getsize(sm_p)
         entries.append({
-            'src': f'/shop/gallery/{slug}/{stem}.webp',
-            'srcSmall': f'/shop/gallery/{slug}/{stem}-sm.webp',
+            'src': f'/packshots/gallery/{slug}/{stem}.webp',
+            'srcSmall': f'/packshots/gallery/{slug}/{stem}-sm.webp',
             'lqip': lqip(sq),
             'w': LARGE, 'h': LARGE,
             'kind': 'GENERATED' if source == 'gen' else 'PACKSHOT',

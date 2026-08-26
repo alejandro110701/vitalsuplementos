@@ -15,7 +15,7 @@ from PIL import Image
 
 TIERS = (320, 640, 1000)
 QUALITY = 82
-SRC = pathlib.Path(__file__).resolve().parent.parent / 'public' / 'shop'
+SRC = pathlib.Path(__file__).resolve().parent.parent / 'public' / 'packshots'
 
 def main():
     masters = sorted(SRC.glob('*.png'))

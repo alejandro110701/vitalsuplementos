@@ -6,7 +6,7 @@
  * it refuses data URIs with "No URL Provided" — so this needs the photos
  * reachable on the web. Point IMAGE_BASE at wherever they are served from:
  *
- *   IMAGE_BASE=https://raw.githubusercontent.com/<owner>/<repo>/main/public/shop \
+ *   IMAGE_BASE=https://raw.githubusercontent.com/<owner>/<repo>/main/public/packshots \
  *   WOO_URL=... WOO_KEY=ck_... WOO_SECRET=cs_... \
  *   node scripts/attach-woo-images.mjs [--dry]
  *

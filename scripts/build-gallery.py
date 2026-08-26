@@ -11,7 +11,7 @@ from PIL import Image, ImageFilter
 import base64, io, json, os, sys
 
 SRC = os.path.expanduser('~/Desktop/dropi-favoritos/por-producto')
-OUT = 'public/shop/gallery'
+OUT = 'public/packshots/gallery'
 MANIFEST = 'src/data/gallery.json'
 
 # Dropi folder prefix -> storefront slug
@@ -78,8 +78,8 @@ for folder in sorted(os.listdir(SRC)):
 
         totals['bytes_out'] += os.path.getsize(big_p) + os.path.getsize(sm_p)
         entries.append({
-            'src': f'/shop/gallery/{slug}/{stem}.webp',
-            'srcSmall': f'/shop/gallery/{slug}/{stem}-sm.webp',
+            'src': f'/packshots/gallery/{slug}/{stem}.webp',
+            'srcSmall': f'/packshots/gallery/{slug}/{stem}-sm.webp',
             'lqip': lqip(sq),
             'w': LARGE, 'h': LARGE,
         })

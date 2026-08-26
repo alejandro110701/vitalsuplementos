@@ -20,11 +20,16 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Must match the destination directory configured on WordPress.com. Use "/"
-  # only if the app really is deployed to the site root — on an Atomic site a
-  # static index.html there is served ahead of WordPress and would shadow the
-  # shop. A subdirectory such as /tienda/ keeps the two apart.
-  BASE_PATH: /tienda/
+  # "./" rather than a fixed path: every asset URL becomes relative to the
+  # document, so the same artifact works whether WordPress.com is configured to
+  # deploy it to the site root or to a subdirectory. Changing that setting can
+  # then never leave the site pointing at asset URLs that do not exist.
+  # This is safe only because the app routes through the URL fragment — the
+  # document path never changes, so relative URLs always resolve.
+  #
+  # Note the packshots live in public/packshots, not public/shop: deployed to
+  # the root, a real /shop/ directory would shadow the WooCommerce shop page.
+  BASE_PATH: ./
 
 jobs:
   build:
