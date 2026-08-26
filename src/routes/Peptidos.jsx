@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { PEPTIDES_URL } from '../config.js';
 import { Button, Chromatogram, Eyebrow } from '../ds/index.js';
+import { useTitle } from '../lib/useTitle.js';
 
 const FACTS = [
   {
@@ -18,6 +19,7 @@ const FACTS = [
 ];
 
 export default function Peptidos() {
+  useTitle('Péptidos');
   const navigate = useNavigate();
 
   return (

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Chromatogram, Eyebrow, ManifestoBand, ProductCard, StatBlock } from '../ds/index.js';
 import { GOALS, LISTED, findProduct, productImage, productSrcSet } from '../data/products.js';
+import { useTitle } from '../lib/useTitle.js';
 
 const HERO_TILES = ['serum-anua', 'creatina', 'glutation-gomas', 'tocobo-barra', 'mentas-cafeina'];
 
@@ -116,6 +117,7 @@ function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark
 }
 
 export default function Home() {
+  useTitle(null);
   const navigate = useNavigate();
   const best = LISTED.filter((p) => p.best).sort((a, b) => a.best - b.best);
 

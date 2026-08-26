@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button, Eyebrow } from '../ds/index.js';
+import { useTitle } from '../lib/useTitle.js';
 
 const PILLARS = [
   { n: '01', title: 'Etiqueta legible', copy: 'Si no podemos decir cuánto activo trae una porción, no lo vendemos.' },
@@ -8,6 +9,7 @@ const PILLARS = [
 ];
 
 export default function Nosotros() {
+  useTitle('Nosotros');
   const navigate = useNavigate();
 
   return (

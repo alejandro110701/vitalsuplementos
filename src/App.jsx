@@ -14,7 +14,13 @@ export default function App() {
   return (
     <div className="vs-shell">
       <ScrollToTop />
+      {/* First tab stop on every page: six header links stood between a keyboard
+          or screen-reader user and the actual content. */}
+      <a className="vs-skip" href="#contenido">
+        Saltar al contenido
+      </a>
       <Header />
+      <main id="contenido" tabIndex={-1}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tienda" element={<Tienda />} />
@@ -25,6 +31,7 @@ export default function App() {
         <Route path="/peptidos" element={<Peptidos />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </main>
       <Footer />
     </div>
   );

@@ -564,3 +564,22 @@ a.vp-anaquel__tile:hover { border-color: var(--border); box-shadow: var(--shadow
   }
   .vs-header__nav::-webkit-scrollbar { display: none; }
 }
+
+/* Visible only once focused, and above the sticky header when it is. */
+.vs-skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  transform: translateY(-200%);
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: var(--foreground);
+  color: var(--background);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.vs-skip:focus-visible { transform: none; outline: 2px solid var(--background); outline-offset: 2px; }
+main:focus { outline: none; }

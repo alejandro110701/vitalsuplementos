@@ -7,6 +7,7 @@ import { Button, Chip } from '../ds/index.js';
 import { findProduct, productImage, productSrcSet, sku, worldLabel } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
 import { money, packTiersEnabled, packs, unitPrice } from '../lib/format.js';
+import { useTitle } from '../lib/useTitle.js';
 
 const metaLabel = {
   margin: 0,
@@ -27,6 +28,7 @@ export default function Producto() {
   const [added, setAdded] = useState(false);
   // Out of stock and dropped-from-the-sync are both unbuyable: an unlisted
   // product's price is the stale catalogue guess, not what the shop charges.
+  useTitle(cur ? cur.n : null);
   const buyable = cur.listed !== false && cur.inStock !== false;
   const [barra, setBarra] = useState(false);
 

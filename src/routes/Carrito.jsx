@@ -3,8 +3,10 @@ import { Button, Eyebrow } from '../ds/index.js';
 import { productImage, productSrcSet } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/format.js';
+import { useTitle } from '../lib/useTitle.js';
 
 export default function Carrito() {
+  useTitle('Tu pedido');
   const navigate = useNavigate();
   const { lines, count, subtotal, shipping, total, bump, drop } = useCart();
 

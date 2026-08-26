@@ -5,6 +5,7 @@ import { productImage, productSrcSet } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/format.js';
 import { handOffToShop } from '../lib/handoff.js';
+import { useTitle } from '../lib/useTitle.js';
 
 const ERROR_COPY = {
   'productos-no-disponibles':
@@ -27,6 +28,7 @@ const labelRow = {
  * exists. This page confirms what is being bought and hands the cart over.
  */
 export default function Checkout() {
+  useTitle('Checkout');
   const { lines, count, subtotal } = useCart();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);

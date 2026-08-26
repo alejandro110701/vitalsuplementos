@@ -2,6 +2,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Button, Eyebrow, ProductCard } from '../ds/index.js';
 import { GOALS, LISTED, productImage, productSrcSet } from '../data/products.js';
 import { norm } from '../lib/format.js';
+import { useTitle } from '../lib/useTitle.js';
 
 const WORLDS = [
   { id: 'todo', label: 'Todo' },
@@ -29,6 +30,7 @@ const chipBase = {
 };
 
 export default function Tienda() {
+  useTitle('Tienda');
   const [params, setParams] = useSearchParams();
   const world = params.get('mundo') || 'todo';
   const goal = params.get('objetivo') || 'todo';
