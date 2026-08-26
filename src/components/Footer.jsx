@@ -26,7 +26,7 @@ export default function Footer() {
             </span>
           </div>
           <p style={{ margin: '18px 0 0', maxWidth: 320, fontSize: 13, lineHeight: 1.7, color: 'var(--muted-foreground)' }}>
-            Importación directa de suplementos y skincare. Envíos a todo México con pago contra entrega.
+            Importación directa de suplementos y skincare. Envíos a todo México.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export default function Footer() {
         <div>
           <p style={colTitle}>Compra</p>
           <div style={{ ...colList, color: 'var(--muted-foreground)' }}>
-            <span>Pago contra entrega</span>
+            <span>Pago al confirmar</span>
             <span>Envío 2–5 días</span>
             <span>Reposición por daño</span>
           </div>

@@ -20,7 +20,6 @@ function readStoredCart() {
 export function CartProvider({ children }) {
   // Cart shape: { "<slug>|<pack>": { slug, pack, n } } — `n` counts packs, not pieces.
   const [cart, setCart] = useState(readStoredCart);
-  const [order, setOrder] = useState(null);
 
   useEffect(() => {
     try {
@@ -80,8 +79,8 @@ export function CartProvider({ children }) {
   const shipping = lines.length ? SHIPPING_COST : 0;
 
   const value = useMemo(
-    () => ({ lines, count, subtotal, shipping, total: subtotal + shipping, add, bump, drop, clear, order, setOrder }),
-    [lines, count, subtotal, shipping, add, bump, drop, clear, order]
+    () => ({ lines, count, subtotal, shipping, total: subtotal + shipping, add, bump, drop, clear }),
+    [lines, count, subtotal, shipping, add, bump, drop, clear]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
