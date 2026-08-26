@@ -68,8 +68,18 @@ function description(p) {
     `<p>${p.uso}</p>`,
     '<h3>Presentación</h3>',
     `<p>${p.spec} · ${worldLabel(p.w)}</p>`,
-    '<p><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>'
+    legend(p)
   ].join('\n');
+}
+
+/**
+ * Half the catalogue is cosmetic. The Mexican supplement legend is required for
+ * what it covers and simply wrong for a 75 ml night mask — it has no "consumo".
+ */
+function legend(p) {
+  return p.w === 'skin'
+    ? '<p><strong>Producto cosmético de uso externo. No es medicamento.</strong> Evita el contacto con los ojos y suspende su uso si aparece irritación. Este sitio no ofrece diagnóstico ni tratamiento.</p>'
+    : '<p><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>';
 }
 
 let changed = 0;

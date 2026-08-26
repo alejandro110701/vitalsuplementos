@@ -128,10 +128,14 @@ export const PRODUCTS = [
     goals: ['energia', 'peso'],
     price: 259,
     was: 0,
-    spec: '50 mentas',
-    claim: '40 mg de cafeína por menta, sin azúcar añadida.',
-    bullets: ['40 mg de cafeína por pieza', 'Sin azúcar, endulzadas con xilitol', 'Lata de bolsillo, 50 piezas'],
-    uso: '1 menta cuando la necesites. Máximo 4 al día.'
+    spec: '90 piezas',
+    claim: '40 mg de cafeína natural y 60 mg de L-teanina por pieza, sin azúcar.',
+    bullets: [
+      '40 mg de cafeína natural y 60 mg de L-teanina por pieza',
+      'Con vitaminas B6 y B12, sin azúcar y sin aspartame',
+      'Bolsa resellable de 90 piezas, sabor menta'
+    ],
+    uso: '1 pieza cuando la necesites. Máximo 4 al día.'
   },
   {
     slug: 'magnesio-180',
@@ -161,29 +165,37 @@ export const PRODUCTS = [
   },
   {
     slug: 'holy-basil',
-    n: 'Mascarilla Facial Holy Basil',
+    n: 'Mascarilla Holy Basil Bubble Deep',
     kicker: 'Skincare · Mascarilla',
     w: 'skin',
     goals: ['piel'],
     price: 349,
     was: 499,
-    spec: '1 pieza',
-    claim: 'Mascarilla de tela con extracto de albahaca sagrada, para piel reactiva.',
-    bullets: ['Extracto de holy basil y pantenol', 'Tela de celulosa, ajuste completo', 'Uso puntual: 15 a 20 minutos'],
-    uso: 'Sobre rostro limpio, dejar 15–20 minutos y retirar. No enjuagar.'
+    spec: '90 g',
+    claim: 'Mascarilla de burbujas con albahaca sagrada y PHA, para limpieza profunda.',
+    bullets: [
+      'Holy basil con PHA, el exfoliante más suave de los ácidos',
+      'Pomo de 90 g, incluye espátula aplicadora',
+      'Se enjuaga: no es mascarilla de tela'
+    ],
+    uso: 'Aplica una capa fina sobre rostro limpio con la espátula, deja que burbujee y enjuaga con agua tibia.'
   },
   {
     slug: 'medicube-colageno',
-    n: 'Mascarilla Medicube de Colágeno',
+    n: 'Mascarilla de Noche Medicube Colágeno',
     kicker: 'Skincare · Mascarilla',
     w: 'skin',
     goals: ['piel'],
     price: 429,
     was: 0,
-    spec: '1 pieza',
-    claim: 'Mascarilla facial con colágeno, en formato de un solo uso.',
-    bullets: ['Colágeno hidrolizado y ácido hialurónico', 'Formato individual, sellado', 'Coreano original'],
-    uso: 'Aplicar 20 minutos por la noche, dos veces por semana.'
+    spec: '75 ml',
+    claim: 'Mascarilla de noche con colágeno, niacinamida y ceramida NP, en tubo de 75 ml.',
+    bullets: [
+      'Extracto de colágeno con niacinamida y ceramida NP',
+      'Tubo de 75 ml: rinde muchas aplicaciones, no es de un solo uso',
+      'Coreano original, se queda puesta toda la noche'
+    ],
+    uso: 'Aplica una capa como último paso de la rutina de noche y déjala puesta hasta la mañana.'
   },
   {
     slug: 'tocobo-barra',
