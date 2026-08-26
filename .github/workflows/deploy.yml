@@ -54,8 +54,10 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       # The name is the contract with WordPress.com. Do not rename it.
-      # include-hidden-files is required: the SPA rewrite ships as .htaccess,
-      # and upload-artifact silently drops dotfiles without it.
+      # include-hidden-files is kept because upload-artifact silently drops
+      # dotfiles, and a build that gains one should not lose it quietly.
+      # (The SPA no longer ships an .htaccess: Atomic ignores mod_rewrite
+      # overrides, so the client router uses the URL fragment instead.)
       - name: Upload the artifact
         uses: actions/upload-artifact@v4
         with:
