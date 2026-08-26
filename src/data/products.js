@@ -278,8 +278,13 @@ export function findProduct(slug) {
   return PRODUCTS.find((p) => p.slug === slug) || PRODUCTS[0];
 }
 
+/**
+ * Vite rewrites asset URLs inside the bundle to match `base`, but not string
+ * literals like this one — so the base is applied by hand. Without it every
+ * product image 404s the moment the app is served from a subdirectory.
+ */
 export function productImage(p) {
-  return `/shop/${p.slug}.png`;
+  return `${import.meta.env.BASE_URL}shop/${p.slug}.png`;
 }
 
 export function worldLabel(w) {

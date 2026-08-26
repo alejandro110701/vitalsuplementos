@@ -8,8 +8,15 @@ import { sku, worldLabel } from '../data/products.js';
  */
 export const CAP = 5;
 
+/** gallery.json stores root-relative paths; rebase them onto the deploy base. */
+const rebase = (im) => ({
+  ...im,
+  src: import.meta.env.BASE_URL + im.src.replace(/^\//, ''),
+  srcSmall: import.meta.env.BASE_URL + im.srcSmall.replace(/^\//, '')
+});
+
 export function galleryFor(product) {
-  const ok = (GALLERY[product.slug] || []).filter((im) => im.ok !== false);
+  const ok = (GALLERY[product.slug] || []).filter((im) => im.ok !== false).map(rebase);
   return { beats: ok.slice(0, CAP), sheet: ok.slice(CAP), n: Math.min(ok.length, CAP) };
 }
 

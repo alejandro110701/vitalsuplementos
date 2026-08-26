@@ -220,7 +220,7 @@ export default function Home() {
           kicker="Mundo uno"
           title="Suplementos"
           copy="Magnesio, creatina, colágeno, NAD+. Dosis por porción impresa, sin mezclas propietarias."
-          image="/shop/creatina.png"
+          image={productImage(findProduct('creatina'))}
           imageAlt="Creatina monohidratada"
           dark
         />
@@ -229,7 +229,7 @@ export default function Home() {
           kicker="Mundo dos"
           title="Skincare"
           copy="Activos con porcentaje declarado: niacinamida 10, salicílico, SPF en barra, hidrogel."
-          image="/shop/serum-anua.png"
+          image={productImage(findProduct('serum-anua'))}
           imageAlt="Serum de niacinamida"
         />
       </section>
