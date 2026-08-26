@@ -5,15 +5,11 @@ import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PRODUCTS, GOALS } from '../src/data/products.js';
-import { PACK_DISCOUNT } from '../src/config.js';
+import { packTiersEnabled, packs } from '../src/lib/format.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
-const TIERS = [
-  { k: 1, label: '1 pieza', off: 0 },
-  { k: 2, label: '2 piezas', off: PACK_DISCOUNT },
-  { k: 3, label: '3 piezas', off: PACK_DISCOUNT + 6 }
-];
+const TIERS = packs();
 
 const goalLabel = (id) => GOALS.find((g) => g.id === id)?.label ?? id;
 const worldCat = (w) => (w === 'sup' ? 'Suplementos' : 'Skincare');
@@ -52,7 +48,7 @@ for (const p of PRODUCTS) {
 
   // Parent (variable) product
   rows.push({
-    Type: 'variable',
+    Type: packTiersEnabled ? 'variable' : 'simple',
     SKU: p.sku ?? `VS-${p.slug.slice(0, 3).toUpperCase()}-${String(p.price).slice(0, 3)}`,
     Name: p.n,
     Published: 1,
@@ -62,23 +58,23 @@ for (const p of PRODUCTS) {
     Description: description,
     'In stock?': 1,
     'Backorders allowed?': 0,
-    'Regular price': '',
-    'Sale price': '',
+    'Regular price': packTiersEnabled ? '' : (p.was || p.price),
+    'Sale price': packTiersEnabled ? '' : (p.was ? p.price : ''),
     Categories: cats,
     Tags: tags,
     Images: img(p),
     Parent: '',
     Position: p.best ?? 0,
-    'Attribute 1 name': 'Paquete',
-    'Attribute 1 value(s)': TIERS.map((t) => t.label).join(', '),
-    'Attribute 1 visible': 1,
-    'Attribute 1 global': 1,
-    'Attribute 1 default': '1 pieza'
+    'Attribute 1 name': packTiersEnabled ? 'Paquete' : '',
+    'Attribute 1 value(s)': packTiersEnabled ? TIERS.map((t) => t.label).join(', ') : '',
+    'Attribute 1 visible': packTiersEnabled ? 1 : '',
+    'Attribute 1 global': packTiersEnabled ? 1 : '',
+    'Attribute 1 default': packTiersEnabled ? '1 pieza' : ''
   });
 
-  // One variation per pack tier
+  // One variation per pack tier — only when the shop actually prices them
   const parentSku = rows[rows.length - 1].SKU;
-  for (const t of TIERS) {
+  for (const t of packTiersEnabled ? TIERS : []) {
     const listUnit = p.was || p.price;
     const regular = listUnit * t.k;
     const sale = Math.round(p.price * (1 - t.off / 100)) * t.k;
@@ -112,7 +108,10 @@ for (const p of PRODUCTS) {
 const csv = [COLUMNS.join(','), ...rows.map((r) => COLUMNS.map((c) => esc(r[c])).join(','))].join('\n') + '\n';
 writeFileSync(join(here, 'productos-woocommerce.csv'), csv, 'utf8');
 
+const simple = rows.filter((r) => r.Type === 'simple').length;
+const variable = rows.filter((r) => r.Type === 'variable').length;
+const variations = rows.filter((r) => r.Type === 'variation').length;
 console.log(
   `${PRODUCTS.length} products -> ${rows.length} rows ` +
-  `(${rows.filter((r) => r.Type === 'variable').length} variable + ${rows.filter((r) => r.Type === 'variation').length} variations)`
+  (packTiersEnabled ? `(${variable} variable + ${variations} variations)` : `(${simple} simple, mirroring the live shop)`)
 );

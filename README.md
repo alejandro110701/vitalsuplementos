@@ -54,7 +54,7 @@ public/shop/         product photography, 1000×1000 tiles
 | Constant | Default | Effect |
 | --- | --- | --- |
 | `SHIPPING_COST` | `149` | Flat MXN shipping, charged once per non-empty order |
-| `PACK_DISCOUNT` | `12` | Per-piece discount on the 2-pack; the 3-pack adds 6 points |
+| `PACK_DISCOUNT` | `0` | Per-piece discount on the 2-pack; the 3-pack adds 6 points. Zero while the shop sells simple products — see below |
 | `COD_ONLY` | `true` | When false, checkout also offers SPEI transfer |
 | `PEPTIDES_URL` | `https://vitalpeptides.app` | Target of the peptides gateway |
 
@@ -114,7 +114,10 @@ npm run sync:woo    # re-pull price + stock from the live shop
 
 The shop is the only place a customer can actually pay, so its price always
 wins — advertising a number the shop will not honour is the failure mode worth
-designing against. Everything editorial stays curated in `src/data/products.js`:
+designing against. That is also why `PACK_DISCOUNT` is `0`: the live products
+are *simple*, with no pack variations and no sale prices, so the pack picker is
+hidden and every quantity costs exactly the shop price. Add variations in
+WooCommerce, set `PACK_DISCOUNT` to match, and the picker comes back. Everything editorial stays curated in `src/data/products.js`:
 names, claims, bullets, dosing, objectives. The imported products carry the
 supplier's own titles, and some of those make claims this brand does not.
 

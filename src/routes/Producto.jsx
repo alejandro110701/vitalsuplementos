@@ -6,7 +6,7 @@ import Pliego from '../components/Pliego.jsx';
 import { Button, Chip } from '../ds/index.js';
 import { findProduct, productImage, sku, worldLabel } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
-import { money, packs, unitPrice } from '../lib/format.js';
+import { money, packTiersEnabled, packs, unitPrice } from '../lib/format.js';
 
 const metaLabel = {
   margin: 0,
@@ -158,10 +158,15 @@ export default function Producto() {
               ))}
             </ul>
 
-            <p style={{ margin: '36px 0 12px', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--muted-foreground)' }}>
-              Paquete
-            </p>
-            <div className="vs-pack-grid">
+            {/* Hidden while the shop sells these as simple products: with no
+                multi-pack price the three tiers are the same number, and the
+                quantity stepper below already covers buying more than one. */}
+            {packTiersEnabled && (
+              <>
+                <p style={{ margin: '36px 0 12px', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--muted-foreground)' }}>
+                  Paquete
+                </p>
+                <div className="vs-pack-grid">
               {packMeta.map((f) => {
                 const active = pack === f.k;
                 return (
@@ -194,7 +199,9 @@ export default function Producto() {
                   </button>
                 );
               })}
-            </div>
+                </div>
+              </>
+            )}
 
             {/* the sentinel wraps the controls, never the Button itself */}
             <div ref={ctaRef} style={{ display: 'flex', gap: 12, marginTop: 28, alignItems: 'center' }}>

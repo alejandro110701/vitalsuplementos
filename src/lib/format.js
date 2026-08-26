@@ -12,13 +12,16 @@ export function norm(s) {
     .replace(/[\u0300-\u036f]/g, '');
 }
 
+/** True only while the shop actually offers a multi-pack price. */
+export const packTiersEnabled = PACK_DISCOUNT > 0;
+
 /** The three pack tiers. Buying more drops the per-piece price. */
 export function packs() {
   const d = PACK_DISCOUNT;
   return [
     { k: 1, label: '1 pieza', off: 0, note: 'Precio de lista' },
     { k: 2, label: '2 piezas', off: d, note: 'Para dos meses' },
-    { k: 3, label: '3 piezas', off: d + 6, note: 'El mejor precio' }
+    { k: 3, label: '3 piezas', off: d ? d + 6 : 0, note: 'El mejor precio' }
   ];
 }
 
