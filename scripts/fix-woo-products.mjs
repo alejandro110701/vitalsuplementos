@@ -17,11 +17,17 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PRODUCTS, findProduct, worldLabel } from '../src/data/products.js';
+import { PRODUCTS, worldLabel } from '../src/data/products.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const { WOO_URL, WOO_KEY, WOO_SECRET } = process.env;
 const DRY = process.argv.includes('--dry');
+// WooCommerce sideloads images from an http(s) URL only — it rejects data URIs
+// with "No URL Provided" — so images are uploaded separately to the media
+// library and attached by id via --image-map.
+const NO_IMAGES = process.argv.includes('--no-images');
+const MAP_ARG = process.argv.find((a) => a.startsWith('--image-map='));
+const IMAGE_MAP = MAP_ARG ? JSON.parse(readFileSync(MAP_ARG.split('=')[1], 'utf8')) : {};
 
 if (!WOO_URL || !WOO_KEY || !WOO_SECRET) {
   console.error('Set WOO_URL, WOO_KEY and WOO_SECRET in the environment.');
@@ -40,11 +46,12 @@ async function woo(path, init = {}) {
   return body;
 }
 
-/** The product photo we ship, inlined so WooCommerce sideloads it. */
-function heroDataUri(slug) {
-  const buf = readFileSync(join(here, '..', 'public', 'shop', `${slug}.png`));
-  return 'data:image/png;base64,' + buf.toString('base64');
-}
+/*
+ * NOTE: do not put a <style> tag in a product description. The REST product
+ * endpoint strips the tag but keeps its text, so the whole stylesheet renders
+ * as visible copy on the product page. Pages accept style blocks; products do
+ * not. The design is carried by the page-level blocks instead.
+ */
 
 /**
  * The supplier descriptions make claims this brand refuses. This rebuilds each
@@ -77,12 +84,13 @@ for (const p of PRODUCTS) {
   const payload = {
     name: p.n,
     description: description(p),
-    short_description: `<p>${p.claim}</p>`,
-    images: [{ src: heroDataUri(p.slug), name: p.n, alt: p.n }]
+    short_description: `<p>${p.claim}</p>`
   };
+  const mediaId = IMAGE_MAP[p.slug];
+  if (!NO_IMAGES && mediaId) payload.images = [{ id: mediaId, name: p.n, alt: p.n }];
 
   if (DRY) {
-    console.log(`  ${p.slug.padEnd(18)} would set name="${p.n}" + description + 1 image`);
+    console.log(`  ${p.slug.padEnd(18)} would set name="${p.n}"${payload.images ? ' + image ' + payload.images[0].id : ''}`);
     changed++;
     continue;
   }

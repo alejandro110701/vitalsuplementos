@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "sync:woo": "node scripts/sync-woo.mjs",
-    "fix:woo": "node scripts/fix-woo-products.mjs"
+    "fix:woo": "node scripts/fix-woo-products.mjs",
+    "attach:images": "node scripts/attach-woo-images.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

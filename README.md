@@ -168,3 +168,35 @@ npm run fix:woo            # add --dry to preview
 Credentials come from the environment and are never written into the repo. It
 does not touch price or stock: the shop stays the source of truth for money, and
 this only fixes what the supplier import got wrong.
+
+### Fixing the product images
+
+Every product was imported with a zero-byte image file, so the whole shop showed
+broken images. WooCommerce sideloads a photo from any public `http(s)` URL — it
+rejects data URIs with *"No URL Provided"* — so the photos have to be reachable
+on the web first:
+
+```bash
+IMAGE_BASE=https://raw.githubusercontent.com/alejandro110701/vitalsuplementos/main/public/shop \
+WOO_URL=https://vitalsuplementos.com.mx WOO_KEY=ck_... WOO_SECRET=cs_... \
+npm run attach:images       # --dry to preview
+```
+
+That URL only resolves while the repository is public. The alternative is
+uploading each file through the WordPress media API, which needs it base64
+encoded in the request — workable, but one round trip per image.
+
+The script HEADs each URL first and skips anything unreachable, so a bad base
+cannot write another broken reference.
+
+## Styling WordPress
+
+`wordpress/vs-design.css` carries the design system for the WordPress site:
+tokens, Space Grotesk headings, circle-masked product tiles on the teal halo,
+mono pricing, cart and checkout.
+
+It is injected as a `<style>` block into the pages, because WordPress.com
+rejects CSS uploads to the media library and the block theme's templates are not
+reachable through any available API. **Do not put it in a product description** —
+the REST product endpoint strips the tag but keeps its text, so the entire
+stylesheet renders as visible copy on the product page.
