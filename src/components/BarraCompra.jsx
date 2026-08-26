@@ -10,11 +10,11 @@ import { money } from '../lib/format.js';
  * shopper configured up top is exactly what this adds. Rendered last in the DOM
  * so keyboard users reach the in-page control first.
  */
-export default function BarraCompra({ product, image, unit, pack, qty, onInc, onDec, onAdd, added, show }) {
+export default function BarraCompra({ product, image, imageSrcSet, unit, pack, qty, onInc, onDec, onAdd, added, show }) {
   return (
     <div className="vp-barra" data-on={show ? 'true' : 'false'} aria-hidden={show ? undefined : 'true'}>
       <div className="vp-barra__thumb">
-        <img src={image} alt="" width={1000} height={1000} loading="lazy" decoding="async" />
+        <img src={image} srcSet={imageSrcSet} sizes="52px" alt="" width={1000} height={1000} loading="lazy" decoding="async" />
       </div>
       <span className="vp-barra__name">{product.n}</span>
 

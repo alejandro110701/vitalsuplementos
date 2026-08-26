@@ -4,7 +4,7 @@ import Anaquel from '../components/Anaquel.jsx';
 import BarraCompra from '../components/BarraCompra.jsx';
 import Pliego from '../components/Pliego.jsx';
 import { Button, Chip } from '../ds/index.js';
-import { findProduct, productImage, sku, worldLabel } from '../data/products.js';
+import { findProduct, productImage, productSrcSet, sku, worldLabel } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
 import { money, packTiersEnabled, packs, unitPrice } from '../lib/format.js';
 
@@ -106,6 +106,8 @@ export default function Producto() {
             >
               <img
                 src={productImage(cur)}
+                srcSet={productSrcSet(cur)}
+                sizes="(max-width: 900px) 78vw, 520px"
                 alt={cur.n}
                 width={1000}
                 height={1000}
@@ -303,6 +305,7 @@ export default function Producto() {
       <BarraCompra
         product={cur}
         image={productImage(cur)}
+        imageSrcSet={productSrcSet(cur)}
         unit={unit}
         pack={pack}
         qty={qty}

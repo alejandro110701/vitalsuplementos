@@ -289,6 +289,17 @@ export function productImage(p) {
   return `${import.meta.env.BASE_URL}shop/${p.slug}.png`;
 }
 
+/* Tiers emitted by scripts/build-packshots.py. The masters are 1000px squares
+   but nothing renders one wider than 280 CSS px, so the browser almost always
+   takes the 320 or 640 tier — the shop grid drops from 4.7 MB to under 100 KB.
+   The PNG stays as `src`, so a browser without webp still gets a picture. */
+const PACKSHOT_TIERS = [320, 640, 1000];
+
+export function productSrcSet(p) {
+  const base = `${import.meta.env.BASE_URL}shop/${p.slug}`;
+  return PACKSHOT_TIERS.map((t) => `${base}-${t}.webp ${t}w`).join(', ');
+}
+
 export function worldLabel(w) {
   return w === 'sup' ? 'Suplementos' : 'Skincare';
 }

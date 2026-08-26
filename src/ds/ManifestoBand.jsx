@@ -6,6 +6,8 @@
 export default function ManifestoBand({
   image,
   imageAlt = '',
+  imageSrcSet,
+  imageSizes = '100vw',
   kicker,
   headline,
   sub,
@@ -33,6 +35,8 @@ export default function ManifestoBand({
         {image && (
           <img
             src={image}
+            srcSet={imageSrcSet}
+            sizes={imageSrcSet ? imageSizes : undefined}
             alt={imageAlt}
             loading="lazy"
             style={{

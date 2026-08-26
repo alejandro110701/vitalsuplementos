@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Chromatogram, Eyebrow, ManifestoBand, ProductCard, StatBlock } from '../ds/index.js';
-import { GOALS, PRODUCTS, findProduct, productImage } from '../data/products.js';
+import { GOALS, PRODUCTS, findProduct, productImage, productSrcSet } from '../data/products.js';
 
 const HERO_TILES = ['serum-anua', 'creatina', 'glutation-gomas', 'tocobo-barra', 'mentas-cafeina'];
 
@@ -14,7 +14,7 @@ const sectionH2 = {
   letterSpacing: '-0.025em'
 };
 
-function WorldCard({ to, kicker, title, copy, image, imageAlt, dark }) {
+function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark }) {
   return (
     <Link
       to={to}
@@ -97,6 +97,8 @@ function WorldCard({ to, kicker, title, copy, image, imageAlt, dark }) {
         >
           <img
             src={image}
+            srcSet={imageSrcSet}
+            sizes="172px"
             alt={imageAlt}
             width={1000}
             height={1000}
@@ -190,6 +192,8 @@ export default function Home() {
                   >
                     <img
                       src={productImage(p)}
+                      srcSet={productSrcSet(p)}
+                      sizes="48px"
                       alt={p.n}
                       width={1000}
                       height={1000}
@@ -237,6 +241,7 @@ export default function Home() {
           title="Suplementos"
           copy="Magnesio, creatina, colágeno, NAD+. Dosis por porción impresa, sin mezclas propietarias."
           image={productImage(findProduct('creatina'))}
+          imageSrcSet={productSrcSet(findProduct('creatina'))}
           imageAlt="Creatina monohidratada"
           dark
         />
@@ -246,6 +251,7 @@ export default function Home() {
           title="Skincare"
           copy="Activos con porcentaje declarado: niacinamida 10, salicílico, SPF en barra, hidrogel."
           image={productImage(findProduct('serum-anua'))}
+          imageSrcSet={productSrcSet(findProduct('serum-anua'))}
           imageAlt="Serum de niacinamida"
         />
       </section>
@@ -279,6 +285,7 @@ export default function Home() {
               to={`/producto/${p.slug}`}
               title={p.n}
               image={productImage(p)}
+              imageSrcSet={productSrcSet(p)}
               imageAlt={p.n}
               price={p.price}
               compareAt={p.was || null}

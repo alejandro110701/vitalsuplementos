@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Chip, Eyebrow, ProductCard } from '../ds/index.js';
-import { GOALS, productImage, relatedProducts, sku, worldLabel } from '../data/products.js';
+import { GOALS, productImage, productSrcSet, relatedProducts, sku, worldLabel } from '../data/products.js';
 
 /**
  * El Anaquel — the shelf.
@@ -70,6 +70,7 @@ export default function Anaquel({ current }) {
               as="div"
               title={current.n}
               image={productImage(current)}
+              imageSrcSet={productSrcSet(current)}
               imageAlt={current.n}
               price={current.price}
               compareAt={current.was || null}
@@ -90,6 +91,7 @@ export default function Anaquel({ current }) {
                 as="div"
                 title={p.n}
                 image={productImage(p)}
+                imageSrcSet={productSrcSet(p)}
                 imageAlt={p.n}
                 price={p.price}
                 compareAt={p.was || null}

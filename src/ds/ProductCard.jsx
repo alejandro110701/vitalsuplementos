@@ -10,6 +10,9 @@ export default function ProductCard({
   title,
   image,
   imageAlt,
+  imageSrcSet,
+  // Grid tiles measure 154 CSS px on a phone and 280 on a desktop.
+  imageSizes = '(max-width: 720px) 45vw, 288px',
   price,
   compareAt,
   currency = 'MXN',
@@ -68,6 +71,8 @@ export default function ProductCard({
           {image && (
             <img
               src={image}
+              srcSet={imageSrcSet}
+              sizes={imageSrcSet ? imageSizes : undefined}
               alt={imageAlt || title}
               width={1000}
               height={1000}

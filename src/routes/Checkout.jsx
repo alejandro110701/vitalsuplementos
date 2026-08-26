@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { COD_ONLY } from '../config.js';
 import { Button, Eyebrow } from '../ds/index.js';
-import { productImage } from '../data/products.js';
+import { productImage, productSrcSet } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/format.js';
 
@@ -206,7 +206,7 @@ export default function Checkout() {
           {lines.map((l) => (
             <div key={l.key} style={{ display: 'flex', gap: 14, alignItems: 'center', padding: '12px 0', borderBottom: '1px solid var(--border)' }}>
               <div style={{ width: 44, height: 44, borderRadius: 999, overflow: 'hidden', background: 'var(--halo-teal)', boxShadow: 'inset 0 0 0 1px var(--border)', flex: 'none' }}>
-                <img src={productImage(l.p)} alt="" width={1000} height={1000} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={productImage(l.p)} srcSet={productSrcSet(l.p)} sizes="72px" alt="" width={1000} height={1000} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ margin: 0, fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1.35 }}>

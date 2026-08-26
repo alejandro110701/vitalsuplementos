@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { Button, Eyebrow, ProductCard } from '../ds/index.js';
-import { GOALS, PRODUCTS, productImage } from '../data/products.js';
+import { GOALS, PRODUCTS, productImage, productSrcSet } from '../data/products.js';
 import { norm } from '../lib/format.js';
 
 const WORLDS = [
@@ -143,6 +143,7 @@ export default function Tienda() {
               to={`/producto/${p.slug}`}
               title={p.n}
               image={productImage(p)}
+              imageSrcSet={productSrcSet(p)}
               imageAlt={p.n}
               price={p.price}
               compareAt={p.was || null}

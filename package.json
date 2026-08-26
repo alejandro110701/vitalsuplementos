@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "sync:woo": "node scripts/sync-woo.mjs",
     "fix:woo": "node scripts/fix-woo-products.mjs",
-    "attach:images": "node scripts/attach-woo-images.mjs"
+    "attach:images": "node scripts/attach-woo-images.mjs",
+    "build:packshots": "python3 scripts/build-packshots.py"
   },
   "dependencies": {
     "react": "^18.3.1",

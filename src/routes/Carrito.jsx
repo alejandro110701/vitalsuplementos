@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Eyebrow } from '../ds/index.js';
-import { productImage } from '../data/products.js';
+import { productImage, productSrcSet } from '../data/products.js';
 import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/format.js';
 
@@ -51,7 +51,7 @@ export default function Carrito() {
                     display: 'block'
                   }}
                 >
-                  <img src={productImage(l.p)} alt={l.p.n} width={1000} height={1000} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={productImage(l.p)} srcSet={productSrcSet(l.p)} sizes="72px" alt={l.p.n} width={1000} height={1000} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </Link>
 
                 <div>

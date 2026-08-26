@@ -1,4 +1,6 @@
 /* VitalPeptides webfonts — the three brand families, all free on Google Fonts.
    Space Grotesk = display/headings · Inter = body/UI · JetBrains Mono = captions/data.
-   Consumers get these automatically by linking styles.css. */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+   Loaded from index.html rather than @import: an @import inside a stylesheet
+   cannot start fetching until that stylesheet has itself parsed, which put the
+   faces three round-trips deep. index.html preconnects and links them directly. */
