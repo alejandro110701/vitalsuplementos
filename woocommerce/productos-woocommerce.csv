@@ -10,10 +10,10 @@ variable,VS-SER-499,Serum Anua Niacinamida 10 + TXA 4,1,1,visible,"<p>Niacinamid
 <h3>Presentación</h3>
 <p>30 ml</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,serum-anua.png,,1,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-SER-499-P1,Serum Anua Niacinamida 10 + TXA 4 — 1 pieza,1,0,visible,,,1,0,749,499,,,,VS-SER-499,1,Paquete,1 pieza,1,1,
-variation,VS-SER-499-P2,Serum Anua Niacinamida 10 + TXA 4 — 2 piezas,1,0,visible,,,1,0,1498,878,,,,VS-SER-499,2,Paquete,2 piezas,1,1,
-variation,VS-SER-499-P3,Serum Anua Niacinamida 10 + TXA 4 — 3 piezas,1,0,visible,,,1,0,2247,1227,,,,VS-SER-499,3,Paquete,3 piezas,1,1,
-variable,VS-GLU-749,Glutatión Pro en Gomas,1,1,visible,"<p>300 mg de glutatión con aminoácidos y colágeno, en goma de pectina de fruta.</p>","<p>300 mg de glutatión con aminoácidos y colágeno, en goma de pectina de fruta.</p>
+variation,VS-SER-499-P1,Serum Anua Niacinamida 10 + TXA 4 — 1 pieza,1,0,visible,,,1,0,499,,,,,VS-SER-499,1,Paquete,1 pieza,1,1,
+variation,VS-SER-499-P2,Serum Anua Niacinamida 10 + TXA 4 — 2 piezas,1,0,visible,,,1,0,998,878,,,,VS-SER-499,2,Paquete,2 piezas,1,1,
+variation,VS-SER-499-P3,Serum Anua Niacinamida 10 + TXA 4 — 3 piezas,1,0,visible,,,1,0,1497,1227,,,,VS-SER-499,3,Paquete,3 piezas,1,1,
+variable,VS-GLU-599,Glutatión Pro en Gomas,1,1,visible,"<p>300 mg de glutatión con aminoácidos y colágeno, en goma de pectina de fruta.</p>","<p>300 mg de glutatión con aminoácidos y colágeno, en goma de pectina de fruta.</p>
 <ul>
 <li>300 mg glutatión · 100 mg aminoácidos · 50 mg colágeno</li>
 <li>Base de pectina, sin gelatina animal</li>
@@ -24,10 +24,10 @@ variable,VS-GLU-749,Glutatión Pro en Gomas,1,1,visible,"<p>300 mg de glutatión
 <h3>Presentación</h3>
 <p>60 gomas</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Piel",Piel,glutation-gomas.png,,2,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-GLU-749-P1,Glutatión Pro en Gomas — 1 pieza,1,0,visible,,,1,0,999,749,,,,VS-GLU-749,1,Paquete,1 pieza,1,1,
-variation,VS-GLU-749-P2,Glutatión Pro en Gomas — 2 piezas,1,0,visible,,,1,0,1998,1318,,,,VS-GLU-749,2,Paquete,2 piezas,1,1,
-variation,VS-GLU-749-P3,Glutatión Pro en Gomas — 3 piezas,1,0,visible,,,1,0,2997,1842,,,,VS-GLU-749,3,Paquete,3 piezas,1,1,
-variable,VS-CRE-599,Creatina Monohidratada Dropi Cup,1,1,visible,"<p>Creatina monohidratada sin sabor, un solo ingrediente por porción.</p>","<p>Creatina monohidratada sin sabor, un solo ingrediente por porción.</p>
+variation,VS-GLU-599-P1,Glutatión Pro en Gomas — 1 pieza,1,0,visible,,,1,0,599,,,,,VS-GLU-599,1,Paquete,1 pieza,1,1,
+variation,VS-GLU-599-P2,Glutatión Pro en Gomas — 2 piezas,1,0,visible,,,1,0,1198,1054,,,,VS-GLU-599,2,Paquete,2 piezas,1,1,
+variation,VS-GLU-599-P3,Glutatión Pro en Gomas — 3 piezas,1,0,visible,,,1,0,1797,1473,,,,VS-GLU-599,3,Paquete,3 piezas,1,1,
+variable,VS-CRE-350,Creatina Monohidratada Dropi Cup,1,1,visible,"<p>Creatina monohidratada sin sabor, un solo ingrediente por porción.</p>","<p>Creatina monohidratada sin sabor, un solo ingrediente por porción.</p>
 <ul>
 <li>5 g de creatina monohidratada por medida</li>
 <li>Sin sabor: se mezcla en agua, jugo o batido</li>
@@ -38,10 +38,10 @@ variable,VS-CRE-599,Creatina Monohidratada Dropi Cup,1,1,visible,"<p>Creatina mo
 <h3>Presentación</h3>
 <p>300 g</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Energía, Suplementos > Peso","Energía, Peso",creatina.png,,3,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-CRE-599-P1,Creatina Monohidratada Dropi Cup — 1 pieza,1,0,visible,,,1,0,599,,,,,VS-CRE-599,1,Paquete,1 pieza,1,1,
-variation,VS-CRE-599-P2,Creatina Monohidratada Dropi Cup — 2 piezas,1,0,visible,,,1,0,1198,1054,,,,VS-CRE-599,2,Paquete,2 piezas,1,1,
-variation,VS-CRE-599-P3,Creatina Monohidratada Dropi Cup — 3 piezas,1,0,visible,,,1,0,1797,1473,,,,VS-CRE-599,3,Paquete,3 piezas,1,1,
-variable,VS-NAD-109,NAD+ Men’s Complex Selerb,1,1,visible,"<p>Complejo con precursores de NAD+ formulado para hombres, en cápsula vegetal.</p>","<p>Complejo con precursores de NAD+ formulado para hombres, en cápsula vegetal.</p>
+variation,VS-CRE-350-P1,Creatina Monohidratada Dropi Cup — 1 pieza,1,0,visible,,,1,0,350,,,,,VS-CRE-350,1,Paquete,1 pieza,1,1,
+variation,VS-CRE-350-P2,Creatina Monohidratada Dropi Cup — 2 piezas,1,0,visible,,,1,0,700,616,,,,VS-CRE-350,2,Paquete,2 piezas,1,1,
+variation,VS-CRE-350-P3,Creatina Monohidratada Dropi Cup — 3 piezas,1,0,visible,,,1,0,1050,861,,,,VS-CRE-350,3,Paquete,3 piezas,1,1,
+variable,VS-NAD-799,NAD+ Men’s Complex Selerb,1,1,visible,"<p>Complejo con precursores de NAD+ formulado para hombres, en cápsula vegetal.</p>","<p>Complejo con precursores de NAD+ formulado para hombres, en cápsula vegetal.</p>
 <ul>
 <li>60 cápsulas · 30 días de toma</li>
 <li>Fórmula con zinc, vitaminas del grupo B y extractos</li>
@@ -52,10 +52,10 @@ variable,VS-NAD-109,NAD+ Men’s Complex Selerb,1,1,visible,"<p>Complejo con pre
 <h3>Presentación</h3>
 <p>60 cáps</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Energía",Energía,nad-mens.png,,4,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-NAD-109-P1,NAD+ Men’s Complex Selerb — 1 pieza,1,0,visible,,,1,0,1499,1099,,,,VS-NAD-109,1,Paquete,1 pieza,1,1,
-variation,VS-NAD-109-P2,NAD+ Men’s Complex Selerb — 2 piezas,1,0,visible,,,1,0,2998,1934,,,,VS-NAD-109,2,Paquete,2 piezas,1,1,
-variation,VS-NAD-109-P3,NAD+ Men’s Complex Selerb — 3 piezas,1,0,visible,,,1,0,4497,2703,,,,VS-NAD-109,3,Paquete,3 piezas,1,1,
-variable,VS-MAG-479,Cápsulas de Magnesio Dropi Cup,1,0,visible,"<p>Magnesio en cápsula, formato diario para acompañar la cena.</p>","<p>Magnesio en cápsula, formato diario para acompañar la cena.</p>
+variation,VS-NAD-799-P1,NAD+ Men’s Complex Selerb — 1 pieza,1,0,visible,,,1,0,799,,,,,VS-NAD-799,1,Paquete,1 pieza,1,1,
+variation,VS-NAD-799-P2,NAD+ Men’s Complex Selerb — 2 piezas,1,0,visible,,,1,0,1598,1406,,,,VS-NAD-799,2,Paquete,2 piezas,1,1,
+variation,VS-NAD-799-P3,NAD+ Men’s Complex Selerb — 3 piezas,1,0,visible,,,1,0,2397,1965,,,,VS-NAD-799,3,Paquete,3 piezas,1,1,
+variable,VS-MAG-150,Cápsulas de Magnesio Dropi Cup,1,0,visible,"<p>Magnesio en cápsula, formato diario para acompañar la cena.</p>","<p>Magnesio en cápsula, formato diario para acompañar la cena.</p>
 <ul>
 <li>120 cápsulas por frasco</li>
 <li>Formato pequeño, fácil de tragar</li>
@@ -66,10 +66,10 @@ variable,VS-MAG-479,Cápsulas de Magnesio Dropi Cup,1,0,visible,"<p>Magnesio en 
 <h3>Presentación</h3>
 <p>120 cáps</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Movilidad",Movilidad,magnesio-cup.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-MAG-479-P1,Cápsulas de Magnesio Dropi Cup — 1 pieza,1,0,visible,,,1,0,479,,,,,VS-MAG-479,1,Paquete,1 pieza,1,1,
-variation,VS-MAG-479-P2,Cápsulas de Magnesio Dropi Cup — 2 piezas,1,0,visible,,,1,0,958,844,,,,VS-MAG-479,2,Paquete,2 piezas,1,1,
-variation,VS-MAG-479-P3,Cápsulas de Magnesio Dropi Cup — 3 piezas,1,0,visible,,,1,0,1437,1179,,,,VS-MAG-479,3,Paquete,3 piezas,1,1,
-variable,VS-JOI-699,Joint Support Windboss,1,0,visible,"<p>Glucosamina, condroitina y MSM en una sola cápsula.</p>","<p>Glucosamina, condroitina y MSM en una sola cápsula.</p>
+variation,VS-MAG-150-P1,Cápsulas de Magnesio Dropi Cup — 1 pieza,1,0,visible,,,1,0,150,,,,,VS-MAG-150,1,Paquete,1 pieza,1,1,
+variation,VS-MAG-150-P2,Cápsulas de Magnesio Dropi Cup — 2 piezas,1,0,visible,,,1,0,300,264,,,,VS-MAG-150,2,Paquete,2 piezas,1,1,
+variation,VS-MAG-150-P3,Cápsulas de Magnesio Dropi Cup — 3 piezas,1,0,visible,,,1,0,450,369,,,,VS-MAG-150,3,Paquete,3 piezas,1,1,
+variable,VS-JOI-599,Joint Support Windboss,1,0,visible,"<p>Glucosamina, condroitina y MSM en una sola cápsula.</p>","<p>Glucosamina, condroitina y MSM en una sola cápsula.</p>
 <ul>
 <li>Glucosamina + condroitina + MSM</li>
 <li>60 cápsulas · 30 días</li>
@@ -80,10 +80,10 @@ variable,VS-JOI-699,Joint Support Windboss,1,0,visible,"<p>Glucosamina, condroit
 <h3>Presentación</h3>
 <p>60 cáps</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Movilidad",Movilidad,joint-support.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-JOI-699-P1,Joint Support Windboss — 1 pieza,1,0,visible,,,1,0,699,,,,,VS-JOI-699,1,Paquete,1 pieza,1,1,
-variation,VS-JOI-699-P2,Joint Support Windboss — 2 piezas,1,0,visible,,,1,0,1398,1230,,,,VS-JOI-699,2,Paquete,2 piezas,1,1,
-variation,VS-JOI-699-P3,Joint Support Windboss — 3 piezas,1,0,visible,,,1,0,2097,1719,,,,VS-JOI-699,3,Paquete,3 piezas,1,1,
-variable,VS-BLO-899,Bloom Greens Mango,1,0,visible,"<p>Mezcla de verdes en polvo sabor mango, con probióticos y enzimas digestivas.</p>","<p>Mezcla de verdes en polvo sabor mango, con probióticos y enzimas digestivas.</p>
+variation,VS-JOI-599-P1,Joint Support Windboss — 1 pieza,1,0,visible,,,1,0,599,,,,,VS-JOI-599,1,Paquete,1 pieza,1,1,
+variation,VS-JOI-599-P2,Joint Support Windboss — 2 piezas,1,0,visible,,,1,0,1198,1054,,,,VS-JOI-599,2,Paquete,2 piezas,1,1,
+variation,VS-JOI-599-P3,Joint Support Windboss — 3 piezas,1,0,visible,,,1,0,1797,1473,,,,VS-JOI-599,3,Paquete,3 piezas,1,1,
+variable,VS-BLO-699,Bloom Greens Mango,1,0,visible,"<p>Mezcla de verdes en polvo sabor mango, con probióticos y enzimas digestivas.</p>","<p>Mezcla de verdes en polvo sabor mango, con probióticos y enzimas digestivas.</p>
 <ul>
 <li>30 porciones por bote</li>
 <li>Sabor mango, se disuelve en agua fría</li>
@@ -94,10 +94,10 @@ variable,VS-BLO-899,Bloom Greens Mango,1,0,visible,"<p>Mezcla de verdes en polvo
 <h3>Presentación</h3>
 <p>225 g</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Energía, Suplementos > Peso","Energía, Peso",bloom-mango.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-BLO-899-P1,Bloom Greens Mango — 1 pieza,1,0,visible,,,1,0,899,,,,,VS-BLO-899,1,Paquete,1 pieza,1,1,
-variation,VS-BLO-899-P2,Bloom Greens Mango — 2 piezas,1,0,visible,,,1,0,1798,1582,,,,VS-BLO-899,2,Paquete,2 piezas,1,1,
-variation,VS-BLO-899-P3,Bloom Greens Mango — 3 piezas,1,0,visible,,,1,0,2697,2211,,,,VS-BLO-899,3,Paquete,3 piezas,1,1,
-variable,VS-MEN-259,Mentas de Cafeína Energy Focus,1,0,visible,"<p>40 mg de cafeína por menta, sin azúcar añadida.</p>","<p>40 mg de cafeína por menta, sin azúcar añadida.</p>
+variation,VS-BLO-699-P1,Bloom Greens Mango — 1 pieza,1,0,visible,,,1,0,699,,,,,VS-BLO-699,1,Paquete,1 pieza,1,1,
+variation,VS-BLO-699-P2,Bloom Greens Mango — 2 piezas,1,0,visible,,,1,0,1398,1230,,,,VS-BLO-699,2,Paquete,2 piezas,1,1,
+variation,VS-BLO-699-P3,Bloom Greens Mango — 3 piezas,1,0,visible,,,1,0,2097,1719,,,,VS-BLO-699,3,Paquete,3 piezas,1,1,
+variable,VS-MEN-599,Mentas de Cafeína Energy Focus,1,0,visible,"<p>40 mg de cafeína por menta, sin azúcar añadida.</p>","<p>40 mg de cafeína por menta, sin azúcar añadida.</p>
 <ul>
 <li>40 mg de cafeína por pieza</li>
 <li>Sin azúcar, endulzadas con xilitol</li>
@@ -108,10 +108,10 @@ variable,VS-MEN-259,Mentas de Cafeína Energy Focus,1,0,visible,"<p>40 mg de caf
 <h3>Presentación</h3>
 <p>50 mentas</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Energía, Suplementos > Peso","Energía, Peso",mentas-cafeina.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-MEN-259-P1,Mentas de Cafeína Energy Focus — 1 pieza,1,0,visible,,,1,0,259,,,,,VS-MEN-259,1,Paquete,1 pieza,1,1,
-variation,VS-MEN-259-P2,Mentas de Cafeína Energy Focus — 2 piezas,1,0,visible,,,1,0,518,456,,,,VS-MEN-259,2,Paquete,2 piezas,1,1,
-variation,VS-MEN-259-P3,Mentas de Cafeína Energy Focus — 3 piezas,1,0,visible,,,1,0,777,636,,,,VS-MEN-259,3,Paquete,3 piezas,1,1,
-variable,VS-MAG-649,Magnesio Complex 180 Cápsulas,1,0,visible,<p>Tres formas de magnesio en un solo frasco de 180 cápsulas.</p>,"<p>Tres formas de magnesio en un solo frasco de 180 cápsulas.</p>
+variation,VS-MEN-599-P1,Mentas de Cafeína Energy Focus — 1 pieza,1,0,visible,,,1,0,599,,,,,VS-MEN-599,1,Paquete,1 pieza,1,1,
+variation,VS-MEN-599-P2,Mentas de Cafeína Energy Focus — 2 piezas,1,0,visible,,,1,0,1198,1054,,,,VS-MEN-599,2,Paquete,2 piezas,1,1,
+variation,VS-MEN-599-P3,Mentas de Cafeína Energy Focus — 3 piezas,1,0,visible,,,1,0,1797,1473,,,,VS-MEN-599,3,Paquete,3 piezas,1,1,
+variable,VS-MAG-699,Magnesio Complex 180 Cápsulas,1,0,visible,<p>Tres formas de magnesio en un solo frasco de 180 cápsulas.</p>,"<p>Tres formas de magnesio en un solo frasco de 180 cápsulas.</p>
 <ul>
 <li>Citrato, glicinato y óxido de magnesio</li>
 <li>180 cápsulas · hasta 90 días</li>
@@ -121,11 +121,11 @@ variable,VS-MAG-649,Magnesio Complex 180 Cápsulas,1,0,visible,<p>Tres formas de
 <p>2 cápsulas al día con la cena.</p>
 <h3>Presentación</h3>
 <p>180 cáps</p>
-<p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Movilidad",Movilidad,magnesio-cup.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-MAG-649-P1,Magnesio Complex 180 Cápsulas — 1 pieza,1,0,visible,,,1,0,649,,,,,VS-MAG-649,1,Paquete,1 pieza,1,1,
-variation,VS-MAG-649-P2,Magnesio Complex 180 Cápsulas — 2 piezas,1,0,visible,,,1,0,1298,1142,,,,VS-MAG-649,2,Paquete,2 piezas,1,1,
-variation,VS-MAG-649-P3,Magnesio Complex 180 Cápsulas — 3 piezas,1,0,visible,,,1,0,1947,1596,,,,VS-MAG-649,3,Paquete,3 piezas,1,1,
-variable,VS-GEL-299,Gel Limpiador Ácido Salicílico,1,0,visible,<p>Gel de limpieza con ácido salicílico para piel mixta y grasa.</p>,"<p>Gel de limpieza con ácido salicílico para piel mixta y grasa.</p>
+<p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Suplementos, Suplementos > Movilidad",Movilidad,magnesio-180.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
+variation,VS-MAG-699-P1,Magnesio Complex 180 Cápsulas — 1 pieza,1,0,visible,,,1,0,699,,,,,VS-MAG-699,1,Paquete,1 pieza,1,1,
+variation,VS-MAG-699-P2,Magnesio Complex 180 Cápsulas — 2 piezas,1,0,visible,,,1,0,1398,1230,,,,VS-MAG-699,2,Paquete,2 piezas,1,1,
+variation,VS-MAG-699-P3,Magnesio Complex 180 Cápsulas — 3 piezas,1,0,visible,,,1,0,2097,1719,,,,VS-MAG-699,3,Paquete,3 piezas,1,1,
+variable,VS-GEL-249,Gel Limpiador Ácido Salicílico,1,0,visible,<p>Gel de limpieza con ácido salicílico para piel mixta y grasa.</p>,"<p>Gel de limpieza con ácido salicílico para piel mixta y grasa.</p>
 <ul>
 <li>Ácido salicílico en base de gel</li>
 <li>Enjuaga sin dejar película</li>
@@ -136,10 +136,10 @@ variable,VS-GEL-299,Gel Limpiador Ácido Salicílico,1,0,visible,<p>Gel de limpi
 <h3>Presentación</h3>
 <p>80 g</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,gel-salicilico.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-GEL-299-P1,Gel Limpiador Ácido Salicílico — 1 pieza,1,0,visible,,,1,0,429,299,,,,VS-GEL-299,1,Paquete,1 pieza,1,1,
-variation,VS-GEL-299-P2,Gel Limpiador Ácido Salicílico — 2 piezas,1,0,visible,,,1,0,858,526,,,,VS-GEL-299,2,Paquete,2 piezas,1,1,
-variation,VS-GEL-299-P3,Gel Limpiador Ácido Salicílico — 3 piezas,1,0,visible,,,1,0,1287,735,,,,VS-GEL-299,3,Paquete,3 piezas,1,1,
-variable,VS-HOL-349,Mascarilla Facial Holy Basil,1,0,visible,"<p>Mascarilla de tela con extracto de albahaca sagrada, para piel reactiva.</p>","<p>Mascarilla de tela con extracto de albahaca sagrada, para piel reactiva.</p>
+variation,VS-GEL-249-P1,Gel Limpiador Ácido Salicílico — 1 pieza,1,0,visible,,,1,0,249,,,,,VS-GEL-249,1,Paquete,1 pieza,1,1,
+variation,VS-GEL-249-P2,Gel Limpiador Ácido Salicílico — 2 piezas,1,0,visible,,,1,0,498,438,,,,VS-GEL-249,2,Paquete,2 piezas,1,1,
+variation,VS-GEL-249-P3,Gel Limpiador Ácido Salicílico — 3 piezas,1,0,visible,,,1,0,747,612,,,,VS-GEL-249,3,Paquete,3 piezas,1,1,
+variable,VS-HOL-499,Mascarilla Facial Holy Basil,1,0,visible,"<p>Mascarilla de tela con extracto de albahaca sagrada, para piel reactiva.</p>","<p>Mascarilla de tela con extracto de albahaca sagrada, para piel reactiva.</p>
 <ul>
 <li>Extracto de holy basil y pantenol</li>
 <li>Tela de celulosa, ajuste completo</li>
@@ -150,10 +150,10 @@ variable,VS-HOL-349,Mascarilla Facial Holy Basil,1,0,visible,"<p>Mascarilla de t
 <h3>Presentación</h3>
 <p>1 pieza</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,holy-basil.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-HOL-349-P1,Mascarilla Facial Holy Basil — 1 pieza,1,0,visible,,,1,0,499,349,,,,VS-HOL-349,1,Paquete,1 pieza,1,1,
-variation,VS-HOL-349-P2,Mascarilla Facial Holy Basil — 2 piezas,1,0,visible,,,1,0,998,614,,,,VS-HOL-349,2,Paquete,2 piezas,1,1,
-variation,VS-HOL-349-P3,Mascarilla Facial Holy Basil — 3 piezas,1,0,visible,,,1,0,1497,858,,,,VS-HOL-349,3,Paquete,3 piezas,1,1,
-variable,VS-MED-429,Mascarilla Medicube de Colágeno,1,0,visible,"<p>Mascarilla facial con colágeno, en formato de un solo uso.</p>","<p>Mascarilla facial con colágeno, en formato de un solo uso.</p>
+variation,VS-HOL-499-P1,Mascarilla Facial Holy Basil — 1 pieza,1,0,visible,,,1,0,499,,,,,VS-HOL-499,1,Paquete,1 pieza,1,1,
+variation,VS-HOL-499-P2,Mascarilla Facial Holy Basil — 2 piezas,1,0,visible,,,1,0,998,878,,,,VS-HOL-499,2,Paquete,2 piezas,1,1,
+variation,VS-HOL-499-P3,Mascarilla Facial Holy Basil — 3 piezas,1,0,visible,,,1,0,1497,1227,,,,VS-HOL-499,3,Paquete,3 piezas,1,1,
+variable,VS-MED-599,Mascarilla Medicube de Colágeno,1,0,visible,"<p>Mascarilla facial con colágeno, en formato de un solo uso.</p>","<p>Mascarilla facial con colágeno, en formato de un solo uso.</p>
 <ul>
 <li>Colágeno hidrolizado y ácido hialurónico</li>
 <li>Formato individual, sellado</li>
@@ -164,10 +164,10 @@ variable,VS-MED-429,Mascarilla Medicube de Colágeno,1,0,visible,"<p>Mascarilla 
 <h3>Presentación</h3>
 <p>1 pieza</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,medicube-colageno.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-MED-429-P1,Mascarilla Medicube de Colágeno — 1 pieza,1,0,visible,,,1,0,429,,,,,VS-MED-429,1,Paquete,1 pieza,1,1,
-variation,VS-MED-429-P2,Mascarilla Medicube de Colágeno — 2 piezas,1,0,visible,,,1,0,858,756,,,,VS-MED-429,2,Paquete,2 piezas,1,1,
-variation,VS-MED-429-P3,Mascarilla Medicube de Colágeno — 3 piezas,1,0,visible,,,1,0,1287,1056,,,,VS-MED-429,3,Paquete,3 piezas,1,1,
-variable,VS-TOC-459,Protector Solar Tocobo en Barra,1,0,visible,"<p>Protector solar en barra, acabado seco, para reaplicar sobre maquillaje.</p>","<p>Protector solar en barra, acabado seco, para reaplicar sobre maquillaje.</p>
+variation,VS-MED-599-P1,Mascarilla Medicube de Colágeno — 1 pieza,1,0,visible,,,1,0,599,,,,,VS-MED-599,1,Paquete,1 pieza,1,1,
+variation,VS-MED-599-P2,Mascarilla Medicube de Colágeno — 2 piezas,1,0,visible,,,1,0,1198,1054,,,,VS-MED-599,2,Paquete,2 piezas,1,1,
+variation,VS-MED-599-P3,Mascarilla Medicube de Colágeno — 3 piezas,1,0,visible,,,1,0,1797,1473,,,,VS-MED-599,3,Paquete,3 piezas,1,1,
+variable,VS-TOC-599,Protector Solar Tocobo en Barra,1,0,visible,"<p>Protector solar en barra, acabado seco, para reaplicar sobre maquillaje.</p>","<p>Protector solar en barra, acabado seco, para reaplicar sobre maquillaje.</p>
 <ul>
 <li>Barra de 19 g, cabe en la bolsa</li>
 <li>Acabado seco, sin brillo</li>
@@ -178,10 +178,10 @@ variable,VS-TOC-459,Protector Solar Tocobo en Barra,1,0,visible,"<p>Protector so
 <h3>Presentación</h3>
 <p>19 g</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,tocobo-barra.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-TOC-459-P1,Protector Solar Tocobo en Barra — 1 pieza,1,0,visible,,,1,0,459,,,,,VS-TOC-459,1,Paquete,1 pieza,1,1,
-variation,VS-TOC-459-P2,Protector Solar Tocobo en Barra — 2 piezas,1,0,visible,,,1,0,918,808,,,,VS-TOC-459,2,Paquete,2 piezas,1,1,
-variation,VS-TOC-459-P3,Protector Solar Tocobo en Barra — 3 piezas,1,0,visible,,,1,0,1377,1128,,,,VS-TOC-459,3,Paquete,3 piezas,1,1,
-variable,VS-CRE-389,Crema Aclaradora Chillab,1,0,visible,<p>Crema de tratamiento para zonas con manchas y tono desigual.</p>,"<p>Crema de tratamiento para zonas con manchas y tono desigual.</p>
+variation,VS-TOC-599-P1,Protector Solar Tocobo en Barra — 1 pieza,1,0,visible,,,1,0,599,,,,,VS-TOC-599,1,Paquete,1 pieza,1,1,
+variation,VS-TOC-599-P2,Protector Solar Tocobo en Barra — 2 piezas,1,0,visible,,,1,0,1198,1054,,,,VS-TOC-599,2,Paquete,2 piezas,1,1,
+variation,VS-TOC-599-P3,Protector Solar Tocobo en Barra — 3 piezas,1,0,visible,,,1,0,1797,1473,,,,VS-TOC-599,3,Paquete,3 piezas,1,1,
+variable,VS-CRE-499,Crema Aclaradora Chillab,1,0,visible,<p>Crema de tratamiento para zonas con manchas y tono desigual.</p>,"<p>Crema de tratamiento para zonas con manchas y tono desigual.</p>
 <ul>
 <li>Uso localizado en manchas</li>
 <li>Textura de crema, absorbe rápido</li>
@@ -192,9 +192,9 @@ variable,VS-CRE-389,Crema Aclaradora Chillab,1,0,visible,<p>Crema de tratamiento
 <h3>Presentación</h3>
 <p>50 g</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,crema-chillab.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-CRE-389-P1,Crema Aclaradora Chillab — 1 pieza,1,0,visible,,,1,0,389,,,,,VS-CRE-389,1,Paquete,1 pieza,1,1,
-variation,VS-CRE-389-P2,Crema Aclaradora Chillab — 2 piezas,1,0,visible,,,1,0,778,684,,,,VS-CRE-389,2,Paquete,2 piezas,1,1,
-variation,VS-CRE-389-P3,Crema Aclaradora Chillab — 3 piezas,1,0,visible,,,1,0,1167,957,,,,VS-CRE-389,3,Paquete,3 piezas,1,1,
+variation,VS-CRE-499-P1,Crema Aclaradora Chillab — 1 pieza,1,0,visible,,,1,0,499,,,,,VS-CRE-499,1,Paquete,1 pieza,1,1,
+variation,VS-CRE-499-P2,Crema Aclaradora Chillab — 2 piezas,1,0,visible,,,1,0,998,878,,,,VS-CRE-499,2,Paquete,2 piezas,1,1,
+variation,VS-CRE-499-P3,Crema Aclaradora Chillab — 3 piezas,1,0,visible,,,1,0,1497,1227,,,,VS-CRE-499,3,Paquete,3 piezas,1,1,
 variable,VS-SER-399,Serum 4 en 1 Antiarrugas,1,0,visible,<p>Serum con cuatro activos en una sola aplicación: líneas finas y manchas.</p>,"<p>Serum con cuatro activos en una sola aplicación: líneas finas y manchas.</p>
 <ul>
 <li>Cuatro activos en una fórmula</li>
@@ -209,7 +209,7 @@ variable,VS-SER-399,Serum 4 en 1 Antiarrugas,1,0,visible,<p>Serum con cuatro act
 variation,VS-SER-399-P1,Serum 4 en 1 Antiarrugas — 1 pieza,1,0,visible,,,1,0,399,,,,,VS-SER-399,1,Paquete,1 pieza,1,1,
 variation,VS-SER-399-P2,Serum 4 en 1 Antiarrugas — 2 piezas,1,0,visible,,,1,0,798,702,,,,VS-SER-399,2,Paquete,2 piezas,1,1,
 variation,VS-SER-399-P3,Serum 4 en 1 Antiarrugas — 3 piezas,1,0,visible,,,1,0,1197,981,,,,VS-SER-399,3,Paquete,3 piezas,1,1,
-variable,VS-PAR-229,Parches para Ojeras Wokali,1,0,visible,<p>Parches de hidrogel con ácido hialurónico para el contorno de ojos.</p>,"<p>Parches de hidrogel con ácido hialurónico para el contorno de ojos.</p>
+variable,VS-PAR-250,Parches para Ojeras Wokali,1,0,visible,<p>Parches de hidrogel con ácido hialurónico para el contorno de ojos.</p>,"<p>Parches de hidrogel con ácido hialurónico para el contorno de ojos.</p>
 <ul>
 <li>30 pares por frasco</li>
 <li>Hidrogel con hialurónico</li>
@@ -220,6 +220,6 @@ variable,VS-PAR-229,Parches para Ojeras Wokali,1,0,visible,<p>Parches de hidroge
 <h3>Presentación</h3>
 <p>30 pares</p>
 <p class=""vs-legal""><strong>Suplemento alimenticio. No es medicamento.</strong> El consumo de este producto es responsabilidad de quien lo recomienda y de quien lo usa. Este sitio no ofrece diagnóstico ni tratamiento.</p>",1,0,,,"Skincare, Skincare > Piel",Piel,parches-ojeras.png,,0,Paquete,"1 pieza, 2 piezas, 3 piezas",1,1,1 pieza
-variation,VS-PAR-229-P1,Parches para Ojeras Wokali — 1 pieza,1,0,visible,,,1,0,229,,,,,VS-PAR-229,1,Paquete,1 pieza,1,1,
-variation,VS-PAR-229-P2,Parches para Ojeras Wokali — 2 piezas,1,0,visible,,,1,0,458,404,,,,VS-PAR-229,2,Paquete,2 piezas,1,1,
-variation,VS-PAR-229-P3,Parches para Ojeras Wokali — 3 piezas,1,0,visible,,,1,0,687,564,,,,VS-PAR-229,3,Paquete,3 piezas,1,1,
+variation,VS-PAR-250-P1,Parches para Ojeras Wokali — 1 pieza,1,0,visible,,,1,0,250,,,,,VS-PAR-250,1,Paquete,1 pieza,1,1,
+variation,VS-PAR-250-P2,Parches para Ojeras Wokali — 2 piezas,1,0,visible,,,1,0,500,440,,,,VS-PAR-250,2,Paquete,2 piezas,1,1,
+variation,VS-PAR-250-P3,Parches para Ojeras Wokali — 3 piezas,1,0,visible,,,1,0,750,615,,,,VS-PAR-250,3,Paquete,3 piezas,1,1,

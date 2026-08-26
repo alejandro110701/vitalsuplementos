@@ -1,3 +1,5 @@
+import WOO from './woo.js';
+
 // Catalogue transcribed from the "Vital Suplementos" design canvas.
 // `w` is the world (sup = suplementos, skin = skincare); `goals` drives the
 // objective filter; `best` orders the "más pedidos" rail on the home page.
@@ -236,6 +238,35 @@ export const PRODUCTS = [
   }
 ];
 
+/**
+ * Commerce comes from the live WooCommerce shop; editorial stays here.
+ *
+ * The shop is the only place a customer can actually pay, so its price and
+ * stock always win — advertising a number the shop will not honour is the one
+ * failure mode worth designing against. Names, claims, bullets and dosing stay
+ * curated in this file: the imported products carry supplier titles, some of
+ * which make claims this brand does not.
+ *
+ * `woo.js` is baked at build time by `npm run sync:woo`, so there is no key
+ * in the bundle and no runtime dependency on the shop being reachable. If a
+ * product is missing from the sync it keeps its catalogue price and is flagged
+ * unlisted rather than silently mispriced.
+ */
+for (const p of PRODUCTS) {
+  const live = WOO.products[p.slug];
+  if (!live) {
+    p.listed = false;
+    continue;
+  }
+  p.listed = true;
+  p.price = live.price;
+  p.was = live.was;
+  p.inStock = live.inStock;
+  p.wooId = live.id;
+  p.wooSku = live.sku;
+  p.permalink = live.permalink;
+}
+
 export const GOALS = [
   { id: 'energia', label: 'Energía', sub: 'Creatina, cafeína, NAD+ y verdes.', icon: 'M4 14h6l-2 7 10-11h-6l2-7z' },
   { id: 'piel', label: 'Piel', sub: 'Serums con porcentaje declarado y SPF.', icon: 'M12 3s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10z' },
@@ -291,3 +322,7 @@ export function relatedProducts(cur, n = 4) {
   scored.sort((a, b) => b.score - a.score || a.p.slug.localeCompare(b.p.slug));
   return scored.slice(0, n).map((s) => s.p);
 }
+
+/** When the catalogue was last reconciled against the live shop. */
+export const CATALOG_SYNCED_AT = WOO.syncedAt;
+export const STORE_URL = WOO.store;

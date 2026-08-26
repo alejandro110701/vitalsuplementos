@@ -147,6 +147,7 @@ export default function Tienda() {
               compareAt={p.was || null}
               kicker={p.kicker}
               purityLabel={p.spec}
+              soldOut={p.inStock === false}
               cta="Ver producto"
             />
           ))}

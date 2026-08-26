@@ -75,6 +75,7 @@ export default function Anaquel({ current }) {
               compareAt={current.was || null}
               kicker={current.kicker}
               purityLabel={current.spec}
+              soldOut={current.inStock === false}
               cta="Estás aquí"
             />
             <div style={{ marginTop: 12 }}>
@@ -94,6 +95,7 @@ export default function Anaquel({ current }) {
                 compareAt={p.was || null}
                 kicker={p.kicker}
                 purityLabel={p.spec}
+              soldOut={p.inStock === false}
                 cta="Ver producto"
               />
               <Rows p={p} />

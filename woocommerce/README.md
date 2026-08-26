@@ -1,5 +1,14 @@
 # WooCommerce import
 
+> **The shop is already live.** All 16 products exist at
+> [vitalsuplementos.com.mx](https://vitalsuplementos.com.mx) as *simple*
+> products, imported from the supplier. This CSV is for **re-seeding a fresh
+> store**, not for topping up the existing one — importing it into the live shop
+> would create a second copy of every product under different SKUs.
+>
+> The storefront now reads price and stock from that live shop via
+> `npm run sync:woo`; see the root README.
+
 `productos-woocommerce.csv` is the 16-product catalogue in WooCommerce's native
 product-importer format: 16 variable parents + 48 variations.
 

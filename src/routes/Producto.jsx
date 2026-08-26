@@ -209,8 +209,14 @@ export default function Producto() {
                   +
                 </button>
               </div>
-              <Button variant="default" size="xl" onClick={handleAdd} style={{ flex: 1, width: '100%' }}>
-                {added ? 'Agregado' : `Agregar · ${money(unit * pack * qty)}`}
+              <Button
+                variant="default"
+                size="xl"
+                onClick={handleAdd}
+                disabled={cur.inStock === false}
+                style={{ flex: 1, width: '100%', opacity: cur.inStock === false ? 0.5 : 1 }}
+              >
+                {cur.inStock === false ? 'Agotado' : added ? 'Agregado' : `Agregar · ${money(unit * pack * qty)}`}
               </Button>
             </div>
 
@@ -262,6 +268,13 @@ export default function Producto() {
               <p style={{ margin: '8px 0 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{sku(cur)}</p>
             </div>
           </div>
+          {cur.permalink && (
+            <p style={{ margin: '20px 0 0', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.18em' }}>
+              <a href={cur.permalink} target="_blank" rel="noopener noreferrer" style={{ borderBottom: '1px solid var(--border)', paddingBottom: 2 }}>
+                Ver en la tienda →
+              </a>
+            </p>
+          )}
           <p style={{ margin: '20px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
             Suplemento alimenticio. No es medicamento. El consumo de este producto es responsabilidad de quien lo
             recomienda y de quien lo usa.

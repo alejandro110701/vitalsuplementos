@@ -101,3 +101,25 @@ python3 scripts/compose-gallery.py   # rebuilds public/shop/gallery + src/data/g
 
 `src/lib/gallery.js` holds the copy ladder — every beat states what the product
 IS, CONTAINS, or how it SHIPS. No rung describes an effect.
+
+## The live shop
+
+The 16 products exist in WooCommerce at
+[vitalsuplementos.com.mx](https://vitalsuplementos.com.mx). **Price and stock
+come from there**, baked into `src/data/woo.js` at build time:
+
+```bash
+npm run sync:woo    # re-pull price + stock from the live shop
+```
+
+The shop is the only place a customer can actually pay, so its price always
+wins — advertising a number the shop will not honour is the failure mode worth
+designing against. Everything editorial stays curated in `src/data/products.js`:
+names, claims, bullets, dosing, objectives. The imported products carry the
+supplier's own titles, and some of those make claims this brand does not.
+
+Syncing at build time rather than at runtime is deliberate: WordPress.com does
+not send `access-control-allow-origin`, so the WooCommerce Store API cannot be
+read from a browser on another origin. Baking it means no key in the bundle, no
+CORS proxy, and no runtime dependency on the shop being up. `vite.config.js`
+proxies `/woo` to the Store API for poking at live data in development.
