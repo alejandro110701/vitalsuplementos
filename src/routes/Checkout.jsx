@@ -80,11 +80,12 @@ export default function Checkout() {
             }}
           >
             <p style={{ margin: 0, fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Terminas en la tienda
+              Pago contra entrega
             </p>
             <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
-              Al continuar pasamos tu carrito a la tienda, donde capturas la dirección y eliges cómo pagar. El pedido
-              queda registrado ahí y recibes un correo de confirmación con el número de pedido.
+              Al continuar pasamos tu carrito a la tienda, donde capturas la dirección y eliges pago contra entrega
+              —efectivo al repartidor, sin anticipo— o tarjeta. El pedido queda registrado ahí y recibes un correo
+              con tu número de pedido.
             </p>
           </div>
 
@@ -101,7 +102,7 @@ export default function Checkout() {
             {[
               'Confirmas los productos y las cantidades aquí.',
               'Capturas la dirección de entrega en la tienda.',
-              'Eliges el método de pago y confirmas.',
+              'Eliges pago contra entrega o tarjeta y confirmas.',
               'Te llega el correo con tu número de pedido.'
             ].map((paso, i) => (
               <li key={paso} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
@@ -212,7 +213,7 @@ export default function Checkout() {
               lineHeight: 1.8
             }}
           >
-            Envío 2–5 días · Confirmación por correo
+            Envío 2–5 días · Pago al recibir
           </p>
         </div>
       </div>

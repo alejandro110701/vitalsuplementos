@@ -125,7 +125,7 @@ export default function Carrito() {
               Continuar al pago
             </Button>
             <p style={{ margin: '16px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-              En esta página no se cobra nada. La dirección y el pago se capturan en la tienda al confirmar.
+              Pago contra entrega: no se cobra nada ahora. Eliges efectivo al recibir cuando confirmes el pedido.
             </p>
           </div>
         </div>

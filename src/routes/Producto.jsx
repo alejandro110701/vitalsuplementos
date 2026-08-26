@@ -260,10 +260,10 @@ export default function Producto() {
               </span>
               <div>
                 <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
-                  Pago al confirmar
+                  Pago contra entrega
                 </p>
                 <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-                  Eliges cómo pagar en el último paso, en la tienda. Llega en 2 a 5 días a todo México.
+                  Pagas en efectivo al repartidor cuando llegue. Sin anticipo, 2 a 5 días a todo México.
                 </p>
               </div>
             </div>

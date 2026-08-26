@@ -26,8 +26,10 @@ export const SHIPPING_COST = 0;
 export const PACK_DISCOUNT = 0;
 
 /**
- * Payment is not chosen here any more — WooCommerce's checkout offers whatever
- * gateways the shop has enabled, and this front end must not claim otherwise.
- * Kept only so the value's absence is deliberate rather than an oversight.
+ * False because cash on delivery is not the ONLY method: the shop has both the
+ * `cod` gateway and Clip's card redirect enabled, and the shopper picks between
+ * them on WooCommerce's checkout. The storefront may promise pago contra
+ * entrega because it is genuinely offered — it just must not promise it is the
+ * only option. Nothing reads this today; it documents the shop's state.
  */
 export const COD_ONLY = false;
