@@ -126,3 +126,26 @@ not send `access-control-allow-origin`, so the WooCommerce Store API cannot be
 read from a browser on another origin. Baking it means no key in the bundle, no
 CORS proxy, and no runtime dependency on the shop being up. `vite.config.js`
 proxies `/woo` to the Store API for poking at live data in development.
+
+## Deploying
+
+`.github/workflows/deploy.yml` builds on every push to `main` and publishes to
+GitHub Pages. The build always runs, so a broken build is caught immediately;
+only the deploy step needs Pages enabled.
+
+Two things to know before switching it on:
+
+- **Pages on a free plan only serves public repositories.** This repo is
+  private. Either make it public, or point the workflow at another host.
+- **Serve it from the shop's own origin if you can.** WordPress.com sends no
+  `access-control-allow-origin`, so the WooCommerce Store API — including the
+  cart and checkout endpoints — is unreachable from a browser on a different
+  domain. Same-origin turns a read-only catalogue mirror into a real headless
+  storefront with a working cart.
+
+The build re-syncs prices from the live shop first, so every deploy ships what
+WooCommerce is charging at that moment. If the shop is unreachable the committed
+`src/data/woo.js` is used and the build still succeeds.
+
+`BASE_PATH=/vitalsuplementos/ npm run build` produces a bundle for a Pages
+subpath; the default builds for a domain root.

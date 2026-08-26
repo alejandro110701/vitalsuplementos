@@ -1,0 +1,62 @@
+name: Deploy storefront
+
+# Builds the storefront and publishes it to GitHub Pages.
+#
+# Pages on a free plan only serves PUBLIC repositories. While this repo is
+# private the workflow still builds and uploads the artifact on every push, so
+# the build is always verified — only the deploy job needs Pages switched on.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Catalogue prices are baked at build time from the live shop, so a deploy
+      # always ships what WooCommerce is charging right now. If the shop is
+      # unreachable the committed woo.js is used instead and the build still
+      # succeeds — a stale price beats a broken deploy.
+      - name: Sync catalogue from WooCommerce
+        run: npm run sync:woo || echo "shop unreachable — keeping the committed catalogue"
+
+      - run: npm run build
+
+      # GitHub Pages serves static files, so a deep link like /producto/creatina
+      # would 404. Copying index.html to 404.html hands those routes back to the
+      # client router.
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

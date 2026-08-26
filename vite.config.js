@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// `base` lets the same build serve from a domain root or a Pages subpath.
+// Set BASE_PATH=/vitalsuplementos/ when deploying to <user>.github.io.
 export default defineConfig({
+  base: process.env.BASE_PATH || '/',
   plugins: [react()],
   server: {
     port: 5173,
