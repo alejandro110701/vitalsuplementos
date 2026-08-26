@@ -35,7 +35,12 @@ if (!defined('ABSPATH')) {
  * is ever changed from /tienda/ to /, this keeps working without an edit.
  */
 function vital_storefront_candidates() {
-    $root = defined('ABSPATH') ? rtrim(ABSPATH, '/') : '/srv/htdocs';
+    // NOT ABSPATH. On WordPress.com Atomic the web root holds only wp-config.php
+    // and wp-content; core lives outside it and is symlinked in, so ABSPATH is
+    // /srv/htdocs/__wp__/ and looking there would find nothing. wp-content is
+    // genuinely in the web root, so its parent is the directory the deployment
+    // actually writes into.
+    $root = defined('WP_CONTENT_DIR') ? dirname(WP_CONTENT_DIR) : '/srv/htdocs';
 
     return array(
         array('dir' => $root,             'prefix' => '/'),

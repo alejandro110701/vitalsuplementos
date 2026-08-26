@@ -1,5 +1,6 @@
 import GALLERY from '../data/gallery.json';
 import { sku, worldLabel } from '../data/products.js';
+import { asset } from './assetBase.js';
 
 /**
  * Beats past the fifth stop earning their scroll, so the tail becomes a static
@@ -11,8 +12,8 @@ export const CAP = 5;
 /** gallery.json stores root-relative paths; rebase them onto the deploy base. */
 const rebase = (im) => ({
   ...im,
-  src: import.meta.env.BASE_URL + im.src.replace(/^\//, ''),
-  srcSmall: import.meta.env.BASE_URL + im.srcSmall.replace(/^\//, '')
+  src: asset(im.src),
+  srcSmall: asset(im.srcSmall)
 });
 
 export function galleryFor(product) {

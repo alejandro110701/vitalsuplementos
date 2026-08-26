@@ -1,4 +1,5 @@
 import WOO from './woo.js';
+import { asset } from '../lib/assetBase.js';
 
 // Catalogue transcribed from the "Vital Suplementos" design canvas.
 // `w` is the world (sup = suplementos, skin = skincare); `goals` drives the
@@ -294,7 +295,7 @@ export function findProduct(slug) {
  * product image 404s the moment the app is served from a subdirectory.
  */
 export function productImage(p) {
-  return `${import.meta.env.BASE_URL}packshots/${p.slug}.png`;
+  return asset(`packshots/${p.slug}.png`);
 }
 
 /* Tiers emitted by scripts/build-packshots.py. The masters are 1000px squares
@@ -304,7 +305,7 @@ export function productImage(p) {
 const PACKSHOT_TIERS = [320, 640, 1000];
 
 export function productSrcSet(p) {
-  const base = `${import.meta.env.BASE_URL}packshots/${p.slug}`;
+  const base = asset(`packshots/${p.slug}`);
   return PACKSHOT_TIERS.map((t) => `${base}-${t}.webp ${t}w`).join(', ');
 }
 
