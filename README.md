@@ -129,45 +129,34 @@ proxies `/woo` to the Store API for poking at live data in development.
 
 ## Deploying
 
-`.github/workflows/deploy.yml` builds on every push to `main` and publishes to
-GitHub Pages. The build always runs, so a broken build is caught immediately;
-only the deploy step needs Pages enabled.
+`.github/workflows/deploy.yml` builds on every push to `main` and hands the
+result to **WordPress.com GitHub Deployments**.
 
-Two things to know before switching it on:
+WordPress.com collects the build from an artifact that must be named `wpcom` —
+it looks for that exact name and nothing else. The artifact's contents are
+copied into the destination directory configured under Settings → GitHub
+Deployments on the site.
 
-- **Pages on a free plan only serves public repositories.** This repo is
-  private. Either make it public, or point the workflow at another host.
-- **Serve it from the shop's own origin if you can.** WordPress.com sends no
-  `access-control-allow-origin`, so the WooCommerce Store API — including the
-  cart and checkout endpoints — is unreachable from a browser on a different
-  domain. Same-origin turns a read-only catalogue mirror into a real headless
-  storefront with a working cart.
-
-The build re-syncs prices from the live shop first, so every deploy ships what
-WooCommerce is charging at that moment. If the shop is unreachable the committed
-`src/data/woo.js` is used and the build still succeeds.
-
-`BASE_PATH=/vitalsuplementos/ npm run build` produces a bundle for a Pages
-subpath; the default builds for a domain root.
-
-### Pushing the catalogue back to the shop
-
-The shop was seeded from the supplier, so its products carry supplier titles,
-supplier copy, and — for all 16 — a zero-byte image file. This pushes the
-curated name, description and product photo onto each live product:
-
-```bash
-WOO_URL=https://vitalsuplementos.com.mx \
-WOO_KEY=ck_... WOO_SECRET=cs_... \
-npm run fix:woo            # add --dry to preview
+```
+dist/
+  index.html  404.html
+  assets/     js + css
+  shop/       product tiles and gallery frames
 ```
 
-**The key must have Read/Write permission** — WooCommerce → Settings → Advanced
-→ REST API. A read-only key fails with `woocommerce_rest_authentication_error`.
+`BASE_PATH` in the workflow **must match that destination directory**. It
+defaults to `/tienda/`, which keeps the app out of the site root: on an Atomic
+site a static `index.html` at the root is served ahead of WordPress and would
+shadow the shop entirely.
 
-Credentials come from the environment and are never written into the repo. It
-does not touch price or stock: the shop stays the source of truth for money, and
-this only fixes what the supplier import got wrong.
+The build re-syncs prices from the live shop first, so every deploy ships what
+WooCommerce is charging. If the shop is unreachable the committed
+`src/data/woo.js` is used and the build still succeeds.
+
+One consequence worth knowing: the artifact includes `shop/`, so once deployed
+the product photos are live at `https://<site>/tienda/shop/<slug>.png`. Those
+are public URLs, which is exactly what `npm run attach:images` needs — see
+below.
 
 ### Fixing the product images
 
@@ -177,14 +166,14 @@ rejects data URIs with *"No URL Provided"* — so the photos have to be reachabl
 on the web first:
 
 ```bash
-IMAGE_BASE=https://raw.githubusercontent.com/alejandro110701/vitalsuplementos/main/public/shop \
+IMAGE_BASE=https://vitalsuplementos.com.mx/tienda/shop \
 WOO_URL=https://vitalsuplementos.com.mx WOO_KEY=ck_... WOO_SECRET=cs_... \
 npm run attach:images       # --dry to preview
 ```
 
-That URL only resolves while the repository is public. The alternative is
-uploading each file through the WordPress media API, which needs it base64
-encoded in the request — workable, but one round trip per image.
+Any public base works. Deploying the workflow artifact publishes `shop/` to the
+site itself, so no third-party host and no public repository are needed — the
+photos end up served from the same domain that consumes them.
 
 The script HEADs each URL first and skips anything unreachable, so a bad base
 cannot write another broken reference.

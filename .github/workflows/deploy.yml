@@ -1,10 +1,12 @@
-name: Deploy storefront
+name: Build for WordPress.com
 
-# Builds the storefront and publishes it to GitHub Pages.
+# Builds the storefront and hands it to WordPress.com's GitHub Deployments.
 #
-# Pages on a free plan only serves PUBLIC repositories. While this repo is
-# private the workflow still builds and uploads the artifact on every push, so
-# the build is always verified — only the deploy job needs Pages switched on.
+# WordPress.com collects the build from an artifact that MUST be named `wpcom`
+# — it looks for that name and nothing else. The artifact's contents are copied
+# into whatever destination directory is configured under
+# Settings -> GitHub Deployments on the site.
+
 on:
   push:
     branches: [main]
@@ -12,12 +14,17 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: wpcom-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  # Must match the destination directory configured on WordPress.com. Use "/"
+  # only if the app really is deployed to the site root — on an Atomic site a
+  # static index.html there is served ahead of WordPress and would shadow the
+  # shop. A subdirectory such as /tienda/ keeps the two apart.
+  BASE_PATH: /tienda/
 
 jobs:
   build:
@@ -32,31 +39,24 @@ jobs:
 
       - run: npm ci
 
-      # Catalogue prices are baked at build time from the live shop, so a deploy
-      # always ships what WooCommerce is charging right now. If the shop is
-      # unreachable the committed woo.js is used instead and the build still
-      # succeeds — a stale price beats a broken deploy.
+      # Prices are baked in at build time, so a deploy always ships what
+      # WooCommerce is charging. If the shop is unreachable the committed
+      # woo.js is used and the build still succeeds — a stale price beats a
+      # broken deploy.
       - name: Sync catalogue from WooCommerce
         run: npm run sync:woo || echo "shop unreachable — keeping the committed catalogue"
 
       - run: npm run build
 
-      # GitHub Pages serves static files, so a deep link like /producto/creatina
-      # would 404. Copying index.html to 404.html hands those routes back to the
-      # client router.
+      # Static hosting has no server-side router, so a deep link would 404.
+      # This hands those paths back to the client router.
       - name: SPA fallback
         run: cp dist/index.html dist/404.html
 
-      - uses: actions/upload-pages-artifact@v3
+      # The name is the contract with WordPress.com. Do not rename it.
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: wpcom
           path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          if-no-files-found: error
