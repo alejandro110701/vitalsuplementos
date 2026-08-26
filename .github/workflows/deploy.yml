@@ -70,3 +70,8 @@ jobs:
           path: dist
           include-hidden-files: true
           if-no-files-found: error
+          # WordPress.com collects the artifact and then has no further use for
+          # it, but GitHub keeps artifacts for 90 days by default and bills for
+          # the storage. Their GitHub Deployments guide asks for this on every
+          # workflow.
+          retention-days: 1
