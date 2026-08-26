@@ -267,6 +267,14 @@ for (const p of PRODUCTS) {
   p.permalink = live.permalink;
 }
 
+/**
+ * What a shopper is allowed to browse and buy. A product missing from the last
+ * WooCommerce sync keeps its catalogue price, and that price is a guess — so it
+ * must not sit on a shelf with a number next to it. It stays in PRODUCTS so a
+ * direct link still resolves to a page that says it is unavailable.
+ */
+export const LISTED = PRODUCTS.filter((p) => p.listed);
+
 export const GOALS = [
   { id: 'energia', label: 'Energía', sub: 'Creatina, cafeína, NAD+ y verdes.', icon: 'M4 14h6l-2 7 10-11h-6l2-7z' },
   { id: 'piel', label: 'Piel', sub: 'Serums con porcentaje declarado y SPF.', icon: 'M12 3s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10z' },
@@ -304,8 +312,15 @@ export function worldLabel(w) {
   return w === 'sup' ? 'Suplementos' : 'Skincare';
 }
 
+/**
+ * The shop's own SKU, which is what a customer would quote back to us and what
+ * we can actually look up. The old form was built out of the price, so it
+ * changed identity every time WooCommerce repriced and matched nothing in the
+ * store. Products absent from the sync have no real SKU, so fall back to a
+ * stable slug-derived code that at least never moves.
+ */
 export function sku(p) {
-  return 'VS-' + p.slug.slice(0, 3).toUpperCase() + '-' + String(p.price).slice(0, 3);
+  return p.wooSku || 'VS-' + p.slug.slice(0, 3).toUpperCase() + '-' + p.slug.length;
 }
 
 /** The sub-type after the "·" in the kicker — "Serum", "Cápsulas", "Mascarilla". */
@@ -322,7 +337,7 @@ export function productForm(p) {
  * degenerates into "here are the four cheapest things".
  */
 export function relatedProducts(cur, n = 4) {
-  const scored = PRODUCTS.filter((p) => p.slug !== cur.slug).map((p) => {
+  const scored = LISTED.filter((p) => p.slug !== cur.slug).map((p) => {
     const sharedGoals = p.goals.filter((g) => cur.goals.includes(g)).length;
     const priceGap = Math.abs(p.price - cur.price) / Math.max(p.price, cur.price);
 

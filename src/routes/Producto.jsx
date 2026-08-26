@@ -25,6 +25,9 @@ export default function Producto() {
   const [qty, setQty] = useState(1);
   const [pack, setPack] = useState(1);
   const [added, setAdded] = useState(false);
+  // Out of stock and dropped-from-the-sync are both unbuyable: an unlisted
+  // product's price is the stale catalogue guess, not what the shop charges.
+  const buyable = cur.listed !== false && cur.inStock !== false;
   const [barra, setBarra] = useState(false);
 
   const ctaRef = useRef(null);
@@ -231,10 +234,16 @@ export default function Producto() {
                 variant="default"
                 size="xl"
                 onClick={handleAdd}
-                disabled={cur.inStock === false}
-                style={{ flex: 1, width: '100%', opacity: cur.inStock === false ? 0.5 : 1 }}
+                disabled={!buyable}
+                style={{ flex: 1, width: '100%', opacity: buyable ? 1 : 0.5 }}
               >
-                {cur.inStock === false ? 'Agotado' : added ? 'Agregado' : `Agregar · ${money(unit * pack * qty)}`}
+                {cur.listed === false
+                  ? 'No disponible'
+                  : cur.inStock === false
+                    ? 'Agotado'
+                    : added
+                      ? 'Agregado'
+                      : `Agregar · ${money(unit * pack * qty)}`}
               </Button>
             </div>
 

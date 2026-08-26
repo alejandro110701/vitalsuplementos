@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { Button, Eyebrow, ProductCard } from '../ds/index.js';
-import { GOALS, PRODUCTS, productImage, productSrcSet } from '../data/products.js';
+import { GOALS, LISTED, productImage, productSrcSet } from '../data/products.js';
 import { norm } from '../lib/format.js';
 
 const WORLDS = [
@@ -43,7 +43,7 @@ export default function Tienda() {
   };
 
   const needle = norm(q);
-  let grid = PRODUCTS.filter(
+  let grid = LISTED.filter(
     (p) => (world === 'todo' || p.w === world) && (goal === 'todo' || p.goals.includes(goal))
   );
   if (needle) grid = grid.filter((p) => norm(`${p.n} ${p.kicker} ${p.claim}`).includes(needle));

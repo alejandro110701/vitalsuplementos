@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Chromatogram, Eyebrow, ManifestoBand, ProductCard, StatBlock } from '../ds/index.js';
-import { GOALS, PRODUCTS, findProduct, productImage, productSrcSet } from '../data/products.js';
+import { GOALS, LISTED, findProduct, productImage, productSrcSet } from '../data/products.js';
 
 const HERO_TILES = ['serum-anua', 'creatina', 'glutation-gomas', 'tocobo-barra', 'mentas-cafeina'];
 
@@ -117,7 +117,7 @@ function WorldCard({ to, kicker, title, copy, image, imageSrcSet, imageAlt, dark
 
 export default function Home() {
   const navigate = useNavigate();
-  const best = PRODUCTS.filter((p) => p.best).sort((a, b) => a.best - b.best);
+  const best = LISTED.filter((p) => p.best).sort((a, b) => a.best - b.best);
 
   return (
     <div>
@@ -328,7 +328,7 @@ export default function Home() {
               </h3>
               <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>{g.sub}</p>
               <p style={{ margin: '16px 0 0', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--muted-foreground)' }}>
-                {PRODUCTS.filter((p) => p.goals.includes(g.id)).length} productos
+                {LISTED.filter((p) => p.goals.includes(g.id)).length} productos
               </p>
             </Link>
           ))}

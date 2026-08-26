@@ -6,9 +6,33 @@
     <title>Vital Suplementos · Suplementos y skincare importados, envío a todo México</title>
     <meta name="description" content="Importación directa de suplementos y skincare con etiqueta completa, lote y caducidad visibles. Pago contra entrega y envío de 2 a 5 días a todo México." />
 
-    <!-- Space Grotesk 800 is the display weight: base.css and app.css both ask
-         for it, and the previous request omitted it, so every heading on the
-         site was being synthesised from 700 by the browser. -->
+    <!-- Relative so the same build previews correctly whether it is served
+         from the site root or from a subdirectory. -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://vitalsuplementos.com.mx/" />
+    <meta name="theme-color" content="#0d0d0f" />
+
+    <!-- The shop asks people to confirm orders over WhatsApp, so a shared link
+         has to carry a picture and a sentence. The image is the WooCommerce
+         copy in wp-content/uploads, which stays put wherever this build is
+         deployed. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vital Suplementos" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:url" content="https://vitalsuplementos.com.mx/" />
+    <meta property="og:title" content="Vital Suplementos · Suplementos y skincare importados, envío a todo México" />
+    <meta property="og:description" content="Importación directa de suplementos y skincare con etiqueta completa, lote y caducidad visibles. Pago contra entrega y envío de 2 a 5 días a todo México." />
+    <meta property="og:image" content="https://i0.wp.com/vitalsuplementos.com.mx/wp-content/uploads/2026/08/creatina.png?fit=1000%2C1000&amp;ssl=1" />
+    <meta property="og:image:alt" content="Bote de creatina monohidratada sobre fondo claro" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vital Suplementos · Suplementos y skincare importados, envío a todo México" />
+    <meta name="twitter:description" content="Importación directa de suplementos y skincare con etiqueta completa, lote y caducidad visibles. Pago contra entrega y envío de 2 a 5 días a todo México." />
+    <meta name="twitter:image" content="https://i0.wp.com/vitalsuplementos.com.mx/wp-content/uploads/2026/08/creatina.png?fit=1000%2C1000&amp;ssl=1" />
+
+    <!-- Space Grotesk tops out at 700 — Google Fonts returns HTTP 400 for
+         wght@800 — and the browser clamps the design system's --fw-extra to
+         the 700 it does have. Measured: identical glyph widths at 700 and 800,
+         so nothing is faux-bolded. Do not "fix" this by requesting 800. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

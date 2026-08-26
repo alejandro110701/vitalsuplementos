@@ -11,6 +11,10 @@ import { money } from '../lib/format.js';
  * so keyboard users reach the in-page control first.
  */
 export default function BarraCompra({ product, image, imageSrcSet, unit, pack, qty, onInc, onDec, onAdd, added, show }) {
+  // The product page disables its own CTA when the shop says out of stock; this
+  // bar is the same action and has to refuse it too, or the docked button
+  // becomes a way around the guard.
+  const soldOut = product.inStock === false || product.listed === false;
   return (
     <div className="vp-barra" data-on={show ? 'true' : 'false'} aria-hidden={show ? undefined : 'true'}>
       <div className="vp-barra__thumb">
@@ -44,8 +48,15 @@ export default function BarraCompra({ product, image, imageSrcSet, unit, pack, q
         </button>
       </div>
 
-      <Button variant="default" size="lg" onClick={onAdd} tabIndex={show ? 0 : -1}>
-        {added ? 'Agregado' : `Agregar · ${money(unit * pack * qty)}`}
+      <Button
+        variant="default"
+        size="lg"
+        onClick={onAdd}
+        disabled={soldOut}
+        tabIndex={show && !soldOut ? 0 : -1}
+        style={soldOut ? { opacity: 0.5 } : undefined}
+      >
+        {soldOut ? 'Agotado' : added ? 'Agregado' : `Agregar · ${money(unit * pack * qty)}`}
       </Button>
 
       <span className="vp-sr-only" aria-live="polite">

@@ -68,7 +68,10 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   transition: color var(--dur-med) var(--ease-smooth);
 }
 .vs-nav-link:hover { color: var(--foreground); }
-.vs-nav-link[data-accent='true'] { color: var(--secondary); }
+/* --secondary is the brand teal, which measures 2.17:1 on paper — fine as a
+   surface, unreadable as text. --secondary-text is the same hue darkened to
+   pass 4.5:1. */
+.vs-nav-link[data-accent='true'] { color: var(--secondary-text); }
 .vs-nav-link[data-accent='true']:hover { color: var(--foreground); }
 
 .vs-cart-btn {
@@ -314,7 +317,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .vp-pliego__tick[aria-current='true']::before { background: var(--secondary); }
 .vp-pliego__tick:hover, .vp-pliego__tick:focus-visible,
 .vp-pliego__tick[aria-current='true'] { opacity: 1; }
-.vp-pliego__tick:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.vp-pliego__tick:focus-visible { outline: 2px solid var(--secondary-text); outline-offset: 3px; }
 
 /* The copy is never dimmed: --muted-foreground on paper is ~7.5:1, and at 0.55
    opacity it drops to ~3:1 — a fail on primary product information, exactly
@@ -340,7 +343,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   text-transform: uppercase; letter-spacing: -0.025em; line-height: 1.02;
   font-size: clamp(1.5rem, 2.6vw, 2.125rem);
 }
-.vp-pliego__title:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+.vp-pliego__title:focus-visible { outline: 2px solid var(--secondary-text); outline-offset: 4px; }
 .vp-pliego__body { margin: 18px 0 0; font-size: 16px; line-height: 1.65; color: var(--muted-foreground); max-width: 42ch; }
 .vp-pliego__data { margin: 28px 0 0; border-top: 1px solid var(--border); }
 .vp-pliego__data > div {
