@@ -80,14 +80,49 @@ async function startOAuth(url: URL): Promise<Response> {
   });
 }
 
+function callbackHtml(title: string, body: string, currentUrl?: string): string {
+  const urlBlock = currentUrl
+    ? `<p>Paste this URL back in chat:</p><textarea readonly>${currentUrl
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")}</textarea>`
+    : "";
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${title}</title>
+    <style>
+      body { margin: 0; font: 16px/1.5 ui-sans-serif, system-ui, sans-serif; background: #f4f1ea; color: #1b1c19; }
+      main { max-width: 36rem; margin: 0 auto; padding: 3rem 1.25rem; }
+      textarea { width: 100%; min-height: 7rem; font: 12px/1.4 ui-monospace, monospace; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>${title}</h1>
+      <p>${body}</p>
+      ${urlBlock}
+    </main>
+  </body>
+</html>`;
+}
+
 async function finishOAuth(request: Request, url: URL): Promise<Response> {
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
   if (!code) {
-    return new Response("Missing authorization code. Copy the full Safari URL and paste it in chat.", {
-      status: 400,
-    });
+    return new Response(
+      callbackHtml(
+        "No authorization code",
+        "This page is the OAuth callback. Open the WordPress.com authorize link first, then Allow in Safari.",
+        url.toString(),
+      ),
+      { status: 400, headers: { "Content-Type": "text/html; charset=utf-8" } },
+    );
   }
+
+  console.log(JSON.stringify({ event: "wpcom_oauth_callback", has_code: true, state }));
 
   const cookieHeader = request.headers.get("Cookie") || "";
   const raw = cookieHeader
@@ -98,8 +133,12 @@ async function finishOAuth(request: Request, url: URL): Promise<Response> {
 
   if (!raw) {
     return new Response(
-      "Authorization code received. Paste this full URL back in chat so the agent can finish the token exchange.",
-      { status: 200 },
+      callbackHtml(
+        "Authorization received",
+        "Safari completed the WordPress.com Allow step. Paste this full URL back in chat so the token can be exchanged.",
+        url.toString(),
+      ),
+      { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } },
     );
   }
 
