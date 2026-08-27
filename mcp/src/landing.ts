@@ -1,10 +1,11 @@
 export function landingHtml(origin: string): string {
   const mcpUrl = `${origin}/mcp`;
+  const officialUrl = "https://public-api.wordpress.com/wpcom/v2/mcp/v1";
   const config = JSON.stringify(
     {
       mcpServers: {
         "wpcom-mcp": {
-          url: mcpUrl,
+          url: officialUrl,
         },
       },
     },
@@ -66,10 +67,15 @@ export function landingHtml(origin: string): string {
       </p>
       <h2>Connect a client</h2>
       <pre>${escapeHtml(config)}</pre>
-      <p class="muted">Streamable HTTP endpoint: <code>${escapeHtml(mcpUrl)}</code></p>
+      <p class="muted">
+        Official WordPress.com MCP (recommended):
+        <code>${escapeHtml(officialUrl)}</code>
+      </p>
+      <p class="muted">This Worker: <code>${escapeHtml(mcpUrl)}</code></p>
       <h2>WordPress.com auth</h2>
       <p>
-        Enable MCP on the account, then send
+        <a href="/oauth/start">Get a Safari authorization link</a>.
+        Enable MCP on the account first, then send
         <code>Authorization: Bearer &lt;token&gt;</code>
         or set the <code>WPCOM_ACCESS_TOKEN</code> Worker secret.
         You can also connect clients directly to

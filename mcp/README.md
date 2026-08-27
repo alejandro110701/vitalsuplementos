@@ -22,19 +22,7 @@ Write operations on WordPress.com still require `user_confirmed: true` in the ex
 
 ## Connect a client
 
-```json
-{
-  "mcpServers": {
-    "wpcom-mcp": {
-      "url": "https://<worker>.workers.dev/mcp"
-    }
-  }
-}
-```
-
-Locally the endpoint is `http://localhost:8788/mcp`.
-
-You can also keep using the official WordPress.com server directly:
+The project Cursor config in `.cursor/mcp.json` points at the official WordPress.com server. Cursor will run the WordPress.com OAuth 2.1 flow on first connect.
 
 ```json
 {
@@ -46,9 +34,19 @@ You can also keep using the official WordPress.com server directly:
 }
 ```
 
+This Worker is an extra edge endpoint with Vital shop tools plus a WP.com proxy. Locally it is `http://localhost:8788/mcp`; after deploy, `https://<worker>.workers.dev/mcp`.
+
 ## WordPress.com authentication
 
 1. Enable MCP on the account at [wordpress.com/me/mcp](https://wordpress.com/me/mcp).
+
+To get a Safari authorization link:
+
+```bash
+npm run oauth:start
+```
+
+Open the printed `authorize_url` in Safari, tap Allow, then paste the redirected URL (it contains `code=`) back so the token can be exchanged. The Worker also serves the same flow at `/oauth/start`.
 2. Pass `Authorization: Bearer <access_token>` on MCP requests, **or** set the Worker secret `WPCOM_ACCESS_TOKEN`.
 3. Default site is `vitalsuplementos.com.mx` (`WPCOM_SITE`).
 

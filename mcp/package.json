@@ -10,7 +10,8 @@
     "types": "wrangler types",
     "check": "wrangler types && tsc --noEmit",
     "test": "vitest run",
-    "probe": "node scripts/probe-mcp.mjs"
+    "probe": "node scripts/probe-mcp.mjs",
+    "oauth:start": "node scripts/wpcom-oauth-start.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",

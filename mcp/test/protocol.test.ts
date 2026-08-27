@@ -5,6 +5,8 @@ describe("landingHtml", () => {
   it("embeds the worker MCP URL in client config", () => {
     const html = landingHtml("https://wpcom-mcp.example.workers.dev");
     expect(html).toContain("https://wpcom-mcp.example.workers.dev/mcp");
+    expect(html).toContain("https://public-api.wordpress.com/wpcom/v2/mcp/v1");
+    expect(html).toContain("/oauth/start");
     expect(html).toContain("wpcom-mcp");
     expect(html).toContain("vital_catalog");
     expect(html).toContain("WPCOM_ACCESS_TOKEN");

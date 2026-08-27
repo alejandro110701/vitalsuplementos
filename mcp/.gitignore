@@ -4,3 +4,5 @@ node_modules
 dist
 *.tsbuildinfo
 worker-configuration.d.ts
+.oauth-state.json
+.oauth-token.json
