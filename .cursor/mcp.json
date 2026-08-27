@@ -1,18 +1,16 @@
 {
   "mcpServers": {
     "woocommerce": {
+      "url": "https://vitalsuplementos.com.mx/wp-json/woocommerce/mcp",
+      "headers": {
+        "X-MCP-API-Key": "${env:WOO_key}:${env:WOO_secret}"
+      }
+    },
+    "woocommerce-stdio": {
       "type": "stdio",
       "command": "node",
       "args": ["${workspaceFolder}/scripts/woo-mcp-local.mjs"],
-      "envFile": "${workspaceFolder}/.env",
-      "env": {
-        "WOO_key": "${env:WOO_key}",
-        "WOO_secret": "${env:WOO_secret}",
-        "wookey": "${env:wookey}",
-        "woosecret": "${env:woosecret}",
-        "WOO_KEY": "${env:WOO_KEY}",
-        "WOO_SECRET": "${env:WOO_SECRET}"
-      }
+      "envFile": "${workspaceFolder}/.env"
     },
     "wordpress.com": {
       "url": "https://public-api.wordpress.com/wpcom/v2/mcp/v1"
