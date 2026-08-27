@@ -21,6 +21,21 @@ npm run build    # static bundle in dist/
 npm run preview  # serve the built bundle
 ```
 
+## Local WordPress / WooCommerce MCP
+
+The live shop already exposes WooCommerce MCP at
+`/wp-json/woocommerce/mcp`. Cursor talks to it through a **local stdio proxy**
+so the consumer key never goes in git.
+
+```bash
+cp .env.example .env   # then set WOO_KEY and WOO_SECRET
+```
+
+`.cursor/mcp.json` starts `npm run mcp:woo` (`scripts/woo-mcp-local.mjs`) and
+also registers the WordPress.com HTTP MCP
+(`https://public-api.wordpress.com/wpcom/v2/mcp/v1`) for site/content tools.
+Reload MCP servers in Cursor after filling `.env`.
+
 ## Screens
 
 | Route | Screen |

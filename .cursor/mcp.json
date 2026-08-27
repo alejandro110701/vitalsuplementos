@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "woocommerce": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/scripts/woo-mcp-local.mjs"],
+      "envFile": "${workspaceFolder}/.env"
+    },
+    "wordpress.com": {
+      "url": "https://public-api.wordpress.com/wpcom/v2/mcp/v1"
+    }
+  }
+}

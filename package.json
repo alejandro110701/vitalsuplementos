@@ -10,7 +10,8 @@
     "sync:woo": "node scripts/sync-woo.mjs",
     "fix:woo": "node scripts/fix-woo-products.mjs",
     "attach:images": "node scripts/attach-woo-images.mjs",
-    "build:packshots": "python3 scripts/build-packshots.py"
+    "build:packshots": "python3 scripts/build-packshots.py",
+    "mcp:woo": "node scripts/woo-mcp-local.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -18,6 +19,7 @@
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
+    "@automattic/mcp-wordpress-remote": "^0.4.0",
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.8"
   }
