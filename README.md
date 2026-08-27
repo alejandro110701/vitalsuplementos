@@ -21,6 +21,29 @@ npm run build    # static bundle in dist/
 npm run preview  # serve the built bundle
 ```
 
+## Local WordPress / WooCommerce MCP
+
+The live shop already exposes WooCommerce MCP at
+`/wp-json/woocommerce/mcp`. Cursor talks to it through a **local stdio proxy**
+so the consumer key never goes in git.
+
+```bash
+cp .env.example .env   # then set WOO_key and WOO_secret
+```
+
+Cloud Agent / environment secrets use the names `WOO_key` and `WOO_secret`.
+`WOO_KEY` / `WOO_SECRET` and `wookey` / `woosecret` also work.
+
+`.cursor/mcp.json` registers:
+
+- **woocommerce** — HTTP to `https://vitalsuplementos.com.mx/wp-json/woocommerce/mcp`
+  with header `X-MCP-API-Key: ${WOO_key}:${WOO_secret}`
+- **woocommerce-stdio** — local proxy (`scripts/woo-mcp-local.mjs`) if HTTP is blocked
+- **wordpress.com** — `https://public-api.wordpress.com/wpcom/v2/mcp/v1` for site/content
+
+Cloud Agents need that same HTTP server enabled in the MCP dropdown. The header
+value is the two secrets joined by a colon, not the names of the secrets.
+
 ## Screens
 
 | Route | Screen |
