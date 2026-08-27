@@ -4,7 +4,15 @@
       "type": "stdio",
       "command": "node",
       "args": ["${workspaceFolder}/scripts/woo-mcp-local.mjs"],
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "WOO_key": "${env:WOO_key}",
+        "WOO_secret": "${env:WOO_secret}",
+        "wookey": "${env:wookey}",
+        "woosecret": "${env:woosecret}",
+        "WOO_KEY": "${env:WOO_KEY}",
+        "WOO_SECRET": "${env:WOO_SECRET}"
+      }
     },
     "wordpress.com": {
       "url": "https://public-api.wordpress.com/wpcom/v2/mcp/v1"

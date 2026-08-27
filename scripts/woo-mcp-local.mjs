@@ -5,19 +5,29 @@
  * messages to https://vitalsuplementos.com.mx/wp-json/woocommerce/mcp using
  * the shop's REST consumer key as `X-MCP-API-Key`.
  *
- * Do not put keys in this file. Set WOO_KEY and WOO_SECRET in `.env`
- * (see `.env.example`) or in the environment.
+ * Do not put keys in this file. Set the shop REST key in `.env` or as
+ * environment secrets. Accepted names (first match wins):
+ *   key:    WOO_KEY, WOO_key, wookey, WOOKEY
+ *   secret: WOO_SECRET, WOO_secret, woosecret, WOOSECRET
  */
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const key = process.env.WOO_KEY;
-const secret = process.env.WOO_SECRET;
+function firstEnv(...names) {
+  for (const name of names) {
+    const value = process.env[name];
+    if (value && value.trim()) return value.trim();
+  }
+  return '';
+}
+
+const key = firstEnv('WOO_KEY', 'WOO_key', 'wookey', 'WOOKEY', 'woo_key');
+const secret = firstEnv('WOO_SECRET', 'WOO_secret', 'woosecret', 'WOOSECRET', 'woo_secret');
 if (!key || !secret) {
   console.error(
-    'woo-mcp-local: set WOO_KEY and WOO_SECRET. Copy .env.example to .env and fill the shop REST key.'
+    'woo-mcp-local: missing shop REST credentials. Set WOO_key/WOO_secret (or WOO_KEY/WOO_SECRET) in the environment or in .env.'
   );
   process.exit(1);
 }

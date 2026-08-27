@@ -28,8 +28,11 @@ The live shop already exposes WooCommerce MCP at
 so the consumer key never goes in git.
 
 ```bash
-cp .env.example .env   # then set WOO_KEY and WOO_SECRET
+cp .env.example .env   # then set WOO_key and WOO_secret
 ```
+
+Cloud Agent / environment secrets use the names `WOO_key` and `WOO_secret`.
+`WOO_KEY` / `WOO_SECRET` and `wookey` / `woosecret` also work.
 
 `.cursor/mcp.json` starts `npm run mcp:woo` (`scripts/woo-mcp-local.mjs`) and
 also registers the WordPress.com HTTP MCP
