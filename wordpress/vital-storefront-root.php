@@ -51,7 +51,7 @@ function vital_storefront_candidates() {
 function vital_storefront_render() {
     // Never touch the admin, the REST API, feeds, robots.txt, or any URL that
     // is not the front page itself.
-    if (is_admin() || is_feed() || is_robots() || !is_front_page()) {
+    if (is_admin() || is_feed() || is_robots()) {
         return;
     }
     if (defined('REST_REQUEST') && REST_REQUEST) {
@@ -63,6 +63,16 @@ function vital_storefront_render() {
     // A logged-in editor asking for the customiser or a preview wants
     // WordPress, not the storefront.
     if (is_customize_preview() || isset($_GET['preview'])) {
+        return;
+    }
+
+    // Serve the storefront on the front page AND at /tienda/ (the catalog path).
+    // This ensures /tienda/ always gets the fresh build from the plugin rather
+    // than waiting for WordPress.com GitHub Deployments to copy the artifact.
+    $request_path = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+    $is_tienda = $request_path === '/tienda' || $request_path === '/tienda/';
+    
+    if (!is_front_page() && !$is_tienda) {
         return;
     }
 
