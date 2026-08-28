@@ -82,10 +82,25 @@ export default function Checkout() {
             <p style={{ margin: 0, fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               Pago contra entrega
             </p>
-            <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
+            <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
+              WhatsApp:{' '}
+              <a
+                href="https://wa.me/525520791699"
+                style={{ color: 'var(--secondary)', textDecoration: 'none', borderBottom: '1px solid var(--secondary)' }}
+              >
+                +52 55 2079 1699
+              </a>
+            </p>
+            <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
+              pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+            </p>
+            <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
+              Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
+              foto del lote y la caducidad de tu unidad.
+            </p>
+            <p style={{ margin: '16px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
               Al continuar pasamos tu carrito a la tienda, donde capturas la dirección y eliges pago contra entrega
-              —efectivo al repartidor, sin anticipo— o tarjeta. El pedido queda registrado ahí y recibes un correo
-              con tu número de pedido.
+              o tarjeta. El pedido queda registrado ahí y recibes un correo con tu número de pedido.
             </p>
           </div>
 

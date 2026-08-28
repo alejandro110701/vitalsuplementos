@@ -238,6 +238,93 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---- COD WhatsApp section ---- */}
+      <section style={{ borderBottom: '1px solid var(--border)', background: 'var(--muted)' }}>
+        <div className="vs-wrap" style={{ paddingTop: 48, paddingBottom: 48 }}>
+          <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
+            <p
+              style={{
+                margin: 0,
+                fontFamily: 'var(--font-mono)',
+                fontSize: 11,
+                textTransform: 'uppercase',
+                letterSpacing: '0.24em',
+                color: 'var(--muted-foreground)'
+              }}
+            >
+              Pedidos por WhatsApp
+            </p>
+            <p
+              style={{
+                margin: '16px 0 0',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: 28,
+                lineHeight: 1.2,
+                letterSpacing: '-0.02em'
+              }}
+            >
+              <a
+                href="https://wa.me/525520791699"
+                style={{ color: 'inherit', textDecoration: 'none', borderBottom: '2px solid var(--secondary)' }}
+              >
+                +52 55 2079 1699
+              </a>
+            </p>
+            <ol
+              style={{
+                margin: '24px auto 0',
+                padding: 0,
+                listStyle: 'none',
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '8px 16px',
+                justifyContent: 'center',
+                fontSize: 14,
+                color: 'var(--muted-foreground)'
+              }}
+            >
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--secondary)' }}>01</span>
+                pedido
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ color: 'var(--border)' }}>→</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--secondary)' }}>02</span>
+                confirmas por WhatsApp
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ color: 'var(--border)' }}>→</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--secondary)' }}>03</span>
+                foto de lote y caducidad de tu unidad
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ color: 'var(--border)' }}>→</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--secondary)' }}>04</span>
+                pagas al courier
+              </li>
+            </ol>
+            <p
+              style={{
+                margin: '24px 0 0',
+                fontSize: 14,
+                lineHeight: 1.65,
+                color: 'var(--muted-foreground)'
+              }}
+            >
+              Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
+              foto del lote y la caducidad de tu unidad.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ---- the two worlds ---- */}
       <section className="vs-wrap vs-worlds" style={{ paddingTop: 96 }}>
         <WorldCard
