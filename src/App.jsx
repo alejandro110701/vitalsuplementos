@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
@@ -10,9 +11,28 @@ import Peptidos from './routes/Peptidos.jsx';
 import Producto from './routes/Producto.jsx';
 import Tienda from './routes/Tienda.jsx';
 
+function TiendaRedirect() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // When the SPA is served from /tienda/ and loaded at the hash root (#/),
+    // redirect to the catalog route so /tienda/ shows products, not the homepage.
+    const isServedFromTienda = window.location.pathname.includes('/tienda');
+    const isHashRoot = location.pathname === '/' && !location.search;
+
+    if (isServedFromTienda && isHashRoot) {
+      navigate('/tienda', { replace: true });
+    }
+  }, [navigate, location]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <div className="vs-shell">
+      <TiendaRedirect />
       <ScrollToTop />
       {/* First tab stop on every page: six header links stood between a keyboard
           or screen-reader user and the actual content. */}
