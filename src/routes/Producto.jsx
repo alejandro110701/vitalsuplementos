@@ -29,7 +29,13 @@ export default function Producto() {
   // Out of stock and dropped-from-the-sync are both unbuyable: an unlisted
   // product's price is the stale catalogue guess, not what the shop charges.
   useTitle(cur ? cur.n : null);
-  const buyable = cur.listed !== false && cur.inStock !== false;
+  // Null-safe like the useTitle above it, and for the same reason: findProduct
+  // returns undefined for an unknown slug, and the redirect that handles that
+  // cannot run until every hook has. Dereferencing here threw before it, which
+  // unmounted the whole tree and left a blank page — not a 404, not the
+  // catalogue. A stale or mistyped product link is precisely what a paid click
+  // arrives on, so it has to land somewhere.
+  const buyable = !!cur && cur.listed !== false && cur.inStock !== false;
   const [barra, setBarra] = useState(false);
 
   const ctaRef = useRef(null);

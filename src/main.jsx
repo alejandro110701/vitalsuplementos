@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 import { CartProvider } from './lib/cart.jsx';
 import './styles/app.css';
 
@@ -15,9 +16,11 @@ createRoot(document.getElementById('root')).render(
         /tienda/index.html, which does exist, so deep links and refreshes work
         with no server configuration at all. */}
     <HashRouter>
-      <CartProvider>
-        <App />
-      </CartProvider>
+      <ErrorBoundary>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </ErrorBoundary>
     </HashRouter>
   </React.StrictMode>
 );
