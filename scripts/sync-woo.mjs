@@ -141,6 +141,34 @@ async function probeShipping(sampleProductId) {
 }
 
 const missing = Object.values(BY_ID).filter((s) => !out[s]);
+
+/*
+ * Refuse to bake a catalogue that lost products.
+ *
+ * A shop that is *down* throws above, and the deploy workflow's `|| echo`
+ * keeps the committed snapshot. A shop that answers 200 with a short list does
+ * not: it exits zero, the guard never fires, and the build happily ships a
+ * storefront where every absent product is `listed: false` — that is, an empty
+ * shelf. The Store API returns exactly that while products are unpublished,
+ * while the catalogue is private, and whenever a plugin breaks the endpoint
+ * into an empty array.
+ *
+ * Missing products are the one failure the storefront cannot show honestly, so
+ * this exits non-zero and leaves the committed file alone. A stale price is
+ * recoverable; paying for clicks that land on "no encontrado" is not.
+ *
+ * Set WOO_ALLOW_PARTIAL=1 when a product is retired on purpose, then commit
+ * the shortened snapshot deliberately.
+ */
+if (missing.length && process.env.WOO_ALLOW_PARTIAL !== '1') {
+  console.error(
+    `refusing to write: ${Object.keys(out).length}/${Object.keys(BY_ID).length} products came back from ${STORE}.\n` +
+      `  absent: ${missing.join(', ')}\n` +
+      '  keeping the committed catalogue. Re-run with WOO_ALLOW_PARTIAL=1 if this is deliberate.'
+  );
+  process.exit(1);
+}
+
 const sampleId = Number(Object.keys(BY_ID)[0]);
 const shipping = await probeShipping(sampleId);
 
