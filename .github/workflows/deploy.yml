@@ -67,7 +67,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wpcom
-          path: dist
+          path: |
+            dist
+            wordpress
           include-hidden-files: true
           if-no-files-found: error
           # WordPress.com collects the artifact and then has no further use for
