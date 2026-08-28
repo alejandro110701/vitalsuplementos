@@ -39,6 +39,19 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     />
+
+    <!-- Pre-React redirect for /tienda/ → catalog. Runs before HashRouter mounts,
+         so the catalog paints immediately instead of flashing the homepage first.
+         This completes the fix started in App.jsx's useEffect, which ran too late. -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var hash = window.location.hash;
+        if ((path === '/tienda' || path === '/tienda/') && (!hash || hash === '#' || hash === '#/')) {
+          window.location.replace('#/tienda');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
