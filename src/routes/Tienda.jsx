@@ -44,13 +44,28 @@ export default function Tienda() {
     setParams(next, { replace: true });
   };
 
+  const toggleParam = (key, value, currentValue) => {
+    // Clicking an active chip deactivates it; clicking an inactive chip activates it
+    setParam(key, currentValue === value ? 'todo' : value);
+  };
+
   const needle = norm(q);
   let grid = LISTED.filter(
     (p) => (world === 'todo' || p.w === world) && (goal === 'todo' || p.goals.includes(goal))
   );
   if (needle) grid = grid.filter((p) => norm(`${p.n} ${p.kicker} ${p.claim}`).includes(needle));
 
-  const title = world === 'sup' ? 'Suplementos' : world === 'skin' ? 'Skincare' : 'Todo el catálogo';
+  let title = 'Todo el catálogo';
+  if (goal !== 'todo') {
+    const activeGoal = GOALS.find((g) => g.id === goal);
+    if (activeGoal) {
+      title = activeGoal.label;
+    }
+  } else if (world === 'sup') {
+    title = 'Suplementos';
+  } else if (world === 'skin') {
+    title = 'Skincare';
+  }
 
   return (
     <div>
@@ -85,7 +100,7 @@ export default function Tienda() {
         <div className="vs-wrap" style={{ paddingTop: 14, paddingBottom: 14, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', gap: 6 }}>
             {WORLDS.map((c) => (
-              <button key={c.id} type="button" onClick={() => setParam('mundo', c.id)} style={{ ...chipBase, ...chipStyle(world === c.id) }}>
+              <button key={c.id} type="button" onClick={() => toggleParam('mundo', c.id, world)} style={{ ...chipBase, ...chipStyle(world === c.id) }}>
                 {c.label}
               </button>
             ))}
@@ -95,7 +110,7 @@ export default function Tienda() {
 
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             {[{ id: 'todo', label: 'Cualquier objetivo' }, ...GOALS.map((g) => ({ id: g.id, label: g.label }))].map((c) => (
-              <button key={c.id} type="button" onClick={() => setParam('objetivo', c.id)} style={{ ...chipBase, ...chipStyle(goal === c.id) }}>
+              <button key={c.id} type="button" onClick={() => toggleParam('objetivo', c.id, goal)} style={{ ...chipBase, ...chipStyle(goal === c.id) }}>
                 {c.label}
               </button>
             ))}
