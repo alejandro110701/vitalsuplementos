@@ -293,19 +293,12 @@ export default function Producto() {
               <p style={metaLabel}>Categoría</p>
               <p style={{ margin: '8px 0 0', fontSize: 14 }}>{worldLabel(cur.w)}</p>
             </div>
-            <div>
-              <p style={metaLabel}>SKU</p>
-              <p style={{ margin: '8px 0 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{sku(cur)}</p>
-            </div>
+          <div>
+            <p style={metaLabel}>SKU</p>
+            <p style={{ margin: '8px 0 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{sku(cur)}</p>
           </div>
-          {cur.permalink && (
-            <p style={{ margin: '20px 0 0', fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.18em' }}>
-              <a href={cur.permalink} target="_blank" rel="noopener noreferrer" style={{ borderBottom: '1px solid var(--border)', paddingBottom: 2 }}>
-                Ver en la tienda →
-              </a>
-            </p>
-          )}
-          {/* The Mexican supplement legend is required for what it covers and
+        </div>
+        {/* The Mexican supplement legend is required for what it covers and
               wrong for what it does not: half this catalogue is cosmetic, and a
               sheet mask has no "consumo". Each world carries its own wording. */}
           <p style={{ margin: '20px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
