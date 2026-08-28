@@ -69,6 +69,32 @@ export default function Tienda() {
         >
           {title}
         </h1>
+        <div
+          style={{
+            marginTop: 32,
+            padding: '20px 24px',
+            borderRadius: 12,
+            border: '1px solid var(--border)',
+            background: 'var(--muted)'
+          }}
+        >
+          <p style={{ margin: 0, fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Pedidos por WhatsApp:{' '}
+            <a
+              href="https://wa.me/525520791699"
+              style={{ color: 'var(--secondary)', textDecoration: 'none', borderBottom: '1px solid var(--secondary)' }}
+            >
+              +52 55 2079 1699
+            </a>
+          </p>
+          <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
+            pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+          </p>
+          <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
+            Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
+            foto del lote y la caducidad de tu unidad.
+          </p>
+        </div>
       </section>
 
       <div

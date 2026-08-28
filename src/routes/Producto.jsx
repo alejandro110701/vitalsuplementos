@@ -262,9 +262,21 @@ export default function Producto() {
                 <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
                   Pago contra entrega
                 </p>
-                <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-                  Pagas en efectivo al repartidor cuando llegue. Sin anticipo, con envío gratis y entrega de 2 a 5
-                  días a todo México.
+                <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
+                  WhatsApp:{' '}
+                  <a
+                    href="https://wa.me/525520791699"
+                    style={{ color: 'var(--secondary)', textDecoration: 'none', borderBottom: '1px solid var(--secondary)' }}
+                  >
+                    +52 55 2079 1699
+                  </a>
+                </p>
+                <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
+                  pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+                </p>
+                <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
+                  Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
+                  foto del lote y la caducidad de tu unidad.
                 </p>
               </div>
             </div>
