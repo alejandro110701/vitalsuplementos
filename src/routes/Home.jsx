@@ -175,8 +175,19 @@ export default function Home() {
             <Button variant="default" size="xl" onClick={() => navigate('/tienda')}>
               Ver la tienda
             </Button>
-            <Button variant="outline" size="xl" onClick={() => navigate('/peptidos')}>
-              Línea de péptidos
+            {/* Was "Línea de péptidos". Moved out of the hero on 28 Aug 2026:
+                the hero and the header nav are what an ad reviewer, a Merchant
+                Center reviewer and a COFEPRIS inspector read as "what this shop
+                sells", and research peptides are not advertisable here. The
+                peptide business keeps its brand section further down the page,
+                the footer links and the legal line — presence is fine, top-of-
+                page prominence is what creates the review problem.
+
+                Skincare replaces it because "skincare coreano méxico" is the
+                one head query in this catalogue with no Amazon and no Mercado
+                Libre in the results. */}
+            <Button variant="outline" size="xl" onClick={() => navigate('/tienda?mundo=skin')}>
+              Skincare coreano
             </Button>
           </div>
 

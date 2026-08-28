@@ -2,18 +2,31 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LogoMark } from '../ds/index.js';
 import { useCart } from '../lib/cart.jsx';
 
+/*
+ * "Péptidos" was the fourth item here, accented teal. Removed 28 Aug 2026.
+ *
+ * Not because the peptide business should be hidden — it keeps its brand
+ * section on the home page, both footer links and the legal line, and that
+ * referral is the point. The primary nav is specifically the thing an
+ * automated policy classifier and a human reviewer read as the shop's product
+ * categories, and research peptides are not advertisable alongside suplementos
+ * alimenticios: the same adjacency is a problem for Google Ads, for Merchant
+ * Center and for the COFEPRIS permiso de publicidad at once.
+ *
+ * Prominence is the lever, not presence. Anyone looking for the peptide line
+ * still finds it one scroll down and in the footer of every page.
+ */
 const NAV = [
   { label: 'Tienda', to: '/tienda' },
   { label: 'Suplementos', to: '/tienda?mundo=sup' },
   { label: 'Skincare', to: '/tienda?mundo=skin' },
-  { label: 'Péptidos', to: '/peptidos', accent: true },
   { label: 'Nosotros', to: '/nosotros' }
 ];
 
 /**
  * Brand and cart share one row; the nav is a sibling of that row, not a child.
  * On a phone the row keeps brand and cart on the top line and the nav drops
- * beneath as a scrollable strip — five items, a wordmark and a cart cannot fit
+ * beneath as a scrollable strip — four items, a wordmark and a cart cannot fit
  * across 375px, and the cart is the one thing that must never be pushed off.
  */
 export default function Header() {

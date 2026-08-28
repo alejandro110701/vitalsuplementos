@@ -67,9 +67,35 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wpcom
-          path: |
-            dist
-            wordpress
+          #
+          # `dist` alone, and deliberately.
+          #
+          # 3af4401 added `wordpress` here to try to get the COD WhatsApp
+          # notice live. It could not work, and it broke two things:
+          #
+          #   1. Listing two paths makes upload-artifact preserve the directory
+          #      structure, so the artifact root gained a `dist/` level. The
+          #      build landed at /srv/htdocs/tienda/dist/index.html, the
+          #      must-use plugin looked for /srv/htdocs/tienda/index.html, found
+          #      nothing, and the homepage silently fell back to the WordPress
+          #      theme — which the edge cache then stored.
+          #
+          #   2. wordpress/vital-storefront-root.php is a MUST-USE PLUGIN. It
+          #      only executes from wp-content/mu-plugins/. Copied into the web
+          #      root it is dead code that WordPress never loads (it exits on
+          #      the !defined('ABSPATH') guard), served publicly at
+          #      /tienda/wordpress/vital-storefront-root.php.
+          #
+          # Deploying that folder cannot install a plugin, because this
+          # deployment writes to one destination directory and that directory is
+          # not wp-content/mu-plugins. Install it over SSH/SFTP instead:
+          #
+          #   scp wordpress/vital-storefront-root.php \
+          #     vitalsuplementoscommx.wordpress.com@ssh.wp.com:/srv/htdocs/wp-content/mu-plugins/
+          #
+          # and always `php -l` it first — a fatal in mu-plugins takes the whole
+          # site down, admin included.
+          path: dist
           include-hidden-files: true
           if-no-files-found: error
           # WordPress.com collects the artifact and then has no further use for
