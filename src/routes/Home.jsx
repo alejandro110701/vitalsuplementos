@@ -238,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---- COD WhatsApp section ---- */}
+      {/* COD WhatsApp path - Ship-Lead approved */}
       <section style={{ borderBottom: '1px solid var(--border)', background: 'var(--muted)' }}>
         <div className="vs-wrap" style={{ paddingTop: 48, paddingBottom: 48 }}>
           <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
