@@ -51,8 +51,9 @@ if (!defined('ABSPATH')) {
  * Each entry maps the directory holding index.html to the URL prefix its assets
  * are served from. The build emits document-relative URLs ("./assets/..."), so
  * serving it at / requires rewriting those to point back at the real directory.
- * Listing the root first means that if the WordPress.com deployment destination
- * is ever changed from /tienda/ to /, this keeps working without an edit.
+ * Listing /tienda/ first ensures that if a stale index.html ends up at the root,
+ * the plugin still serves the fresh build from /tienda/ rather than 404ing on
+ * outdated asset hashes.
  */
 function vital_storefront_candidates() {
     // NOT ABSPATH. On WordPress.com Atomic the web root holds only wp-config.php
@@ -67,10 +68,14 @@ function vital_storefront_candidates() {
     // WordPress theme for ~7 minutes. The fallback is the designed behaviour —
     // a missing build must never blank the page — but it is a silent failure,
     // so the list now covers both layouts and any future one is one line.
+    //
+    // Listing /tienda/ paths first ensures that if a stale index.html ends up
+    // at the root, the plugin still serves the fresh build from /tienda/ rather
+    // than 404ing on outdated asset hashes.
     return array(
-        array('dir' => $root,                  'prefix' => '/'),
         array('dir' => $root . '/tienda/dist', 'prefix' => '/tienda/dist/'),
         array('dir' => $root . '/tienda',      'prefix' => '/tienda/'),
+        array('dir' => $root,                  'prefix' => '/'),
     );
 }
 
@@ -168,6 +173,18 @@ function vital_storefront_catalog_html() {
 
     return $out;
 }
+
+function vital_storefront_disable_tienda_redirect($redirect_url, $requested_url) {
+    // WordPress wants to redirect /tienda to /tienda/ but gets the scheme wrong
+    // (http instead of https). Since this plugin serves /tienda directly without
+    // needing a redirect, prevent redirect_canonical from running on that path.
+    $request_path = parse_url($requested_url, PHP_URL_PATH);
+    if ($request_path === '/tienda') {
+        return false;
+    }
+    return $redirect_url;
+}
+add_filter('redirect_canonical', 'vital_storefront_disable_tienda_redirect', 10, 2);
 
 function vital_storefront_render() {
     // Never touch the admin, the REST API, feeds, robots.txt, or any URL that
