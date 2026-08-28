@@ -191,6 +191,25 @@ const NEGATIVES = [
   ['embarazo', 'Phrase'], ['lactancia', 'Phrase'], ['ninos', 'Phrase'],
 ];
 
+/**
+ * Pages confirmed published on the live WordPress site, read through the
+ * WordPress.com connector on 2026-08-28.
+ *
+ * Worth writing down rather than trusting: the React app routes /nosotros
+ * behind a fragment (#/nosotros) and the mu-plugin only serves the storefront
+ * at / and /tienda/, which makes a bare /nosotros/ look like it must 404. It
+ * does not — WordPress serves its own page there, independently of the SPA.
+ * A sitelink to a genuinely dead URL is a destination-policy finding, so the
+ * allowlist below is what the shop actually publishes, not what the routing
+ * implies.
+ */
+const LIVE_PAGES = new Set([
+  'https://vitalsuplementos.com.mx/shop/',      // id 10
+  'https://vitalsuplementos.com.mx/nosotros/',  // id 15
+  'https://vitalsuplementos.com.mx/peptidos/',  // id 16
+  'https://vitalsuplementos.com.mx/inicio/',    // id 108
+]);
+
 /* Sitelinks. Every destination below must exist and be reachable before the
    campaign is enabled — a sitelink to a 404 is a destination-policy finding. */
 const SITELINKS = [
@@ -253,6 +272,28 @@ write('01-campaign.csv', [
   ['Campaign', 'Campaign Type', 'Campaign Daily Budget', 'Budget Type', 'Bid Strategy Type', 'Networks', 'Languages', 'Campaign Status'],
   [CAMPAIGN, 'Search', DAILY_BUDGET.toFixed(2), 'Standard', 'Manual CPC', 'Google search', 'Spanish', 'Paused'],
 ]);
+
+/* --- location ------------------------------------------------------
+ *
+ * A campaign with no location rows is not "untargeted" in the harmless
+ * sense — Ads Editor imports it as ALL countries, and a shop that only
+ * delivers inside Mexico would spend its day buying clicks it cannot
+ * fulfil. This must be imported with the campaign, not after it.
+ *
+ * "Presence" rather than the default "Presence or interest": interest
+ * targeting serves people merely *reading about* Mexico from anywhere,
+ * which for a cash-on-delivery courier network is pure waste. 2484 is
+ * Google's geo target constant for Mexico.
+ */
+write('01b-location.csv', [
+  ['Campaign', 'Location', 'Location ID', 'Reach', 'Location Target Type', 'Status'],
+  [CAMPAIGN, 'Mexico', '2484', 'Presence', 'Presence', 'Enabled'],
+]);
+
+/* Language is set on the campaign row above, and it is NOT a substitute for
+   the rows here: Google matches language on the browser/query, not on where
+   the person is, so Spanish alone would serve every Spanish speaker on
+   earth. Both are required, and they do different jobs. */
 
 /* --- ad groups ---------------------------------------------------- */
 write('02-ad-groups.csv', [
@@ -319,6 +360,9 @@ write('06-sitelinks.csv', [
     check('sitelinkText', t, `Sitelink ${i + 1}`);
     check('sitelinkDesc', d1, `Sitelink ${i + 1} desc1`);
     check('sitelinkDesc', d2, `Sitelink ${i + 1} desc2`);
+    if (!LIVE_PAGES.has(u)) {
+      problems.push(`Sitelink ${i + 1} ("${t}") points at ${u}, which is not a page confirmed live on the shop`);
+    }
     return [CAMPAIGN, t, d1, d2, u, 'Paused'];
   }),
 ]);
