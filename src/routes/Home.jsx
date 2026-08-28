@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Chromatogram, Eyebrow, ManifestoBand, ProductCard, StatBlock } from '../ds/index.js';
 import { GOALS, LISTED, findProduct, productImage, productSrcSet } from '../data/products.js';
+import { asset } from '../lib/assetBase.js';
 import { useTitle } from '../lib/useTitle.js';
 
 const HERO_TILES = ['serum-anua', 'creatina', 'glutation-gomas', 'tocobo-barra', 'mentas-cafeina'];
@@ -252,7 +253,45 @@ export default function Home() {
       {/* COD WhatsApp path - Ship-Lead approved */}
       <section style={{ borderBottom: '1px solid var(--border)', background: 'var(--muted)' }}>
         <div className="vs-wrap" style={{ paddingTop: 48, paddingBottom: 48 }}>
-          <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 44,
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            {/* Illustrative, not documentary: this is a generic doorstep
+                handover, not a photograph of one of our deliveries, and the
+                alt text says only what is in the frame. Nothing here claims
+                anything about a specific parcel — that is the mistake the
+                lot-and-expiry copy made.
+
+                width/height are the intrinsic 1200x896 so the browser reserves
+                the box before the bytes land and the section does not shift.
+                loading="lazy" is safe: this sits well below the fold, so it is
+                never the LCP element. */}
+            <figure style={{ margin: 0, flex: '1 1 300px', maxWidth: 460 }}>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${asset('editorial/cod-entrega-640.webp')} 640w, ${asset('editorial/cod-entrega-1000.webp')} 1000w`}
+                  sizes="(max-width: 760px) 92vw, 460px"
+                />
+                <img
+                  src={asset('editorial/cod-entrega.jpg')}
+                  width={1200}
+                  height={896}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Un repartidor entrega un paquete en la puerta y recibe el pago en efectivo"
+                  style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 14 }}
+                />
+              </picture>
+            </figure>
+
+            <div style={{ flex: '1 1 300px', maxWidth: 460 }}>
             <p
               style={{
                 margin: 0,
@@ -284,13 +323,13 @@ export default function Home() {
             </p>
             <ol
               style={{
-                margin: '24px auto 0',
+                margin: '24px 0 0',
                 padding: 0,
                 listStyle: 'none',
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '8px 16px',
-                justifyContent: 'center',
+                justifyContent: 'flex-start',
                 fontSize: 14,
                 color: 'var(--muted-foreground)'
               }}
@@ -325,6 +364,7 @@ export default function Home() {
               Contra entrega. No generamos la guía hasta que confirmes por WhatsApp, y no pagas nada hasta que el
               paquete esté en tus manos.
             </p>
+            </div>
           </div>
         </div>
       </section>

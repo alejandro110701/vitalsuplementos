@@ -10,7 +10,8 @@
     "sync:woo": "node scripts/sync-woo.mjs",
     "fix:woo": "node scripts/fix-woo-products.mjs",
     "attach:images": "node scripts/attach-woo-images.mjs",
-    "build:packshots": "python3 scripts/build-packshots.py"
+    "build:packshots": "python3 scripts/build-packshots.py",
+    "build:editorial": "python3 scripts/build-editorial.py"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -8,3 +8,6 @@ dist
 .env
 .env.*
 *.wooenv
+
+# editorial masters are large; only derived tiers ship
+editorial-src/*.png
