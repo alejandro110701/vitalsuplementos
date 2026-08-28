@@ -116,13 +116,17 @@ function vital_storefront_render() {
 add_action('template_redirect', 'vital_storefront_render', 0);
 
 /**
- * Display COD WhatsApp information on WooCommerce checkout page.
+ * Display COD WhatsApp information on WooCommerce cart and checkout pages.
  *
  * Prints the Shop-Lead-approved phone number, four-step process, and exact copy
- * on the native WooCommerce /checkout/ page so shoppers see it whether they use
- * the Vite SPA checkout or the Woo checkout.
+ * on /checkout/ whether the cart is empty (shows cart page) or has items (shows
+ * checkout form). Also displays on /cart/ for shoppers who land there directly.
  */
 function vital_cod_whatsapp_info() {
+    // Only display on cart or checkout pages
+    if (!is_cart() && !is_checkout()) {
+        return;
+    }
     ?>
     <div style="
         margin: 0 0 2rem 0;
@@ -169,5 +173,8 @@ function vital_cod_whatsapp_info() {
     <?php
 }
 
-// Display COD info prominently before the checkout form
+// Display on cart page (including when /checkout/ redirects to empty cart)
+add_action('woocommerce_before_cart', 'vital_cod_whatsapp_info', 5);
+
+// Display on checkout page (when cart has items)
 add_action('woocommerce_before_checkout_form', 'vital_cod_whatsapp_info', 5);
