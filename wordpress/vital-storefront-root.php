@@ -114,3 +114,60 @@ function vital_storefront_render() {
 }
 
 add_action('template_redirect', 'vital_storefront_render', 0);
+
+/**
+ * Display COD WhatsApp information on WooCommerce checkout page.
+ *
+ * Prints the Shop-Lead-approved phone number, four-step process, and exact copy
+ * on the native WooCommerce /checkout/ page so shoppers see it whether they use
+ * the Vite SPA checkout or the Woo checkout.
+ */
+function vital_cod_whatsapp_info() {
+    ?>
+    <div style="
+        margin: 0 0 2rem 0;
+        padding: 1.25rem 1.5rem;
+        background: #f5f5f5;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+    ">
+        <p style="
+            margin: 0 0 0.5rem 0;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #000;
+        ">
+            Pedidos por WhatsApp:
+            <a 
+                href="https://wa.me/525520791699" 
+                style="
+                    color: #0891b2;
+                    text-decoration: none;
+                    border-bottom: 1px solid #0891b2;
+                "
+            >+52 55 2079 1699</a>
+        </p>
+        <p style="
+            margin: 0.75rem 0 0 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+        ">
+            pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+        </p>
+        <p style="
+            margin: 0.75rem 0 0 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+        ">
+            Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos foto del lote y la caducidad de tu unidad.
+        </p>
+    </div>
+    <?php
+}
+
+// Display COD info prominently before the checkout form
+add_action('woocommerce_before_checkout_form', 'vital_cod_whatsapp_info', 5);
