@@ -24,6 +24,15 @@ export const PRODUCTS = [
     uso: '2 a 3 gotas sobre rostro limpio, mañana y noche. De día, sellar con protector solar.'
   },
   {
+    /* This copy is composition-only on purpose, and it must stay that way.
+       Glutathione is sold across Mexico as a whitening product — the shop's own
+       WooCommerce permalink still says "glutation-blanqueador-gomas" — and
+       COFEPRIS ran a named-product enforcement campaign against skin-lightening
+       goods through 2025. Google does not ban the category outright; it bans
+       advertising that implies one skin tone is better than another. Stating
+       milligrams and leaving the effect unsaid is what keeps this SKU
+       advertisable. Do not "improve" it into blanquea, aclara, or unifica el
+       tono, and do not pair it with before/after or skin-tone imagery. */
     slug: 'glutation-gomas',
     n: 'Glutatión Pro en Gomas',
     kicker: 'Suplemento · Gomas',
@@ -46,7 +55,7 @@ export const PRODUCTS = [
     n: 'Creatina Monohidratada Dropi Cup',
     kicker: 'Suplemento · Polvo',
     w: 'sup',
-    goals: ['energia', 'peso'],
+    goals: ['energia', 'entrenamiento'],
     price: 599,
     was: 0,
     spec: '300 g',
@@ -112,7 +121,7 @@ export const PRODUCTS = [
     n: 'Bloom Greens Mango',
     kicker: 'Suplemento · Polvo',
     w: 'sup',
-    goals: ['energia', 'peso'],
+    goals: ['energia', 'entrenamiento'],
     price: 899,
     was: 0,
     spec: '225 g',
@@ -125,7 +134,7 @@ export const PRODUCTS = [
     n: 'Mentas de Cafeína Energy Focus',
     kicker: 'Suplemento · Mentas',
     w: 'sup',
-    goals: ['energia', 'peso'],
+    goals: ['energia', 'entrenamiento'],
     price: 259,
     was: 0,
     spec: '90 piezas',
@@ -312,7 +321,15 @@ export const GOALS = [
   { id: 'energia', label: 'Energía', sub: 'Creatina, cafeína, NAD+ y verdes.', icon: 'M4 14h6l-2 7 10-11h-6l2-7z' },
   { id: 'piel', label: 'Piel', sub: 'Serums con porcentaje declarado y SPF.', icon: 'M12 3s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10z' },
   { id: 'movilidad', label: 'Movilidad', sub: 'Magnesio, glucosamina y colágeno.', icon: 'M3 12h4l3-8 4 16 3-8h4' },
-  { id: 'peso', label: 'Peso', sub: 'Apoyo a la rutina de entrenamiento.', icon: 'M6 7h12l2 12H4z M9 7V5a3 3 0 0 1 6 0v2' }
+  /* Named for the routine, not for an outcome. These three are creatine, a
+     greens powder and caffeine mints: none of them is a weight product, and
+     creatine's documented first effect is water-weight GAIN. Filing them under
+     "Peso" told the shopper the catalogue makes a body-composition claim it
+     cannot support — the collision is with Google's Misrepresentation policy
+     and with the Mexican rules on advertising suplementos alimenticios, which
+     is why the sub-label already described a training routine rather than a
+     result. The label now says what the sub-label always did. */
+  { id: 'entrenamiento', label: 'Entrenamiento', sub: 'Apoyo a la rutina de entrenamiento.', icon: 'M6 7h12l2 12H4z M9 7V5a3 3 0 0 1 6 0v2' }
 ];
 
 /** Returns undefined for an unknown slug — callers must handle it. Falling back
