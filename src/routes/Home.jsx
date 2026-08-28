@@ -168,8 +168,8 @@ export default function Home() {
               animation: 'vsRise 1s .16s both'
             }}
           >
-            Importamos suplementos y skincare que ya se usan afuera, con etiqueta completa, lote y caducidad a la vista.
-            Pagas cuando el paquete está en tus manos.
+            Importamos suplementos y skincare que ya se usan afuera. No pagas nada por adelantado: el dinero cambia
+            de manos cuando el paquete está en las tuyas.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center', animation: 'vsRise 1s .26s both' }}>
             <Button variant="default" size="xl" onClick={() => navigate('/tienda')}>
@@ -242,10 +242,10 @@ export default function Home() {
       {/* ---- trust strip ---- */}
       <section style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="vs-wrap vs-stats">
-          <StatBlock label="Envío" value="Gratis" sub="2–5 días a todo México" />
+          <StatBlock label="Envío" value="$200" sub="2–5 días a todo México" />
           <StatBlock label="Pago" value="Contra entrega" sub="Efectivo al recibir" />
           <StatBlock label="Catálogo" value="16 productos" sub="Suplementos y skincare" />
-          <StatBlock label="Origen" value="Importado" sub="Lote y caducidad visibles" />
+          <StatBlock label="Origen" value="Importado" sub="Corea, EE. UU. y Europa" />
         </div>
       </section>
 
@@ -311,13 +311,6 @@ export default function Home() {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--secondary)' }}>03</span>
-                foto de lote y caducidad de tu unidad
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ color: 'var(--border)' }}>→</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--secondary)' }}>04</span>
                 pagas al courier
               </li>
             </ol>
@@ -329,8 +322,8 @@ export default function Home() {
                 color: 'var(--muted-foreground)'
               }}
             >
-              Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
-              foto del lote y la caducidad de tu unidad.
+              Contra entrega. No generamos la guía hasta que confirmes por WhatsApp, y no pagas nada hasta que el
+              paquete esté en tus manos.
             </p>
           </div>
         </div>
@@ -440,7 +433,7 @@ export default function Home() {
         <ManifestoBand
           kicker="Pago contra entrega"
           headline="Pagas cuando lo tienes en la mano"
-          sub="Sin anticipo · efectivo al recibir · envío gratis a todo México"
+          sub="Sin anticipo · efectivo al recibir · envío $200 a todo México"
         />
       </div>
 

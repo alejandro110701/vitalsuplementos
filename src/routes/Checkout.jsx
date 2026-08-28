@@ -92,11 +92,11 @@ export default function Checkout() {
               </a>
             </p>
             <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
-              pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+              pedido → confirmas por WhatsApp → pagas en efectivo al recibir
             </p>
             <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
-              Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
-              foto del lote y la caducidad de tu unidad.
+              Contra entrega. No generamos la guía hasta que confirmes por WhatsApp, y no pagas nada hasta que el
+              paquete esté en tus manos.
             </p>
             <p style={{ margin: '16px 0 0', fontSize: 13, lineHeight: 1.65, color: 'var(--muted-foreground)' }}>
               Al continuar pasamos tu carrito a la tienda, donde capturas la dirección y eliges pago contra entrega

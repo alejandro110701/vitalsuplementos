@@ -33,8 +33,8 @@ export default function Nosotros() {
           </h1>
           <p style={{ margin: '28px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.7, color: 'var(--muted-foreground)' }}>
             Vital Suplementos es una operación mexicana de importación directa. Elegimos productos que ya tienen historia
-            afuera —Corea, Estados Unidos, Europa— y los traemos con etiqueta completa: dosis por porción, lote y
-            caducidad visibles. Sin fórmulas “propietarias” que esconden cuánto trae cada cápsula.
+            afuera —Corea, Estados Unidos, Europa— y los vendemos contra entrega: pagas en efectivo cuando el paquete
+            llega a tu puerta, no antes. Sin anticipos y sin fórmulas “propietarias”.
           </p>
         </div>
       </section>

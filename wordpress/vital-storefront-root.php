@@ -157,7 +157,7 @@ function vital_storefront_catalog_html() {
     $out .= '<div class="vs-index__in">';
     $out .= '<h2 class="vs-index__h">Índice del catálogo</h2>';
     $out .= '<p class="vs-index__sub">Ficha completa de cada producto: ingredientes declarados, '
-          . 'contenido neto, modo de uso, lote y caducidad.</p>';
+          . 'contenido neto y modo de uso.</p>';
     $out .= '<ul class="vs-index__grid">';
 
     foreach ($items as $item) {
@@ -307,7 +307,7 @@ function vital_cod_whatsapp_info() {
             line-height: 1.6;
             color: #666;
         ">
-            pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+            pedido → confirmas por WhatsApp → pagas en efectivo al recibir
         </p>
         <p style="
             margin: 0.75rem 0 0 0;
@@ -315,7 +315,7 @@ function vital_cod_whatsapp_info() {
             line-height: 1.6;
             color: #666;
         ">
-            Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos foto del lote y la caducidad de tu unidad.
+            Contra entrega. No generamos la guía hasta que confirmes por WhatsApp, y no pagas nada hasta que el paquete esté en tus manos.
         </p>
     </div>
     <?php

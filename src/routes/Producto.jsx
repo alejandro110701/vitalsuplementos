@@ -272,11 +272,11 @@ export default function Producto() {
                   </a>
                 </p>
                 <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-                  pedido → confirmas por WhatsApp → foto de lote y caducidad de tu unidad → pagas al courier
+                  pedido → confirmas por WhatsApp → pagas en efectivo al recibir
                 </p>
                 <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: 'var(--muted-foreground)' }}>
-                  Contra entrega. No generamos la guía hasta que confirmes por WhatsApp. Antes de que salga, te mandamos
-                  foto del lote y la caducidad de tu unidad.
+                  Contra entrega. No generamos la guía hasta que confirmes por WhatsApp, y no pagas nada hasta que el
+                  paquete esté en tus manos.
                 </p>
               </div>
             </div>
