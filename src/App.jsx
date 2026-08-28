@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
@@ -11,6 +12,19 @@ import Producto from './routes/Producto.jsx';
 import Tienda from './routes/Tienda.jsx';
 
 export default function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // When the app is loaded at /tienda/ (the path, not the hash), redirect to
+    // the catalog route so the user sees the product grid immediately instead
+    // of the homepage.
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    if ((path === '/tienda' || path === '/tienda/') && (!hash || hash === '#' || hash === '#/')) {
+      navigate('/tienda', { replace: true });
+    }
+  }, [navigate]);
+
   return (
     <div className="vs-shell">
       <ScrollToTop />
