@@ -34,11 +34,11 @@ export const BUNDLES = [
   {
     slug: 'kit-poros',
     coupon: 'kit-poros',
-    n: 'Rutina de poros',
+    n: 'Kit calma y poros',
     kicker: 'Kit · Skincare coreano',
-    items: ['cosrx-snail-96', 'medicube-zero-pore'],
+    items: ['anua-azelaico', 'medicube-zero-pore'],
     save: 149,
-    claim: 'La mascarilla de arcilla una o dos veces por semana; la esencia de caracol el resto de los días.'
+    claim: 'La mascarilla de arcilla una o dos veces por semana; el serum de azelaico las noches restantes.'
   },
   {
     slug: 'kit-longevidad',
