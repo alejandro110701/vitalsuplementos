@@ -1,0 +1,6 @@
+# Optional. When set, wpcom_* tools use this token if the MCP client
+# did not send Authorization: Bearer …
+#
+# Create a WordPress.com application password or OAuth access token
+# after enabling MCP at https://wordpress.com/me/mcp
+WPCOM_ACCESS_TOKEN=

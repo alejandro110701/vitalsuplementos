@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "wpcom-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "WPCOM_MCP_URL": "https://public-api.wordpress.com/wpcom/v2/mcp/v1",
+    "WPCOM_SITE": "vitalsuplementos.com.mx",
+    "VITAL_STORE_URL": "https://vitalsuplementos.com.mx"
+  }
+}

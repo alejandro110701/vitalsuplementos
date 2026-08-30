@@ -1,0 +1,8 @@
+node_modules
+.wrangler
+.dev.vars
+dist
+*.tsbuildinfo
+worker-configuration.d.ts
+.oauth-state.json
+.oauth-token.json
