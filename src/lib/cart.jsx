@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { findProduct, shippingFor } from '../data/products.js';
+import { activeBundles, bundleDiscount, bundleMembers } from '../data/bundles.js';
 import { unitPrice } from './format.js';
 
 const STORAGE_KEY = 'vs.cart.v1';
@@ -33,6 +34,26 @@ export function CartProvider({ children }) {
       const key = slug + '|' + pack;
       const next = { ...prev };
       next[key] = { slug, pack, n: (next[key] ? next[key].n : 0) + qty };
+      return next;
+    });
+  }, []);
+
+  /**
+   * Add every product in a kit at one piece each.
+   *
+   * The kit is not a line of its own: the cart holds the two real products, and
+   * the discount is worked out from what is in the cart. That way a shopper who
+   * later removes one of the two simply stops qualifying, and the total falls
+   * back to list — instead of keeping a discount for a kit that is no longer
+   * there.
+   */
+  const addBundle = useCallback((bundle) => {
+    setCart((prev) => {
+      const next = { ...prev };
+      for (const p of bundleMembers(bundle)) {
+        const key = p.slug + '|1';
+        if (!next[key]) next[key] = { slug: p.slug, pack: 1, n: 1 };
+      }
       return next;
     });
   }, []);
@@ -75,12 +96,35 @@ export function CartProvider({ children }) {
 
   const count = useMemo(() => lines.reduce((s, l) => s + l.units, 0), [lines]);
   const subtotal = useMemo(() => lines.reduce((s, l) => s + l.total, 0), [lines]);
-  // Whatever the shop says, not a number of our own invention.
-  const shipping = lines.length ? shippingFor() : 0;
+
+  // Kits are priced by what the cart contains, not by a flag set when the kit
+  // was added — see src/data/bundles.js for why.
+  const kits = useMemo(() => activeBundles(lines), [lines]);
+  const discount = useMemo(() => bundleDiscount(lines), [lines]);
+  const coupons = useMemo(() => kits.map((b) => b.coupon), [kits]);
+  // Whatever the shop says, not a number of our own invention. Delivery now
+  // depends on the basket, and WooCommerce measures the threshold after the
+  // kit discount — so this must be measured the same way or the cart total and
+  // the checkout total disagree.
+  const shipping = lines.length ? shippingFor(subtotal - discount) : 0;
 
   const value = useMemo(
-    () => ({ lines, count, subtotal, shipping, total: subtotal + (shipping || 0), add, bump, drop, clear }),
-    [lines, count, subtotal, shipping, add, bump, drop, clear]
+    () => ({
+      lines,
+      count,
+      subtotal,
+      discount,
+      kits,
+      coupons,
+      shipping,
+      total: subtotal - discount + (shipping || 0),
+      add,
+      addBundle,
+      bump,
+      drop,
+      clear
+    }),
+    [lines, count, subtotal, discount, kits, coupons, shipping, add, addBundle, bump, drop, clear]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

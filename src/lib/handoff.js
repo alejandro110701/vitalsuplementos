@@ -61,9 +61,10 @@ async function storeApi(path, { method = 'GET', nonce, body } = {}) {
  * nonce as it goes, so firing these in parallel drops lines.
  *
  * @param {Array<{p: object, units: number}>} lines cart lines from useCart()
+ * @param {string[]} coupons kit coupon codes the cart qualifies for
  * @returns {Promise<string>} URL of the shop's checkout
  */
-export async function handOffToShop(lines) {
+export async function handOffToShop(lines, coupons = []) {
   if (!lines.length) throw new HandoffError('carrito-vacio');
 
   // Anything without a wooId is not in the shop's catalogue, so WooCommerce
@@ -76,6 +77,13 @@ export async function handOffToShop(lines) {
   const opening = await storeApi('/cart');
   if (!opening.ok) throw new HandoffError('tienda-rechazo', `cart: HTTP ${opening.status}`);
   let nonce = freshNonce(opening, null);
+
+  /* Coupons live in the same session as the cart and survive it being
+     emptied, so a shopper who hands off a kit, comes back and hands off a
+     single product would otherwise arrive at checkout still holding the kit
+     discount. Clear them for the same reason the items are cleared. */
+  const decouponed = await storeApi('/cart/coupons', { method: 'DELETE', nonce });
+  if (decouponed.ok) nonce = freshNonce(decouponed, nonce);
 
   const emptied = await storeApi('/cart/items', { method: 'DELETE', nonce });
   // A failed clear is not worth blocking a sale over — the shopper reviews the
@@ -91,6 +99,19 @@ export async function handOffToShop(lines) {
     });
     if (!added.ok) throw new HandoffError('tienda-rechazo', `${line.p.n}: HTTP ${added.status}`);
     nonce = freshNonce(added, nonce);
+  }
+
+  /*
+   * Kits are a coupon, not a product — see src/data/bundles.js. The shop is the
+   * one that decides whether the coupon is valid, so a refusal here means the
+   * cart no longer qualifies and the shopper should pay list rather than be
+   * stopped at the door. Log it and carry on: the checkout shows the real
+   * total either way, and blocking a sale over a discount is the worse failure.
+   */
+  for (const code of coupons) {
+    const applied = await storeApi('/cart/apply-coupon', { method: 'POST', nonce, body: { code } });
+    if (applied.ok) nonce = freshNonce(applied, nonce);
+    else console.warn('handoff: the shop refused the kit coupon', code, applied.status);
   }
 
   return SHOP_CHECKOUT_URL;

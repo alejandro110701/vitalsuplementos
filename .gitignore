@@ -11,3 +11,6 @@ dist
 
 # editorial masters are large; only derived tiers ship
 editorial-src/*.png
+
+# vite writes these while resolving the config; they are not source
+vite.config.js.timestamp-*

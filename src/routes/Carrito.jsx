@@ -8,7 +8,7 @@ import { useTitle } from '../lib/useTitle.js';
 export default function Carrito() {
   useTitle('Tu pedido');
   const navigate = useNavigate();
-  const { lines, count, subtotal, shipping, total, bump, drop } = useCart();
+  const { lines, count, subtotal, discount, kits, shipping, total, bump, drop } = useCart();
 
   return (
     <div className="vs-wrap" style={{ paddingTop: 64, paddingBottom: 96 }}>
@@ -111,6 +111,12 @@ export default function Carrito() {
               <span style={{ color: 'var(--muted-foreground)' }}>Subtotal</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{money(subtotal)}</span>
             </div>
+            {kits.map((b) => (
+              <div key={b.slug} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, paddingBottom: 12 }}>
+                <span style={{ color: 'var(--muted-foreground)' }}>{b.n}</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--teal, #0f766e)' }}>−{money(b.save)}</span>
+              </div>
+            ))}
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, paddingBottom: 16, borderBottom: '1px solid var(--border)' }}>
               <span style={{ color: 'var(--muted-foreground)' }}>Envío</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{shippingLabel(shipping, money)}</span>

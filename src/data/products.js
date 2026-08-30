@@ -1,5 +1,6 @@
 import WOO from './woo.js';
 import { asset } from '../lib/assetBase.js';
+import { FREE_SHIPPING_FROM } from '../config.js';
 
 // Catalogue transcribed from the "Vital Suplementos" design canvas.
 // `w` is the world (sup = suplementos, skin = skincare); `goals` drives the
@@ -14,7 +15,7 @@ export const PRODUCTS = [
     price: 499,
     was: 749,
     spec: '30 ml',
-    best: 1,
+    best: 6,
     claim: 'Niacinamida al 10% con ácido tranexámico al 4%, en base ligera de agua de arroz.',
     bullets: [
       'Niacinamida 10% + TXA 4% — porcentajes declarados en etiqueta',
@@ -32,7 +33,7 @@ export const PRODUCTS = [
     price: 749,
     was: 999,
     spec: '60 gomas',
-    best: 2,
+    best: 7,
     claim: '300 mg de glutatión con aminoácidos y colágeno, en goma de pectina de fruta.',
     bullets: [
       '300 mg glutatión · 100 mg aminoácidos · 50 mg colágeno',
@@ -50,7 +51,7 @@ export const PRODUCTS = [
     price: 599,
     was: 0,
     spec: '300 g',
-    best: 3,
+    best: 30,
     claim: 'Creatina monohidratada sin sabor, un solo ingrediente por porción.',
     bullets: [
       '5 g de creatina monohidratada por medida',
@@ -68,7 +69,7 @@ export const PRODUCTS = [
     price: 1099,
     was: 1499,
     spec: '60 cáps',
-    best: 4,
+    best: 8,
     claim: 'Complejo con precursores de NAD+ formulado para hombres, en cápsula vegetal.',
     bullets: [
       '60 cápsulas · 30 días de toma',
@@ -248,6 +249,164 @@ export const PRODUCTS = [
     claim: 'Parches de hidrogel con ácido hialurónico para el contorno de ojos.',
     bullets: ['30 pares por frasco', 'Hidrogel con hialurónico', 'Se usan fríos, del refrigerador'],
     uso: 'Colocar bajo los ojos 20 minutos. Retirar y dar toques con el dedo.'
+  },
+  {
+    slug: 'cosrx-snail-96',
+    n: 'COSRX Advanced Snail 96 Mucin Power Essence',
+    kicker: 'Skincare · Esencia',
+    w: 'skin',
+    goals: ['piel'],
+    price: 699,
+    was: 0,
+    spec: '100 ml',
+    best: 1,
+    claim: 'Esencia coreana con 96 % de filtrado de mucina de caracol, sin fragancia añadida.',
+    bullets: [
+      '96 % de filtrado de mucina de caracol',
+      'Fórmula corta, sin fragancia ni colorantes',
+      'En existencia — es de los coreanos con más desabasto en México'
+    ],
+    uso: 'Una capa fina sobre rostro limpio, después del tónico y antes de la crema, mañana y noche.'
+  },
+  {
+    slug: 'anua-pdrn-mist',
+    n: 'Anua PDRN Hyaluronic Acid Capsule Mist',
+    kicker: 'Skincare · Bruma',
+    w: 'skin',
+    goals: ['piel'],
+    price: 599,
+    was: 0,
+    spec: '100 ml',
+    best: 4,
+    claim: 'Bruma-serum con PDRN y ácido hialurónico, en cápsulas que se rompen al contacto.',
+    bullets: [
+      'PDRN y ácido hialurónico',
+      'Atomizador de niebla fina, se usa encima del maquillaje',
+      'Textura acuosa, sin residuo graso'
+    ],
+    uso: 'Agita, aplica a 20 cm del rostro y da toques con la yema de los dedos. Las veces que quieras.'
+  },
+  {
+    slug: 'anua-azelaico',
+    n: 'Anua Azelaic Acid 10 + Hyaluron Serum Calmante',
+    kicker: 'Skincare · Serum',
+    w: 'skin',
+    goals: ['piel'],
+    price: 599,
+    was: 0,
+    spec: '30 ml',
+    claim: 'Serum con ácido azelaico al 10 % y ácido hialurónico, en base ligera y sin fragancia.',
+    bullets: [
+      'Ácido azelaico 10 % + ácido hialurónico',
+      'Gotero de vidrio de 30 ml',
+      'Sin fragancia añadida'
+    ],
+    uso: '2 o 3 gotas por la noche sobre rostro limpio. Empieza en días alternos. De día, siempre protector solar.'
+  },
+  {
+    slug: 'medicube-zero-pore',
+    n: 'Medicube Zero Pore Blackhead Mud Mask',
+    kicker: 'Skincare · Mascarilla',
+    w: 'skin',
+    goals: ['piel'],
+    price: 549,
+    was: 0,
+    spec: '100 g',
+    claim: 'Mascarilla de arcilla al 30 % con complejo AHA + BHA + PHA, de enjuague.',
+    bullets: [
+      '30 % de arcilla purificante',
+      'AHA + BHA + PHA en un solo paso',
+      'Tubo de 100 g, formato de enjuague'
+    ],
+    uso: 'Capa delgada sobre rostro seco, 10 a 15 minutos, y retira con agua tibia. Una o dos veces por semana.'
+  },
+  {
+    slug: 'neocell-colageno',
+    n: 'NeoCell Collagen Bio-Peptides Protein',
+    kicker: 'Suplemento · Polvo',
+    w: 'sup',
+    goals: ['piel', 'movilidad'],
+    price: 699,
+    was: 0,
+    spec: '567 g',
+    best: 3,
+    claim: '20 g de colágeno hidrolizado por porción, de res de libre pastoreo, sin sabor.',
+    bullets: [
+      '20 g de colágeno por porción',
+      'Bote grande de 567 g · ~28 porciones',
+      'Sin sabor y sin azúcar añadida'
+    ],
+    uso: 'Un scoop en 250 ml de agua, café o batido, una vez al día.'
+  },
+  {
+    slug: 'megared-krill',
+    n: 'MegaRed Omega-3 de Krill',
+    kicker: 'Suplemento · Cápsulas',
+    w: 'sup',
+    goals: ['energia', 'movilidad'],
+    price: 699,
+    was: 0,
+    spec: '90 cáps',
+    claim: 'Aceite de krill con omega-3 en forma de fosfolípidos, EPA, DHA y astaxantina.',
+    bullets: [
+      '90 cápsulas blandas',
+      'Omega-3 con EPA y DHA, más astaxantina',
+      'Cápsula pequeña, sin regusto a pescado'
+    ],
+    uso: '1 cápsula al día con alimentos.'
+  },
+  {
+    slug: 'beast-bites-creatina',
+    n: 'Beast Bites Gomitas de Creatina',
+    kicker: 'Suplemento · Gomas',
+    w: 'sup',
+    goals: ['energia', 'peso'],
+    price: 699,
+    was: 0,
+    spec: '150 gomitas',
+    best: 2,
+    claim: '5 g de creatina monohidratada Creapure por porción, en gomita.',
+    bullets: [
+      '150 gomitas · 30 porciones',
+      '5 g de Creapure por porción de 5 gomitas',
+      'Sabor frambuesa azul, bolsa resellable'
+    ],
+    uso: '5 gomitas al día, a cualquier hora. En días de entrenamiento, después de entrenar.'
+  },
+  {
+    slug: 'goli-ashwagandha',
+    n: 'Goli Ashwagandha KSM-66',
+    kicker: 'Suplemento · Gomas',
+    w: 'sup',
+    goals: ['energia'],
+    price: 599,
+    was: 0,
+    spec: '60 gomitas',
+    claim: 'Gomitas veganas con extracto de ashwagandha KSM-66 y vitamina D.',
+    bullets: [
+      '60 gomitas · 30 días de toma',
+      'Ashwagandha KSM-66 con vitamina D',
+      'Veganas, sin gelatina animal'
+    ],
+    uso: '2 gomitas al día, con o sin alimentos.'
+  },
+  {
+    slug: 'peach-inositol',
+    n: 'Peach Perfect Inositol Multivitamin',
+    kicker: 'Suplemento · Polvo',
+    w: 'sup',
+    goals: ['energia', 'peso'],
+    price: 629,
+    was: 0,
+    spec: '135 g',
+    best: 5,
+    claim: 'Myo-inositol y D-chiro-inositol con DIM, magnesio, zinc y vitamina D3.',
+    bullets: [
+      '135 g · 30 porciones',
+      'Myo-inositol + D-chiro-inositol',
+      'Con DIM, magnesio, zinc y vitamina D3'
+    ],
+    uso: 'Un scoop en 250 ml de agua fría al día.'
   }
 ];
 
@@ -298,15 +457,19 @@ export const LISTED = PRODUCTS.filter((p) => p.listed);
  * this front end cannot know (a threshold, a destination), in which case the
  * honest thing is to say it is worked out at checkout rather than guess.
  */
-export function shippingFor() {
+export function shippingFor(subtotal = 0) {
   const s = WOO.shipping;
   if (!s) return null;
   if (s.free) return 0;
+  if (subtotal >= FREE_SHIPPING_FROM) return 0;
   return typeof s.flat === 'number' ? s.flat : null;
 }
 
 /** True when the shop delivers free — worth saying out loud when it is. */
 export const FREE_SHIPPING = Boolean(WOO.shipping && WOO.shipping.free);
+
+/** Re-exported so components can quote the threshold without importing config. */
+export { FREE_SHIPPING_FROM };
 
 export const GOALS = [
   { id: 'energia', label: 'Energía', sub: 'Creatina, cafeína, NAD+ y verdes.', icon: 'M4 14h6l-2 7 10-11h-6l2-7z' },

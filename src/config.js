@@ -36,3 +36,15 @@ export const PACK_DISCOUNT = 0;
  * only option. Nothing reads this today; it documents the shop's state.
  */
 export const COD_ONLY = false;
+
+/**
+ * The basket at which WooCommerce stops charging for delivery.
+ *
+ * This mirrors the "Envío gratis" method on the mexico shipping zone. It is a
+ * constant and not a probe because a threshold cannot be read back out of the
+ * Store API — only bracketed by trying baskets either side of it. So
+ * `npm run sync:woo` does exactly that: it probes a ladder of basket sizes and
+ * fails the sync if this number falls outside the bracket the shop reveals.
+ * Change it in WooCommerce and here together, then re-sync.
+ */
+export const FREE_SHIPPING_FROM = 899;

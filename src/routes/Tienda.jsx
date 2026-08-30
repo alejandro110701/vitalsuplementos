@@ -3,6 +3,7 @@ import { Button, Eyebrow, ProductCard } from '../ds/index.js';
 import { GOALS, LISTED, productImage, productSrcSet } from '../data/products.js';
 import { norm } from '../lib/format.js';
 import { useTitle } from '../lib/useTitle.js';
+import KitRail from '../components/KitRail.jsx';
 
 const WORLDS = [
   { id: 'todo', label: 'Todo' },
@@ -197,6 +198,16 @@ export default function Tienda() {
           </div>
         )}
       </section>
+
+      {/* Kits sit under the grid: they are made of the same products, so they
+          read as a conclusion rather than a competing entry point. */}
+      <div style={{ borderTop: '1px solid var(--border)', paddingBottom: 96 }}>
+        <KitRail
+          title="Kits"
+          heading="Dos productos, un precio mejor"
+          eyebrowNote="El descuento se aplica en el carrito y el envío es gratis a partir de $899."
+        />
+      </div>
     </div>
   );
 }

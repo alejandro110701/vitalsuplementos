@@ -29,7 +29,7 @@ const labelRow = {
  */
 export default function Checkout() {
   useTitle('Checkout');
-  const { lines, count, subtotal, shipping } = useCart();
+  const { lines, count, subtotal, discount, kits, coupons, shipping } = useCart();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
 
@@ -43,7 +43,7 @@ export default function Checkout() {
       // The cart is deliberately NOT cleared here. The shopper is leaving for
       // the shop's checkout and may well come back; throwing away their basket
       // on the way out would strand them.
-      window.location.assign(await handOffToShop(lines));
+      window.location.assign(await handOffToShop(lines, coupons));
     } catch (err) {
       setError(ERROR_COPY[err.reason] || ERROR_COPY['tienda-rechazo']);
       setBusy(false);
@@ -197,6 +197,12 @@ export default function Checkout() {
             <span style={{ color: 'var(--muted-foreground)' }}>Subtotal</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{money(subtotal)}</span>
           </div>
+          {kits.map((b) => (
+            <div key={b.slug} style={labelRow}>
+              <span style={{ color: 'var(--muted-foreground)' }}>{b.n}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--teal, #0f766e)' }}>−{money(b.save)}</span>
+            </div>
+          ))}
           <div style={{ ...labelRow, paddingBottom: 16, paddingTop: 0, borderBottom: '1px solid var(--border)' }}>
             <span style={{ color: 'var(--muted-foreground)' }}>Envío</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{shippingLabel(shipping, money)}</span>

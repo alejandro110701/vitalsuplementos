@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Chromatogram, Eyebrow, ManifestoBand, ProductCard, StatBlock } from '../ds/index.js';
 import { GOALS, LISTED, findProduct, productImage, productSrcSet } from '../data/products.js';
+import KitRail from '../components/KitRail.jsx';
 import { asset } from '../lib/assetBase.js';
 import { useTitle } from '../lib/useTitle.js';
 
@@ -410,7 +411,7 @@ export default function Home() {
             <h2 style={sectionH2}>Más pedidos este mes</h2>
           </div>
           <Link to="/tienda" className="vs-link-teal">
-            Ver los 16 →
+            Ver los {LISTED.length} →
           </Link>
         </div>
         <div className="vs-grid-4" style={{ paddingTop: 40 }}>
@@ -433,6 +434,13 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ---- kits ---- */}
+      <KitRail
+        title="Kits"
+        heading="Sale más barato junto"
+        eyebrowNote="Cada kit son dos productos reales, con su precio de lista tachado. Lo que baja es el total del carrito, y el envío es gratis a partir de $899."
+      />
 
       {/* ---- goals ---- */}
       <section className="vs-wrap" style={{ paddingTop: 96 }}>
